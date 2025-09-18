@@ -18,8 +18,9 @@ export function potencia(number1, number2){
 
     let loop = 0
     let result = 1
-    while (loop < number2) {
-        result = result * number1        
+    while (loop < exponential) {
+        loop++;
+        result *= base        
     }
-    return "El resultado de la potencia de " + base + "elevado a " + exponential + " es = " + result
+    return "El resultado de la potencia de " + base + " elevado a " + exponential + " es = " + result
 }
