@@ -1,6 +1,6 @@
 "use strict";
 
-
+// Función principal que realiza operaciones aritméticas básicas
 export function calculate(number1, number2, operation) {
 
     if (isNaN(number1) || isNaN(number2)) {

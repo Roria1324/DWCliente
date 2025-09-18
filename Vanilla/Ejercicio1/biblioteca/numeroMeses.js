@@ -16,7 +16,7 @@ const arrayMonth = [
     "Noviembre",
     "Diciembre"
 ];
-
+// Función para validar si el número está en el rango de 1 a 12
 function numberInRange(number){
     if (number >= 1 && number <= 12){
         return number;
@@ -24,7 +24,7 @@ function numberInRange(number){
         return "El número proporcionado no está en el rango correcto (1 - 12).";
     }
 }
-
+// Función principal que devuelve el nombre del mes correspondiente al número
 export function numberMonth(number){
 
     const validated = validateNumber(number)

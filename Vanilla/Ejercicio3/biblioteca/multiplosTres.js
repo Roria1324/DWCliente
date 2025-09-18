@@ -1,6 +1,6 @@
 "use strict"
 
-
+// Importamos la función de validación de números
 function isPositiveOrNegative(number){
     if (number > 0){
         return number;
@@ -8,7 +8,7 @@ function isPositiveOrNegative(number){
         return "El número introducido es negativo";
     }
 }
-
+// Función principal que devuelve los múltiplos de 3 hasta el número proporcionado
 export function multipleOf(number){
 
     const result = isPositiveOrNegative(number);

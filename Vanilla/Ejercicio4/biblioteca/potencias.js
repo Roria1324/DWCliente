@@ -1,7 +1,8 @@
 "use strict"
-
+// Importamos la función de validación de números
 import { validateNumber } from "../../BibliotecaCodigoReutilizable/codigoReutilizable.js"
 
+// Función principal que calcula la potencia de un número elevado a otro
 export function potencia(number1, number2){
 
     const base = validateNumber(number1)

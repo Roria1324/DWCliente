@@ -1,5 +1,5 @@
 "use strict";
-
+// Función principal que calcula la media de una serie de números
 export function average() {
     if (arguments.length === 0) {
         return "No se pueden promediar 0 números";

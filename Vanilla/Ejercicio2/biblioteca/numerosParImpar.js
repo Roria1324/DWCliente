@@ -1,7 +1,7 @@
 "user strict"
 
 import { validateNumber } from "../../BibliotecaCodigoReutilizable/codigoReutilizable.js";
-
+// Función para validar si el número es par o impar
 function isEven(number){
     if (number % 2 === 0){
         return " es par ";
@@ -9,7 +9,7 @@ function isEven(number){
         return " es impar ";
     }
 }
-
+// Función para validar si el número es positivo o negativo
 function isPositiveOrNegative(number){
     if (number > 0){
         return " es positivo "
@@ -17,7 +17,7 @@ function isPositiveOrNegative(number){
         return " es negativo "
     }
 }
-
+// Función para validar si el número es primo
 function isPrime(number){
     if (number <=1) return " no es primo";
     if (number === 2) return " es primo ";
@@ -28,7 +28,7 @@ function isPrime(number){
     }
     return " es primo ";
 }
-
+// Función principal que devuelve si el número es par o impar, positivo o negativo y si es primo o no
 export function numericalAnalysis(number){
     const result = validateNumber(number);
     if (typeof result === "string"){
