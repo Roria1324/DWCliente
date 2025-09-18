@@ -1,49 +1,41 @@
 "use strict";
 
-function validarNumero(numero){
-    return isNaN(numero) ?  false:true;
+import { validateNumber } from "../../BibliotecaCodigoReutilizable/codigoReutilizable.js"; 
+
+const arrayMonth = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre"
+];
+
+function numberInRange(number){
+    if (number >= 1 && number <= 12){
+        return number;
+    } else {
+        return "El número proporcionado no está en el rango correcto (1 - 12).";
+    }
 }
 
-function numeroEnRango(numero){
-    return numero >= 1 && numero <= 12;
-}
+export function numberMonth(number){
 
-export function numeroMes(numero){
-
-    if(!validarNumero(numero)){
-        return "No es un número valido"
+    const validated = validateNumber(number)
+    if(typeof validated === "string"){
+        return validated
     }
 
-    if(!numeroEnRango(numero)){
-        return "El número proporcionado no está en el rango correcto (1 - 12)";
+    const inRange = numberInRange(validated)
+    if(typeof inRange === "string"){
+        return inRange
     }
 
-    switch (numero) {
-    case 1:
-        return "Enero";
-    case 2:
-        return "Febrero";
-    case 3:
-        return "Marzo";
-    case 4:
-        return "Abril";
-    case 5:
-        return "Mayo";
-    case 6: 
-        return "Junio";
-    case 7:
-        return "Julio";
-    case 8:
-        return "Agosto";
-    case 9:
-        return "Septiembre";
-    case 10:
-        return "Octubre";
-    case 11:
-        return "Noviembre";
-    case 12:
-        return "Diciembre";
-    default:
-        return "Número inválido";
-    }
+    return arrayMonth[inRange - 1] + " es el mes número " + number;
 }

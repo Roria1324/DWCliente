@@ -1,4 +1,6 @@
 "use strict";
-import { numeroMes } from "./biblioteca/numeroMeses.js";
+import { numberMonth } from "./biblioteca/numeroMeses.js";
 
-console.log(numeroMes(5));
+console.log(numberMonth("asd"));
+console.log(numberMonth(1));
+console.log(numberMonth(22));
