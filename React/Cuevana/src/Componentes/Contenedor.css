@@ -1,3 +1,11 @@
-.contenedor-first{
-    border: red solid 1px;
+.contenedor-first {
+  padding: 30px;
+  margin: 10px 10px 10px 10px;
+  max-width: 90%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.contenedor-first h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
