@@ -19,9 +19,7 @@ let real = 3.14; // ¡¡¡Cuidado con la notación de punto en IU!!! No usar el 
 let cadenaObjeto = new String("Feo objeto");
 let enteroObjeto = new Number(6);
 
-console.log(enteroObjeto);
-
-/* console.log(cadena); 
+/* console.log(cadena);
 console.log(cadenaObjeto);
 console.log(entero);
 console.log(enteroObjeto); */
@@ -74,14 +72,19 @@ Caso especial -> reduce(función(acumulador, valor, índice, array))
 
 var bichos = ["Shakra", "Sherma", "Mooshka", "Huntress", "Hornet"];
 
-function esCadena(valor, indice, array) {
-  return typeof valor === "string";
-}
-//console.log(bichos.every(esCadena)); // true
+
+/* console.log(
+  bichos.every((v, i, a) => {
+    return typeof v === "string";
+  })
+); // true */
 
 let mezcladillo = [1, "dos", 3, "cuatro", 5, "seis"];
 
-//console.log(mezcladillo.filter(esCadena)); // ["dos", "cuatro", "seis"]
+/* console.log(mezcladillo.filter((v,i,a)=>{
+  console.log(`En la posición ${i} está ${v}.`);
+  console.log(a);
+})); // ["dos", "cuatro", "seis"] */
 
 let numeros = [1, 3, 5, 7, 9];
 let suma = numeros.reduce((acumulador, valor, indice, array) => {
@@ -94,17 +97,17 @@ const feos = ["Rodrigo", "Juan", "Artura", "Javier"];
 
 /*** Recorrer un objeto (no se modifica pero hay que utilizar map). */
 
-/* const feosMap = feos.map((feo) => {
+const feosMap = feos.map((feo) => {
   //console.log(feo);
-  return feo;
+  return feo.toUpperCase();
 });
 
 const feosForeach = feos.forEach((feo) => {
   //console.log(feo);
-  return feo;
+  return feo.toUpperCasels();
 });
 
-console.log(feosMap);
+/* console.log(feosMap);
 console.log(feosForeach); */
 
 // Continuará...
