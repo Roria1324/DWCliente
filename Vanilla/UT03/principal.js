@@ -115,36 +115,46 @@ console.log(feosForeach); */
 
 // confirm -> Confirmar una acción.
 /* if (confirm("¿Quieres saludar al usuario?")) {
-    console.log("¡Hola usuario!");
-  } else {
-    console.log("Pues no te saludo.");
-  } */
+  console.log("¡Hola usuario!");
+} else {
+  console.log("Pues no te saludo.");
+} */
 
 // prompt -> Recoger datos del usuario.
 /* let datos = prompt("Escribe tu nombre, Feo.", "Nombre por defecto");
-  console.log(datos); */
+console.log(datos); */
 
 let feo = "Soy un parámetro en tercera posición.";
 
 // setTimeout -> esperar para realizar una acción.
 // Esta función callback no recibe parámetros (se pasan a partir del tercer parámetro).
-/* const idTimeout = setTimeout(()=>{
+/* const idTimeout = setTimeout(
+  () => {
     console.log("Espero dos segundos y ejecuto el código...");
     window.alert(feo); // ¡¡¡No usar nunca!!!
-  }, 2000, feo); */
+  },
+  2000,
+  feo
+); */
 
+let a = 5;
 // setInterval -> repite una acción.
 // Esta función callback no recibe parámetros (se pasan a partir del tercer parámetro).
-/* const idIntervalo = setInterval((a)=>{
+/* const idIntervalo = setInterval(
+  () => {
     console.log(Date.now());
-  }, 1000, feo); */
+    console.log(feo);
+  },
+  1000,
+  feo
+); */
 
 // clearInterval/clearTimeout -> detener un intervalo.
-/* const idParada = setTimeout(()=>{
-    if(confirm("¿Quieres detener el intervalo?")) {
-      clearInterval(idIntervalo);
-    }
-  },5000); */
+/* const idParada = setTimeout(() => {
+  if (confirm("¿Quieres detener el intervalo?")) {
+    clearInterval(idIntervalo);
+  }
+}, 5000); */
 
 /************************************************************************************************
  * Objeto JSON
@@ -181,10 +191,10 @@ console.log(persona); */
 
 /*** Definición de objetos ("métodos") */
 
-persona.getNombreCompleto = function () {
+/* persona.getNombreCompleto = function () {
   // Necesito una función anónima para usar this (no vale una función flecha).
   return `${this.nombre} ${this.apellido1}`;
-};
+}; */
 
 /* console.log(persona);
 console.log(persona.getNombreCompleto); // Imprimo por consola el objeto función.
@@ -213,7 +223,7 @@ console.log(persona.getNombreCompleto()); // Ejecuto la función e imprimo su de
       }
     },
   };
-}
+};
 var persona2 = creaPersona("Feo", "De Verdad");
 var persona3 = creaPersona("Bruce", "Wayne");
 console.log(persona2.saluda(persona3)); // Hola Bruce Wayne
@@ -221,7 +231,7 @@ console.log(persona2.saluda({})); // Hola colega */
 
 /*** Recorrer objetos con for in */
 
-/* for (var clave in persona) {
+/* for (let clave in persona) {
   // Se comprueba que JSON realmente tenga esa propiedad.
   // Se usa uno de sus métodos (hasOwnProperty).
   if (persona.hasOwnProperty(clave)) {
@@ -236,7 +246,7 @@ console.log(persona2.saluda({})); // Hola colega */
 
 /*** Encadenamiento opcional (React)*/
 
-// console.log(persona.direccion?.calle);
+//console.log(persona.direccion?.calle);
 
 /************************************************************************************************
  * DESESTRUCTURACIÓN
@@ -287,9 +297,11 @@ console.log(personaExtra); */
 
 /*** Gestión de arrays con spread operator (modo React).  */
 
+//const feos = ["Rodrigo", "Juan", "Artura", "Javier"];
+
 // -> Recorrer un objeto (no se modifica pero hay que utilizar map).
 const feos2 = feos.map((feo) => {
-  console.log(feo);
+  //console.log(feo);
   return feo;
 });
 
@@ -325,9 +337,12 @@ const feos5 = feos.map((feo) => {
 
 // Nueva forma de trabajar con un número indefinido de parámetros.
 
-function sumarBien() {
+const sumarBien = (...numeros) => {
   //console.log(arguments); // Es un pseudo-array.
-  //console.log(numeros); // Es un objeto array.
-}
+  console.log(numeros); // Es un objeto array.
+  return numeros.reduce((acumulador, valor, indice, array) => {
+    return acumulador + valor;
+  });
+};
 
-//sumarBien(3, 4, 5, 7, 5, 3, 6);
+console.log(sumarBien(3, 4, 5, 7, 5, 3, 6, 8, 5, 9, 3));
