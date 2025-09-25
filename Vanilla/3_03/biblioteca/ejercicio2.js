@@ -1,7 +1,5 @@
 "use strict";
 
-const createCourseNew = (course, year, description) => {
-    return `El curso de ${course} del año ${year} es ${description} y tiene ${this.student.length} estudiantes inscritos.`;
+ export const createCourseNew = (course, year, description) => {
+    return `Estoy en el curso de ${course} del año ${year} y ${description}.`;
 }
-
-export default createCourseNew;
