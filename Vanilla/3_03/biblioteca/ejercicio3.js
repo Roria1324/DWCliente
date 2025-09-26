@@ -5,7 +5,7 @@ export const discente = {
     name: "Alex",
     last_name: "Dezso",
     hobbies: ["Dibujar", "Powerlifting", "Videojuegos"],
-    notas: { first: 5, second: 8, third: 10 },
+    notas: { first: 5, second: 8, third: 10 , fourt: [2, 5, 6 , {hola: []}]},
     averageMarks: function (){
         let media = (this.notas.first + this.notas.second + this.notas.third) / 3 ;
         return `Media total: ${media.toFixed(2)}`;
