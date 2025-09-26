@@ -12,4 +12,8 @@ import { discente } from "./biblioteca/ejercicio3.js";
 console.log(discente.averageMarks());
 
 console.log(discente.showIinfoDiscente());
-console.log(discente.showReport())
+console.log(discente.showReport());
+
+const myCourse = createCourse("JS", 2025, "hola");
+
+console.log(myCourse.matricular(discente));
