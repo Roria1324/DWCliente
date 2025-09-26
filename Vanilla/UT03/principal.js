@@ -346,3 +346,7 @@ const sumarBien = (...numeros) => {
 };
 
 console.log(sumarBien(3, 4, 5, 7, 5, 3, 6, 8, 5, 9, 3));
+
+let numero = 45.6;
+console.log(numero);
+console.log(numero.toLocaleString("es-ES"));
