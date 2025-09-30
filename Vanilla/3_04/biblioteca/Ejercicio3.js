@@ -110,19 +110,26 @@ const usuarios = [
 };
 
   const noDatos = (listUser = usuarios) => {
-  return listUser.filter(u => )
+  return listUser.filter(u => 
+    Object.values(u).some(val => 
+      {if(typeof val === "object"){
+          return JSON.stringify(val).includes('""');
+      }
+        return val === "" || val === undefined ||val === null;
+    })
+  );
 };
 
   const añadirApellidos = (listUser = usuarios) => {
   return listUser.map(u => ({...u, apellidos: "No indicado."}));
 };
 
-export function newEntrance (listUser = usuarios) {
+ function newEntrance (listUser = usuarios) {
   return listUser.map(u => ({...u, contacto: {
-    u.contacto, 
+    ...u.contacto, 
     direccion:{ 
-      u.contacto.direccion, 
+      ...u.contacto.direccion, 
       código: "0000"},},}))
-}
+};
 
 export {insertUser, mayorEdad, correoYahoo, variosFiltros, noDatos, añadirApellidos, newEntrance};
