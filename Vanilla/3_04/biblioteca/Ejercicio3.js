@@ -118,9 +118,5 @@ export function añadirApellidos (listUser = usuarios){
 };
 
 export function newEntrance (listUser = usuarios) {
-  return listUser.map(u => ({...u, contacto: {
-    u.contacto, 
-    direccion:{ 
-      u.contacto.direccion, 
-      código: "0000"},},}))
+  return listUser.map(u => ({...u, contacto: {...u.contacto, direccion:{ ...u.contacto.direccion, código: "0000"},},}))
 }
