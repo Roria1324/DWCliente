@@ -1,23 +1,23 @@
 import React from "react";
 import "./App.css";
-import logoReact from "./assets/react.svg";
-import Feos from "./components/Feos.jsx";
-import Horrible from "./components/Horrible.jsx";
+import StateAviso from "./components/useState/StateAviso.jsx";
+import StateContador from "./components/useState/StateContador.jsx";
+import Discentes from "./components/json/Discentes.jsx";
+import StateObjetos from "./components/useState/StateObjetos.jsx";
+import StateVerduras from "./components/useState/StateVerduras.jsx";
 
 function App() {
   // Código JavaScript Vanilla.
   let ancho = 300;
 
+  {
+    /* Código JSX con muy poco JavaScript: operador ternario, método map y variables (nunca objetos). */
+  }
   return (
     <>
-      {/* Código JSX con muy poco JavaScript: operador ternario, método map y variables (nunca objetos). */}
-      <img width={ancho} src={logoReact}></img>
       <h2>Desarrollo Web en Entorno Cliente.</h2>
-      <h3>¡Hola, Feos!</h3>
-      <Feos nombre='Juan Carlos' apellidos='Feo de Verdad' tamanyo={ancho}>
-        Hola soy childen.
-        <Horrible />
-      </Feos>
+      <StateObjetos />
+      <StateVerduras />
     </>
   );
 }
