@@ -93,30 +93,36 @@ const usuarios = [
 ];
 
 
-export function insertUser(newUser, listUser = usuarios) {
+  const insertUser = (newUser, listUser = usuarios) => {
   return [...listUser, newUser];
 };
 
-export function mayorEdad(listUser = usuarios) {
+  const mayorEdad = (listUser = usuarios) => {
   return listUser.filter(mayor => mayor.preferencias.edad >= 18);
 };
 
-export function correoYahoo(listUser = usuarios) {
+  const correoYahoo = (listUser = usuarios) => {
   return listUser.filter(correo => correo.contacto.correoelectronico.includes("@yahoo"));
 };
 
-export function variosFiltros(listUser = usuarios) {
-  return listUser.filter(u => u.preferencias.tema === "claro" && u.preferencias.edad >= 18 && u.contacto.direccion.pais === "España");
+  const variosFiltros = (listUser = usuarios) => {
+  return mayorEdad(listUser).filter(u => u.preferencias.tema === "claro" && u.contacto.direccion.pais === "España");
 };
 
-export function noDatos (listUser = usuarios) {
-  return listUser.filter()
+  const noDatos = (listUser = usuarios) => {
+  return listUser.filter(u => )
 };
 
-export function añadirApellidos (listUser = usuarios){
+  const añadirApellidos = (listUser = usuarios) => {
   return listUser.map(u => ({...u, apellidos: "No indicado."}));
 };
 
 export function newEntrance (listUser = usuarios) {
-  return listUser.map(u => ({...u, contacto: {...u.contacto, direccion:{ ...u.contacto.direccion, código: "0000"},},}))
+  return listUser.map(u => ({...u, contacto: {
+    u.contacto, 
+    direccion:{ 
+      u.contacto.direccion, 
+      código: "0000"},},}))
 }
+
+export {insertUser, mayorEdad, correoYahoo, variosFiltros, noDatos, añadirApellidos, newEntrance};
