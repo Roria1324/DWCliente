@@ -1,5 +1,5 @@
 "use strict";
-//Validaciones de objetos Json que 
+
 export const showObject = (object) => {
     for (const key in object) {
         if (Object.prototype.hasOwnProperty.call(object, key)) {
