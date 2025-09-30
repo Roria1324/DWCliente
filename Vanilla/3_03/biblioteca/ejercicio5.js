@@ -9,7 +9,6 @@ export const showObject = (object) => {
                     console.log(`Array vacío.`);
                     continue;
                 }
-                
                 console.log(`El array tiene estos elementos: ${element.join(", ")}`);
                 continue;
             }
