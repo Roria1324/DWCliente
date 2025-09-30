@@ -92,3 +92,35 @@ const usuarios = [
   },
 ];
 
+
+export function insertUser(newUser, listUser = usuarios) {
+  return [...listUser, newUser];
+};
+
+export function mayorEdad(listUser = usuarios) {
+  return listUser.filter(mayor => mayor.preferencias.edad >= 18);
+};
+
+export function correoYahoo(listUser = usuarios) {
+  return listUser.filter(correo => correo.contacto.correoelectronico.includes("@yahoo"));
+};
+
+export function variosFiltros(listUser = usuarios) {
+  return listUser.filter(u => u.preferencias.tema === "claro" && u.preferencias.edad >= 18 && u.contacto.direccion.pais === "España");
+};
+
+export function noDatos (listUser = usuarios) {
+  return listUser.filter()
+};
+
+export function añadirApellidos (listUser = usuarios){
+  return listUser.map(u => ({...u, apellidos: "No indicado."}));
+};
+
+export function newEntrance (listUser = usuarios) {
+  return listUser.map(u => ({...u, contacto: {
+    u.contacto, 
+    direccion:{ 
+      u.contacto.direccion, 
+      código: "0000"},},}))
+}

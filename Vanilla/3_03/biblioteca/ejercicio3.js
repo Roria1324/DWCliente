@@ -1,5 +1,5 @@
 "use strict";
-
+//Creación de Json con diferentes funciones dentro de esta.
 export const discente = {
     id: 1,
     name: "Alex",

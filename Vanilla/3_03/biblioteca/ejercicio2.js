@@ -1,5 +1,5 @@
 "use strict";
-
+//Reutilización de estructura del primer ejercicio añadiendo validaciones.
  export const createCourseNew = (course, year, description) => {
     console.log(`Este curso tiene estos elementos.`);
 
