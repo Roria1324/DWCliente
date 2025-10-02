@@ -1,8 +1,9 @@
 import React from "react";
 import Discente from "./Discente.jsx";
+import feo from "../../assets/objetos/discentes.json";
 
-function Discentes() {
-  const discentes = [
+const Discentes = () => {
+  /* const discentes = [
     {
       id: 1,
       nombre: "Feo",
@@ -24,30 +25,33 @@ function Discentes() {
       curso: "2DAW",
       modulos: "DWC",
     },
-  ];
+  ]; */
+
+  //const discentes = [];
 
   /** Importar el fichero desde un archivo. */
-  /* console.log(feo);
-  const discentes = [...feo.discentes]; */
+  console.log(feo);
+  const discentes = [...feo.discentes];
 
   return (
     <>
       <h1>Listado de discentes.</h1>
       <div>
-        {discentes.map((v, i, a) => {
-          return (
-            <Discente
-              key={v.id} // Id para componentes dentro de una iteración (si no existe id utilizar índice).
-              nombre={v.nombre}
-              apellidos={v.apellidos}
-              curso={v.curso}
-              modulos={v.modulos}
-            />
-          );
-        })}
+        {discentes.length !== 0 ? (
+          discentes.map((v, i, a) => {
+            return (
+              <Discente
+                key={v.id} // Id para componentes dentro de una iteración (si no existe id utilizar índice).
+                datos={v}
+              />
+            );
+          })
+        ) : (
+          <h2>No hay discentes, tonto.</h2>
+        )}
       </div>
     </>
   );
-}
+};
 
 export default Discentes;

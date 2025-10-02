@@ -4,6 +4,8 @@ import {
   generarNombreAleatorio,
   generarApellidosAleatorio,
 } from "../../bibliotecas/funciones.js";
+import ValorEstado from "../tools/ValorEstado.jsx";
+import ElementoListado from "./ElementoListado.jsx";
 
 function StateObjetos() {
   // Si se trabaja con objetos es buena idea tener un "reinicio".
@@ -31,6 +33,15 @@ function StateObjetos() {
       </button>
       <div className='objetos-div'>
         {/* Imprimir el estado (Objeto) para comprobar su comportamiento.*/}
+        {prueba.map((valor, indice) => {
+          return (
+            <ElementoListado
+              key={indice}
+              nombre={valor.nombre}
+              apellidos={valor.apellidos}
+            />
+          );
+        })}
       </div>
     </>
   );

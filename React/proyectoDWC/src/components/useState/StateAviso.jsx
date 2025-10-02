@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function StateAviso() {
+const StateAviso = () => {
   // Se crea el estado del componente deconstruyendo la función useState.
   let [condicion, setCondicion] = useState(true);
 
@@ -20,7 +20,8 @@ function StateAviso() {
         {/* Se asigna un evento al botón para cambiar el estado. */}
         <button
           onClick={() => {
-            cambiar();
+            //cambiar();
+            setCondicion(!condicion);
           }}
         >
           Cambiar condición
@@ -30,7 +31,7 @@ function StateAviso() {
       </div>
     </>
   );
-}
+};
 
 export default StateAviso;
 
