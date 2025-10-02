@@ -16,7 +16,6 @@ function App() {
   return (
     <>
       <h2>Desarrollo Web en Entorno Cliente.</h2>
-      <StateObjetos />
       <StateVerduras />
     </>
   );

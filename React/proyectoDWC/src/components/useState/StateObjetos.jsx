@@ -4,7 +4,6 @@ import {
   generarNombreAleatorio,
   generarApellidosAleatorio,
 } from "../../bibliotecas/funciones.js";
-import ValorEstado from "../tools/ValorEstado.jsx";
 
 function StateObjetos() {
   // Si se trabaja con objetos es buena idea tener un "reinicio".

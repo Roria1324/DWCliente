@@ -1,3 +1,15 @@
-.verduras-div {
+.stateVerduras_listado {
     display: flex;
+    width: 100%;
+}
+
+.stateVerduras_verduras {
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+    border: solid 1px white;
+}
+
+.stateVerduras_estado {
+    width: 50%;
 }
