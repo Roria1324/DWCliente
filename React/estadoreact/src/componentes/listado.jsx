@@ -2,7 +2,9 @@ import React, {useState} from "react";
 
 const listado = () => {
 
-    const numerAleatorio = Math.floor(Math.random() + 1)
+    const numerAleatorio =() => {
+        let numero = Math.floor(Math.random() * 99 + 1)
+    } 
 
     return (
         <>
