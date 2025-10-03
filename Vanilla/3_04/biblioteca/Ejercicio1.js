@@ -17,4 +17,4 @@ const names = ["Ana", "Luis", "María", "Javier", "Carmen"];
     }
 })
 
-export {upperName, namesReversedOrder, nameJsonArray};
+export { names, upperName, namesReversedOrder, nameJsonArray};

@@ -92,7 +92,7 @@ const usuarios = [
   },
 ];
 
-
+//Estas 4 funciones filtran el objeto para devolver el resultado que se desea.
   const insertUser = (newUser, listUser = usuarios) => {
   return [...listUser, newUser];
 };
@@ -109,20 +109,29 @@ const usuarios = [
   return mayorEdad(listUser).filter(u => u.preferencias.tema === "claro" && u.contacto.direccion.pais === "España");
 };
 
+//Recorre todas las propiedades de un objeto (y sus objetos anidados).
+//En esta función uso el some para realizar la comprobación de si alguna de las propiedades del JSON son "", null o undefined en cualquier nivel del objeto.
   const noDatos = (listUser = usuarios) => {
-  return listUser.filter(u => )
+  return listUser.filter(u => 
+    Object.values(u).some(val => 
+      {if(typeof val === "object"){
+          return JSON.stringify(val).includes('""');
+      }
+        return val === "" || val === undefined ||val === null;
+    })
+  );
 };
-
+// Estas dos funciones no modifican el objeto original, sino que devuelven una copia con nuevas propiedades añadidas.
   const añadirApellidos = (listUser = usuarios) => {
   return listUser.map(u => ({...u, apellidos: "No indicado."}));
 };
 
- const newEntrance = (listUser = usuarios) => {
+ function newEntrance (listUser = usuarios) {
   return listUser.map(u => ({...u, contacto: {
     ...u.contacto, 
     direccion:{ 
       ...u.contacto.direccion, 
       código: "0000"},},}))
-}
+};
 
 export {insertUser, mayorEdad, correoYahoo, variosFiltros, noDatos, añadirApellidos, newEntrance};
