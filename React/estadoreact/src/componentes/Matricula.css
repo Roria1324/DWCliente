@@ -1,0 +1,95 @@
+/* ---------- ESTILO GENERAL ---------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- MATRÍCULA ---------- */
+.matricula-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.matricula-container h1 {
+  text-align: center;
+  color: #2f3640;
+  margin-bottom: 20px;
+}
+
+/* ---------- BOTONES ---------- */
+.botones-filtro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.botones-filtro button {
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  font-weight: 500;
+}
+
+.botones-filtro button:hover {
+  background-color: #0097e6;
+  transform: scale(1.05);
+}
+
+.botones-filtro button:active {
+  transform: scale(0.97);
+}
+
+/* ---------- DISCENTE ---------- */
+.discente-card {
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  background-color: #fdfdfd;
+  transition: box-shadow 0.3s;
+}
+
+.discente-card:hover {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.discente-card h3 {
+  margin: 0 0 5px;
+  color: #273c75;
+}
+
+.discente-card p {
+  margin: 4px 0;
+  color: #353b48;
+}
+
+.discente-card strong {
+  color: #192a56;
+}
+
+.discente-card button {
+  margin-top: 10px;
+  background-color: #e84118;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.discente-card button:hover {
+  background-color: #c23616;
+}
