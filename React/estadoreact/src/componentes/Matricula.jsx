@@ -46,33 +46,31 @@ export default function Matricula() {
   };
 
   return (
-     <div className="matricula-container">
-      <h1>Listado de Discentes</h1>
 
-      <div className="botones-filtro">
-        <button onClick={() => setDiscentes(original.filter(d => d.curso === "2DAW"))}>Mostrar 2DAW</button>
-        <button onClick={() => setDiscentes(original.filter(d => d.curso.startsWith("1")))}>Mostrar 1º curso</button>
-        <button onClick={() => setDiscentes(original.filter(d => d.curso.includes("DAW")))}>Mostrar ciclo DAW</button>
-        <button onClick={() => setDiscentes(original.filter(d => d.aficiones.some(a => a.toLowerCase().includes("lectura") || a.toLowerCase().includes("leer"))))}>Afición: Lectura</button>
-        <button onClick={() => {
-          const copia = [...discentes].sort((a, b) =>
-            ascendente ? a.apellidos.localeCompare(b.apellidos) : b.apellidos.localeCompare(a.apellidos)
-          );
-          setDiscentes(copia);
-          setAscendente(!ascendente);
-        }}>
-          Ordenar ({ascendente ? "asc" : "desc"})
-        </button>
-        <button onClick={() => setDiscentes(original)}>Reiniciar</button>
+    <>
+      <div className="matricula-container">
+        <h1>Listado de Discentes</h1>
+
+        <div className="botones-filtro">
+          <button onClick={filtrarCurso2DAW}>Mostrar 2DAW</button>
+          <button onClick={filtrarPrimerCurso}>Mostrar 1º curso</button>
+          <button onClick={filtrarCicloDAW}>Mostrar ciclo DAW</button>
+          <button onClick={filtrarLectura}>Afición: Lectura</button>
+          <button onClick={ordenarPorApellidos}> Ordenar</button>
+          <button onClick={reiniciar}>Reiniciar</button>
+        </div>
+
+        {discentes.length === 0 ? (
+          <p>No hay discentes para mostrar.</p>
+        ) : (
+          discentes.map((d) => (
+            <Discente 
+            key={d.id} 
+            discente={d} 
+            onDesmatricular={desmatricular} />
+          ))
+        )}
       </div>
-
-      {discentes.length === 0 ? (
-        <p>No hay discentes para mostrar.</p>
-      ) : (
-        discentes.map((d) => (
-          <Discente key={d.id} discente={d} onDesmatricular={(id) => setDiscentes(discentes.filter(x => x.id !== id))} />
-        ))
-      )}
-    </div>
+    </>
   );
 }
