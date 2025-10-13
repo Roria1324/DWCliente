@@ -38,14 +38,17 @@ console.log(parrafo.nodeName);
 console.log(parrafo2.nodeName); */
 
 /*******************************************************************************************************
- *  Seleccionando elementos (recursivamente) -> getElementsByTagName, getElementById,
- *                                              getElementsByName y getElementByClassName.
+ *  Seleccionando elementos (recursivamente):
+ *    --> getElementsByTagName,
+ *    --> getElementById,
+ *    --> getElementsByName y
+ *    --> getElementByClassName.
  * */
 
 /* const parrafos = document.getElementsByTagName("p"); // Parrafos es un HTMLCollection.
 console.log(parrafos); // Ver la estructura del objeto (siempre es buena idea).
 console.log(`Párrafos seleccionados ${parrafos.length}`);
-for (var i = 0; i < parrafos.length; i++) {
+for (let i = 0; i < parrafos.length; i++) {
   console.log(parrafos[i]);
 } */
 
@@ -55,38 +58,88 @@ for (var i = 0; i < parrafos.length; i++) {
 }); */
 
 /******************************************************************************
- *  Seleccionando elementos como en CSS -> querySelectorAll y querySelector.
+ *  Seleccionando elementos como en CSS:
+ *    --> querySelectorAll y
+ *    --> querySelector.
  * */
 
-/* var inputs = document.querySelectorAll("input"); // Inputs es un NodeList.
+/* const inputs = document.querySelectorAll("input"); // Inputs es un NodeList.
 console.log(inputs); */
+
 
 // ¡¡¡CUIDADO CON ESTO!!! -> Consultad el prototipo del objeto antes.
 /* inputs.map((i) => {
   console.log(i);
 }); */
 
-/* var capa_botones = document.querySelector("#botones");
+/* const capa_botones = document.querySelector("#botones");
 console.log(capa_botones);
 
-var capas = document.querySelectorAll("div div");
+const capas = document.querySelectorAll("div div");
 console.log(capas);
 
-var capas2 = document.querySelectorAll(".contenido");
+const capas2 = document.querySelectorAll(".contenido");
 console.log(capas2); */
 
 /***********************************************
  *   ¡¡¡ATENCIÓN!!!
- *  -> Las referencias con getElementBy siempre contienen el estado actual del documento (están vivas).
- *  -> Las referencias con querySelector contienen los elementos en el momento de ejecución (no cambian).
+ *  --> Las referencias con getElementBy siempre contienen el estado actual del documento (están vivas).
+ *  --> Las referencias con querySelector contienen los elementos en el momento de ejecución (no cambian).
  *
  * **********************************************/
 
+/***************************************************************************************************************************
+ * Acceso y modificacción de atributos -> 
+ *    -> getAttribute(nombre), 
+ *    ->setAttribute(nombre, valor) o como propiedades de elementos.
+ * */
+
+const alinearDerecha = () => {
+  var derecha = document.getElementById("primero");
+  console.log(derecha.getAttribute("align")); // No está definido.
+  derecha.setAttribute("align", "right");
+  console.log(derecha.getAttribute("align")); // Después del cambio es "right".
+};
+
+/* Usando la propiedad style pada dar formato -> elemento.style.propiedad (Mala idea). */
+
+const pintarAzul = () => {
+  const azules = document.getElementsByClassName("nuevo");
+  console.log(azules);
+  for (let i = 0; i < azules.length; i++) {
+    azules[i].style.color = "blue";
+  }
+};
+
+/** Mejor se usa CSS 
+ *    -> className, es un atributo cadena de texto. Es destructivo (borra y añade). 
+ *    -> classList, con métodos:
+ *        -> add, añade clase de forma no destructiva.
+ *        -> remove, elimina la clase indicada si existe.
+ *        -> toggle, alterna la clase especificada (añade si no existe y elimina si existe).
+ *        -> length, número de clases del elemento DOM.
+ *        -> contains, si contiene la clase indicada (devuelve un boleano).
+ *        .> replace, sustituye la primera clase pasada como parámetro por la segunda.
+*/
+
+const primero = document.getElementById("primero");
+primero.classList.add("verde");
+
+const destacarTexto = () => {
+  const nuevos = document.getElementsByClassName("nuevo");
+  for (var i = 0; i < nuevos.length; i++) {
+    nuevos[i].classList.toggle("destacado");
+  }
+};
+
 /*********************************************************************************
- * Creando objetos en el DOM -> document.createElement y document.createTextNode.
+ * Creando objetos en el DOM: 
+ *    --> document.createElement,
+ *    --> y document.createTextNode.
+ * 
  * Se realiza en dos acciones:
- *    -> cear el elemento a introducir (con su contenido y propiedades),
- *    -> insertar el elemento en el DOM.
+ *    --> cear el elemento a introducir (con su contenido y propiedades),
+ *    --> insertar el elemento en el DOM.
  * */
 
 /* const crearConCE = () => {
@@ -134,43 +187,4 @@ console.log(capas2); */
     "Nuevo párrafo creado dinámicamente con <strong>innerAdjacentHTML</strong>"
   ); */
 
-/***************************************************************************************************************************
- * Acceso y modificacción de atributos -> getAttribute(nombre), setAttribute(nombre, valor) o como propiedades de elementos.
- * */
 
-/* const alinearDerecha = () => {
-  var derecha = document.getElementById("primero");
-  console.log(derecha.getAttribute("align")); // No está definido.
-  derecha.setAttribute("align", "right");
-  console.log(derecha.getAttribute("align")); // Después del cambio es "right".
-}; */
-
-/* Usando la propiedad style pada dar formato -> elemento.style.propiedad (Mala idea). */
-
-/* const pintarAzul = () => {
-  var azules = document.getElementsByClassName("nuevo");
-  console.log(azules);
-  for (var i = 0; i < azules.length; i++) {
-    azules[i].style.color = "blue";
-  }
-}; */
-
-/** Mejor se usa CSS 
- *    -> className, es un atributo cadena de texto. Es destructivo (borra y añade). 
- *    -> classList, con métodos:
- *        -> add, añade clase de forma no destructiva.
- *        -> remove, elimina la clase indicada si existe.
- *        -> toggle, alterna la clase especificada (añade si no existe y elimina si existe).
- *        -> length, número de clases del elemento DOM.
- *        -> contains, si contiene la clase indicada (devuelve un boleano).
- *        .> replace, sustituye la primera clase pasada como parámetro por la segunda.
-
-/* var primero = document.getElementById("primero");
-primero.classList.add("verde"); */
-
-const destacarTexto = () => {
-  var nuevos = document.getElementsByClassName("nuevo");
-  for (var i = 0; i < nuevos.length; i++) {
-    nuevos[i].classList.toggle("destacado");
-  }
-};
