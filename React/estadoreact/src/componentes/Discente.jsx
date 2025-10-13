@@ -1,5 +1,6 @@
 import React from "react";
 
+//Este componente representa un alumno en concreto.
 export default function Discente({ discente, onDesmatricular }) {
   return (
     <div className="discente-card">
