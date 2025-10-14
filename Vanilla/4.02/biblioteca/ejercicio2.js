@@ -13,7 +13,7 @@ const crearTabla = () => {
             const columnas = document.createElement("td");
             filas.appendChild(columnas);
         }
-        columnas.appendChild(filas)
+        tabla.appendChild(filas)
     }
     cuerpo.appendChild(tabla)
 }
