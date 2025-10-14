@@ -1,0 +1,33 @@
+.contador {
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid #2196f3;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #333;
+}
+
+.botones {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+}
+
+button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
