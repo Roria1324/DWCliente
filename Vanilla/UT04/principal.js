@@ -66,7 +66,6 @@ for (let i = 0; i < parrafos.length; i++) {
 /* const inputs = document.querySelectorAll("input"); // Inputs es un NodeList.
 console.log(inputs); */
 
-
 // ¡¡¡CUIDADO CON ESTO!!! -> Consultad el prototipo del objeto antes.
 /* inputs.map((i) => {
   console.log(i);
@@ -89,8 +88,8 @@ console.log(capas2); */
  * **********************************************/
 
 /***************************************************************************************************************************
- * Acceso y modificacción de atributos -> 
- *    -> getAttribute(nombre), 
+ * Acceso y modificacción de atributos ->
+ *    -> getAttribute(nombre),
  *    ->setAttribute(nombre, valor) o como propiedades de elementos.
  * */
 
@@ -111,8 +110,8 @@ const pintarAzul = () => {
   }
 };
 
-/** Mejor se usa CSS 
- *    -> className, es un atributo cadena de texto. Es destructivo (borra y añade). 
+/** Mejor se usa CSS
+ *    -> className, es un atributo cadena de texto. Es destructivo (borra y añade).
  *    -> classList, con métodos:
  *        -> add, añade clase de forma no destructiva.
  *        -> remove, elimina la clase indicada si existe.
@@ -120,7 +119,7 @@ const pintarAzul = () => {
  *        -> length, número de clases del elemento DOM.
  *        -> contains, si contiene la clase indicada (devuelve un boleano).
  *        .> replace, sustituye la primera clase pasada como parámetro por la segunda.
-*/
+ */
 
 const primero = document.getElementById("primero");
 primero.classList.add("verde");
@@ -133,31 +132,31 @@ const destacarTexto = () => {
 };
 
 /*********************************************************************************
- * Creando objetos en el DOM: 
+ * Creando objetos en el DOM:
  *    --> document.createElement,
  *    --> y document.createTextNode.
- * 
+ *
  * Se realiza en dos acciones:
  *    --> cear el elemento a introducir (con su contenido y propiedades),
  *    --> insertar el elemento en el DOM.
  * */
 
-/* const crearConCE = () => {
+const crearConCE = () => {
   // 1.- Se crea el elemento,
-  var elemento = document.createElement("p");
+  let elemento = document.createElement("p");
   // 2.- Se crea el texto (contenido),
-  var contenido = document.createTextNode(
+  let contenido = document.createTextNode(
     "Nuevo párrafo creado <strong class='nuevo'>dinámicamente</strong>"
   );
   // 3.- Se añade el contenido (texto) al elemento,
   elemento.appendChild(contenido);
   // 4.- Se añade al DOM -> appendChild(nuevo), insertBefore(nuevo,existente),  removeChild(existente), replaceChild(nuevo,existente).
   document.getElementById("botones").appendChild(elemento);
-}; */
+};
 
 // Usando innerHTML (¡¡¡ATENCIÓN!!! -> reemplaza todo el contenido del nodo por el nuevo).
 
-/* const crearConIH = () => {
+const crearConIH = () => {
   // 1.- Se crea el elemento,
   var ele2 = document.createElement("p");
   // 2.- Se crea el texto (contenido),
@@ -165,7 +164,7 @@ const destacarTexto = () => {
     "Nuevo párrafo creado dinámicamente con <strong class='nuevo'>innerHTML</strong>";
   // 3.- Se añade al DOM -> appendChild(nuevo), insertBefore(nuevo,existente),  removeChild(existente), replaceChild(nuevo,existente).
   document.getElementById("botones").appendChild(ele2);
-}; */
+};
 
 // Usando insertAdjacentHTML("dondeInsertar", "contenidoAInsertar") -> respeta el contenido previo.
 
@@ -180,11 +179,11 @@ const destacarTexto = () => {
 <!-- afterend --> 
 */
 
-/* document
+document
   .getElementById("botones")
   .insertAdjacentHTML(
-    "afterbegin",
+    "afterend",
     "Nuevo párrafo creado dinámicamente con <strong>innerAdjacentHTML</strong>"
-  ); */
+  );
 
 
