@@ -3,6 +3,8 @@ import "./App.css";
 import Rutas from "./routes/Rutas.jsx";
 import { BrowserRouter } from "react-router-dom";
 import Menu from "./components/menu/Menu.jsx";
+import Referencias from "./components/useRef/Referencias.jsx";
+import Contenedor from "./components/Contenedor.jsx";
 
 function App() {
   /** Componenentes para crear rutas:
@@ -20,7 +22,15 @@ function App() {
 
   return (
     <>
-      <h2>Desarrollo Web en Entorno Cliente.</h2>
+      <Contenedor>
+        <h2>Rutas con React.</h2>
+      </Contenedor>
+      <Contenedor>
+        <Menu />
+      </Contenedor>
+      <Contenedor>
+        <Rutas />
+      </Contenedor>
     </>
   );
 }

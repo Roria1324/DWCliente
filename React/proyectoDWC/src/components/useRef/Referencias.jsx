@@ -14,7 +14,7 @@ const Referencias = () => {
   };
 
   const ponerAzul = () => {
-    contenedor2Ref.current.classList.toggle("clases_azul");
+    contenedor1Ref.current.classList.toggle("clases_azul");
   };
 
   return (
@@ -37,7 +37,9 @@ const Referencias = () => {
         />
       </div>
       <div>
-        <p ref={contenedor1Ref}>Este es el contenedor 1.</p>
+        <p ref={contenedor1Ref} id='feo'>
+          Este es el contenedor 1.
+        </p>
         <p ref={contenedor2Ref}>Este es el contenedor 2.</p>
       </div>
     </>

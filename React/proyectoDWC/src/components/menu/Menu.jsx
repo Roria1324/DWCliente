@@ -4,12 +4,14 @@ import "./Menu.css";
 
 const Menu = () => {
   return (
-    // ¿Estilo a los enlaces?
     // ¿Añadimos <Login />?
     <>
       <nav>
         <Link className='menu-elemento' to='/'>
           Inicio
+        </Link>
+        <Link className='menu-elemento' to='/login'>
+          Inicia sesión
         </Link>
         <Link className='menu-elemento' to='/discentes'>
           Discentes

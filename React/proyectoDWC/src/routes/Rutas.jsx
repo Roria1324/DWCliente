@@ -4,6 +4,8 @@ import Inicio from "./../pages/Inicio.jsx";
 import Contacto from "./../pages/Contacto.jsx";
 import AcercaDe from "./../pages/AcercaDe.jsx";
 import Discentes from "../pages/Discentes.jsx";
+import Error from "./../pages/Error.jsx";
+import Login from "./../pages/Login.jsx";
 
 const Rutas = () => {
   return (
@@ -14,6 +16,7 @@ const Rutas = () => {
         <Route path='/acerca-de' element={<AcercaDe />} />
         <Route path='/discentes' element={<Discentes />} />
         <Route path='*' element={<Error />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </>
   );
