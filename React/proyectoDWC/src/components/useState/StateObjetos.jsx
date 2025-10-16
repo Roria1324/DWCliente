@@ -3,7 +3,7 @@ import "./StateObjetos.css";
 import {
   generarNombreAleatorio,
   generarApellidosAleatorio,
-} from "../../bibliotecas/funciones.js";
+} from "../../libraries/funciones.js";
 import ValorEstado from "../tools/ValorEstado.jsx";
 import ElementoListado from "./ElementoListado.jsx";
 

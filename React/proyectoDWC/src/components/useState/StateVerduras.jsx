@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { generarVerduraAleatorio } from "../../bibliotecas/funciones.js";
+import { generarVerduraAleatorio } from "../../libraries/funciones.js";
 import "./StateVerduras.css";
 import ValorEstado from "../tools/ValorEstado.jsx";
 
