@@ -1,8 +1,11 @@
 "use strict";
 
 import  accederBody from "./biblioteca/ejercicio1.js";
-import crearTabla from "./biblioteca/ejercicio2.js";
+import {crearTabla,  colorNumero} from "./biblioteca/ejercicio2.js";
+import {cambiarColor, seleccionarParrafo} from "./biblioteca/ejercicio3.js"
 
-setTimeout (() => {accederBody()}, 2000);
+/*crearTabla();
 
-crearTabla();
+setTimeout (() => {accederBody(), colorNumero()}, 2000);*/
+
+setInterval(() => { cambiarColor(seleccionarParrafo())},1000);

@@ -1,0 +1,19 @@
+.bloqueado {
+    color: red;
+}
+
+td {
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+    text-align: center;   
+}
+table {
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+.primo {
+    background-color: red;
+    font-weight: bolder;
+}
