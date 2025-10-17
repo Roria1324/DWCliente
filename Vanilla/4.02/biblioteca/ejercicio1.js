@@ -1,6 +1,5 @@
 "use strict";
 
-
 const accederBody = () =>{
     const cuerpo = document.body;
     const censurarCuerpo = cuerpo.innerHTML.replaceAll(
