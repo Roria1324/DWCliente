@@ -13,7 +13,6 @@ const colorAleatorio = () => {
 
 const seleccionarParrafo = () => {
     const parrafo = document.body.getElementsByTagName("p");
-
     return  parrafo[numeroAleatorio()];
 }
 
