@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+.interprete-container{
+    border: green solid 1px;
+    padding: 0 70% 0 0;
+}
+
+.interprete-name{
+    padding: 0 0 0 100%;
+    
+}
+=======
+.interprete-first {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    width: 100%;
+    gap: 1rem;
+    background: rgb(44, 43, 43);
+    border-radius: 10px;
+    border:rgb(172, 183, 192) solid 1px;
+}
+
+.foto {
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    align-content: center;
+}
+
+.info {
+    
+    margin: 0 0 0.2rem 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.nombre {
+    margin: 0.3rem 0 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+>>>>>>> 95afdbcc4b9b619891f9d757db9b98d19772665d
