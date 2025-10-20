@@ -1,6 +1,5 @@
 "use strict";
 
-
 const esPrimo = (number) => {
     if (number <=1) return false;
     if (number === 2) return true;
@@ -11,7 +10,7 @@ const esPrimo = (number) => {
     }
     return true;
 }
-
+//Función que crea una tabla vacía que rellena 10 columnas y filas y se rellenarán hasta el número 100.
 const crearTabla = () => {
     const cuerpo = document.body
     const tabla = document.createElement("table")
@@ -28,7 +27,7 @@ const crearTabla = () => {
     }
     cuerpo.appendChild(tabla);
 }
-
+//Función que seleccionara los números primos y desde el css se le darán color.
 const colorNumero = () => {
     const celdas = document.querySelectorAll("td");
     celdas.forEach(celdas => {

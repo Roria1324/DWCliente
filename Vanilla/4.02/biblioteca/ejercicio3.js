@@ -1,9 +1,10 @@
 "use strict";
 
+//Función que escoge un número aleatorio el cual será el párrafo a darle estilo.
 const numeroAleatorio = () => {
     return Math.floor(Math.random() * 5 );
 }
-
+//Función que escoge un numero en el rango de 1 a 256, que será para darle un color al párrafo.
 const colorAleatorio = () => {
     const r = Math.floor(Math.random() * 256 );
     const g = Math.floor(Math.random() * 256 );
@@ -13,7 +14,6 @@ const colorAleatorio = () => {
 
 const seleccionarParrafo = () => {
     const parrafo = document.body.getElementsByTagName("p");
-
     return  parrafo[numeroAleatorio()];
 }
 
