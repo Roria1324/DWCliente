@@ -19,6 +19,9 @@ const Menu = () => {
         <Link className='menu-elemento' to='/contacto'>
           Contacto
         </Link>
+        <Link className='menu-elemento' to='/administracion'>
+          Administración
+        </Link>
         <Link className='menu-elemento' to='/acerca-de'>
           Acerca de
         </Link>

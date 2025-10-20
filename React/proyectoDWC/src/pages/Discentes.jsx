@@ -10,7 +10,7 @@ const Discentes = () => {
           ? listado.discentes.map((elemento) => {
               return <p key={crypto.randomUUID()}>{elemento.nombre}</p>;
             })
-          : "No se han encontrado películas."}
+          : "No se han encontrado discentes."}
       </div>
     </>
   );
