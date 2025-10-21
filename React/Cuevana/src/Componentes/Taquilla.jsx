@@ -1,4 +1,5 @@
 import React, {useRef} from "react";
+import "./Taquilla.css"
  
 const Taquilla = (props) => {
 
@@ -10,7 +11,7 @@ const Taquilla = (props) => {
 
     return (
         <>
-            <button onClick={toggleElenco}>Taquilla</button>
+            <button onClick={toggleElenco} className="button">Taquilla</button>
             <div className="taquilla" ref={taquilla} style={{display : "none"}}>
                 <p className="precio">{props.children}</p>
             </div>

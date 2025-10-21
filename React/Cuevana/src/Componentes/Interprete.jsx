@@ -11,18 +11,18 @@ const Interprete = () => {
 
     return (
         <>
-        <button onClick={toggleElenco}>Elenco</button>
-            <div className="interprete-container" ref={elenco} style={{display : "none"}}>
-                {elencoPelicula.elencoPelicula.map((v,i) => (
-                        <div className="interprete-first" >
-                            <img src={v.foto} className="foto"></img>
-                            <div className="info">
-                                <div className="nombre"><h1>{v.nombre}</h1></div>
-                                <div><p>{v.bibliografia}</p></div>
-                            </div>
+        <button onClick={toggleElenco} className="button">Elenco</button>
+        <div className="interprete-container" ref={elenco} style={{display : "none"}}>
+            {elencoPelicula.elencoPelicula.map((v,i) => (
+                    <div className="interprete-first" >
+                        <img src={v.foto} className="foto"></img>
+                        <div className="info">
+                            <div className="nombre"><h1>{v.nombre}</h1></div>
+                            <div><p>{v.bibliografia}</p></div>
                         </div>
-                ))}
-            </div>
+                    </div>
+            ))}
+        </div>
         </>
     )
 }

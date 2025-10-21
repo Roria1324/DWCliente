@@ -15,9 +15,8 @@ function App() {
       Sinopsis:
         La serie Dexter trata sobre Dexter Morgan, un analista forense de salpicaduras de sangre que trabaja para la policía de Miami y que, en secreto, es un asesino en serie. Él solo caza y asesina a otros criminales que han eludido la justicia, operando bajo un código moral establecido por su padre adoptivo, Harry Morgan. 
       <Contenedor>
-        Reparto
         <Interprete />
-        <Taquilla> 110.000 $ anuales</Taquilla>
+        <Taquilla>110.000$ anuales.</Taquilla>
       </Contenedor>
       
     </Pelicula>
