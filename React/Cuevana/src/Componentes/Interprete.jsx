@@ -5,6 +5,8 @@ import elencoPelicula from "../data/ElencoPelicula.json"
 const Interprete = () => {
     const elenco = useRef(null);
 
+        //Función que cambia dinámicamente el estilo display del elemento, alternando entre mostrar o ocultar el bloque.
+
     const toggleElenco = () => {
         elenco.current.style.display = elenco.current.style.display === "none" ? "flex":"none";
     }
