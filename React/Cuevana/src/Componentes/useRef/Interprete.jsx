@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import "./Interprete.css";
-import elencoPelicula from "../data/ElencoPelicula.json"
+import elencoPelicula from "../../data/ElencoPelicula.json"
 
 const Interprete = () => {
     const elenco = useRef(null);

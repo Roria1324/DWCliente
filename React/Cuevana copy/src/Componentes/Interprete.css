@@ -1,14 +1,15 @@
-<<<<<<< HEAD
+
 .interprete-container{
-    border: green solid 1px;
-    padding: 0 70% 0 0;
+    padding: 0 100px;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .interprete-name{
     padding: 0 0 0 100%;
     
 }
-=======
+
 .interprete-first {
     display: flex;
     align-items: flex-start;
@@ -26,14 +27,14 @@
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 4px;
-    align-content: center;
+    border-radius: 20px;
+    display: block;
 }
 
 .info {
     
     margin: 0 0 0.2rem 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -42,4 +43,12 @@
     font-size: 0.9rem;
     color: #555;
 }
->>>>>>> 95afdbcc4b9b619891f9d757db9b98d19772665d
+
+.button {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.5);
+    -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+}

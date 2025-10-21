@@ -3,9 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Contenedor from './Componentes/Contenedor.jsx'
-import Interprete from './Componentes/Interprete.jsx'
+import Interprete from './Componentes/useRef/Interprete.jsx'
 import Pelicula from './Componentes/Pelicula.jsx'
-import Taquilla from './Componentes/Taquilla.jsx'
+import Taquilla from './Componentes/useRef/Taquilla.jsx'
 
 
 function App() {
@@ -18,7 +18,6 @@ function App() {
         <Interprete />
         <Taquilla>110.000$ anuales.</Taquilla>
       </Contenedor>
-      
     </Pelicula>
     </>
   );
