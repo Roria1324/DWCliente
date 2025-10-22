@@ -5,11 +5,9 @@ const Contenedor = (props) => {
 
     return(
         <>
-
         <div className="contenedor-first">
             {props.children}
         </div>
-
         </>
     )
 }

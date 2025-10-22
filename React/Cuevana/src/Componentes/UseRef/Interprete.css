@@ -10,7 +10,7 @@
     
 }
 
-.interprete-first {
+.interprete-first > div {
     display: flex;
     align-items: flex-start;
     margin: 10px;
@@ -20,6 +20,7 @@
     border-radius: 10px;
     border:rgb(172, 183, 192) solid 1px;
 }
+
 
 .foto {
     padding: 10px;
