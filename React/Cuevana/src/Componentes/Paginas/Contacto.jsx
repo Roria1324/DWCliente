@@ -1,9 +1,15 @@
 "use strict"
+import "./EstiloPaginas.css"
 
 const Contacto = () => {
+
     return (
         <>
-        <p>Contacto</p>
+        <body>
+            <div class="container">
+                <p class="text">Contacto</p>
+            </div>
+        </body>
         </>
     )
 }

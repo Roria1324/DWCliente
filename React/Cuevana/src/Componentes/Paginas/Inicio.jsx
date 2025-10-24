@@ -1,11 +1,17 @@
 "use strict"
 import React from "react";
+import "./EstiloPaginas.css"
 
 const Inicio = () => {
 
+
     return (
         <>
-        <p>Inicio</p>
+         <body>
+            <div class="container">
+                <p class="text">INICIO</p>
+            </div>
+        </body>
         </>
     )
 }

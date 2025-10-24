@@ -16,7 +16,7 @@
     margin: 10px;
     width: 100%;
     gap: 1rem;
-    background: rgb(44, 43, 43);
+    background: #171e5c;
     border-radius: 10px;
     border:rgb(172, 183, 192) solid 1px;
 }
@@ -28,7 +28,7 @@
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
     display: block;
 }
 
@@ -42,7 +42,7 @@
 .nombre {
     margin: 0.3rem 0 0;
     font-size: 0.9rem;
-    color: #555;
+    color: #ffffff;
 }
 
 .button {

@@ -1,0 +1,45 @@
+.head {
+  background: #060927;
+  margin: 0 auto;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.foto img {
+  height: 40px;
+  width: auto;
+}
+
+.menu-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-element {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.menu-element:hover {
+  color: #c33764;
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+  border-radius: 4px;
+  padding: 2px 5px;
+  background: rgba(255, 255, 255, 0.1);
+}

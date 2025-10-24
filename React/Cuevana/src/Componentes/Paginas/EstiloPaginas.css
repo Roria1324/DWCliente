@@ -1,0 +1,28 @@
+.container {
+  margin: 0;
+  height: 93.6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:  #2f3db6;
+  font-family: 'Poppins', sans-serif;
+}
+
+.text {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: fade 2s ease-in-out infinite alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
