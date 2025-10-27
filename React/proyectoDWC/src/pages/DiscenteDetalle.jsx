@@ -16,6 +16,7 @@ const DiscenteDetalle = () => {
   return (
     <>
       <div>
+        <h1>{id}</h1>
         <h2>
           {nombre} {apellidos}
         </h2>

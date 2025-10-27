@@ -41,7 +41,11 @@ const Rutas = () => {
             element={<AdminDiscentes />}
           />
           {/* Ruta relativa. Propensa a despistes, mejor ejitar. */}
-          <Route path='notas' element={<AdminNotas />} />
+          <Route path='notas' element={<AdminNotas />}>
+            <Route path='/administracion/notas/DWC' element={<Inicio />} />
+            <Route path='DWS' element={<Contacto />} />
+            <Route path='/administracion/notas/DIW' element={<AcercaDe />} />
+          </Route>
           {/* Ruta obsoluta. Mejor opción. */}
           <Route path='/administracion/usuarios' element={<AdminUsuarios />} />
           <Route
