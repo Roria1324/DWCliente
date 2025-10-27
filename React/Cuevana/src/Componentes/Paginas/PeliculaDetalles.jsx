@@ -1,11 +1,11 @@
 import React from "react";
-import "./Pelicula.css";
+import "./PeliculaDetalles.css";
 import peliculas from "../../Data/ElencoPelicula.json"
 import Taquilla from '../UseRef/Taquilla.jsx'
 import Interprete from '../UseRef/Interprete.jsx'
 import Contenedor from '../Contenedor.jsx'
 
-const Pelicula = () => {
+const PeliculaDetalles = () => {
 
     return (
         <>
@@ -32,4 +32,4 @@ const Pelicula = () => {
     )
 }
 
-export default Pelicula
+export default PeliculaDetalles

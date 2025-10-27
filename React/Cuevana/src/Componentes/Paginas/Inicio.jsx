@@ -7,11 +7,11 @@ const Inicio = () => {
 
     return (
         <>
-         <body>
+         
             <div class="container">
                 <p class="text">INICIO</p>
             </div>
-        </body>
+        
         </>
     )
 }

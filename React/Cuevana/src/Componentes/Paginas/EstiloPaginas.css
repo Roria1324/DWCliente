@@ -1,10 +1,10 @@
 .container {
-  margin: 0;
-  height: 93.6vh;
+  min-height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background:  #2f3db6;
+  background: #2f3db6;
   font-family: 'Poppins', sans-serif;
 }
 

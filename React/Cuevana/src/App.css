@@ -1,4 +1,9 @@
-body{
-    background-color: rgb(46, 45, 45);
-    border-radius: 10px;
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
 }
