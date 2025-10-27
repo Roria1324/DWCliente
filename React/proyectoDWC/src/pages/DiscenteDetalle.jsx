@@ -27,7 +27,7 @@ const DiscenteDetalle = () => {
 };
 
 // Preguntas de diseño:
-// ¿Versión mejorada con un componente <DiscenteInformacon>?
+// ¿Versión mejorada con un componente <DiscenteInformacion>?
 // ¿Y si no existe el discente?
 
 export default DiscenteDetalle;

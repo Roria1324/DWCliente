@@ -44,6 +44,10 @@ const Rutas = () => {
           <Route path='notas' element={<AdminNotas />} />
           {/* Ruta obsoluta. Mejor opción. */}
           <Route path='/administracion/usuarios' element={<AdminUsuarios />} />
+          <Route
+            path='/administracion/discentedetalle/:id'
+            element={<DiscenteDetalle />}
+          />
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<Error />} />
@@ -57,7 +61,4 @@ export default Rutas;
 
 
 
- /*  <Route
-            path='/administracion/discentedetalle/:id'
-            element={<DiscenteDetalle />}
-          /> */
+ /*   */

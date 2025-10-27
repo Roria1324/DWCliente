@@ -1,5 +1,6 @@
 import React from "react";
 import "./Administracion.css";
+import MenuAdmin from "../components/menu/submenu/MenuAdmin.jsx";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import Contenedor from "../components/Contenedor.jsx";
 

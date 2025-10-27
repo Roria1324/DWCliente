@@ -3,20 +3,24 @@ import React from "react";
 const MenuAdmin = () => {
   return (
     <>
-      <div className='menuadmin-navegacion'>
+      <nav className='administracion-navegacion'>
         <Link
           className='administracion-elementomenu'
           to='/administracion/discentes'
         >
           Discentes
         </Link>
-        <Link className='menuadmin-elementomenu' to='/administracion/notas'>
+        <Link
+          className='administracion-elementomenu'
+          to='/administracion/notas'
+        >
           Notas
         </Link>
-        <Link className='menuadmin-elementomenu' to='/administracion/usuarios'>
+        {/* Las rutas relativas también funcionan en <Link>. */}
+        <Link className='administracion-elementomenu' to='usuarios'>
           Usuarios/as
         </Link>
-      </div>
+      </nav>
     </>
   );
 };

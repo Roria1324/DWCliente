@@ -10,9 +10,11 @@ const AdminDiscentes = () => {
         {listado.discentes.length
           ? listado.discentes.map((elemento) => {
               return (
-                <p>
-                  {elemento.apellidos}, {elemento.nombre}
-                </p>
+                <Link to={`/administracion/discentedetalle/${elemento.id}`}>
+                  <p>
+                    {elemento.apellidos}, {elemento.nombre}
+                  </p>
+                </Link>
               );
             })
           : "No se han encontrado discentes."}
@@ -23,12 +25,3 @@ const AdminDiscentes = () => {
 
 export default AdminDiscentes;
 
-/* //  Se utiliza template literals para concatenar el id del discente a la URL.
-                <Link
-                  key={elemento.id}
-                  to={`/administracion/discentedetalle/${elemento.id}`}
-                >
-                  <p>
-                    {elemento.apellidos}, {elemento.nombre}
-                  </p>
-                </Link> */
