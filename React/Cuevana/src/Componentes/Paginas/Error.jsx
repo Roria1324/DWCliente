@@ -1,6 +1,6 @@
 "use strict"
 import "../Paginas/Error.css"
-
+//Componente error (en mi casa funcionaba el primer 4 :( ).
 const Error = () => {
     return (
         <>

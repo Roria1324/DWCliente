@@ -3,8 +3,6 @@ import React from "react";
 import "./EstiloPaginas.css"
 
 const Inicio = () => {
-
-
     return (
         <>
          

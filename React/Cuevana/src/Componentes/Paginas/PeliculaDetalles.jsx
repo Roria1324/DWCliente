@@ -6,6 +6,8 @@ import Interprete from '../UseRef/Interprete.jsx'
 import Contenedor from '../Contenedor.jsx'
 import { useParams } from "react-router-dom";
 
+
+//Componente que muestra más a detalle la película que has seleccionado.
 const PeliculaDetalles = () => {
 
     const {id} = useParams()

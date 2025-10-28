@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import peliculas from "../../Data/ElencoPelicula.json"
 
  
-const Taquilla = ({precio = []}) => {
+const Taquilla = () => {
 
     const taquilla = useRef(null);
     const {id} = useParams()
