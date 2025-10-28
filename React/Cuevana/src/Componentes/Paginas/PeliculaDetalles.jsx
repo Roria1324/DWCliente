@@ -5,7 +5,6 @@ import Taquilla from '../UseRef/Taquilla.jsx'
 import Interprete from '../UseRef/Interprete.jsx'
 import Contenedor from '../Contenedor.jsx'
 import { useParams } from "react-router-dom";
-import Actores from "./Actores.jsx";
 
 const PeliculaDetalles = () => {
 
