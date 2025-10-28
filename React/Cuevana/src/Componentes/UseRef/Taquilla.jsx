@@ -1,9 +1,14 @@
 import React, {useRef} from "react";
 import "./Taquilla.css"
+import { useParams } from "react-router-dom";
+import peliculas from "../../Data/ElencoPelicula.json"
+
  
-const Taquilla = (props) => {
+const Taquilla = ({precio = []}) => {
 
     const taquilla = useRef(null);
+    const {id} = useParams()
+    const pelicula = peliculas.peliculas.find((p) => p.id === parseInt(id))
 
 
     //Función que cambia dinámicamente el estilo display del elemento, alternando entre mostrar o ocultar el bloque.
@@ -15,7 +20,7 @@ const Taquilla = (props) => {
         <>
             <button onClick={toggleTaquilla} className="button">Taquilla</button>
             <div className="taquilla" ref={taquilla} style={{display : "none"}}>
-                <p className="precio">{props.children}</p>
+                <p className="precio">{pelicula.taquilla}</p>  
             </div>
         </>
     );

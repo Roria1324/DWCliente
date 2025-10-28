@@ -16,6 +16,7 @@ const Menu = () => {
                 <div className="menu-links">
                     <Link className="menu-element" to="/">Inicio</Link>
                     <Link className="menu-element" to="/peliculas">Películas</Link>
+                    <Link className="menu-element" to="/actores">Actores</Link>
                     <Link className="menu-element" to="/acerca-de">Acerca De</Link>
                     <Link className="menu-element" to="/contacto">Contacto</Link>
                 </div>
