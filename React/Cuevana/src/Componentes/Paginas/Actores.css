@@ -1,0 +1,40 @@
+.actores-container{
+    padding: 0 100px;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.actores-first > div {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    width: 100%;
+    gap: 1rem;
+    background: #171e5c;
+    border-radius: 10px;
+    border:rgb(172, 183, 192) solid 1px;
+}
+
+
+.foto-actor {
+    padding: 10px;
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.info-actor {
+    
+    margin: 0 0 0.2rem 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.nombre-actor {
+    margin: 0.3rem 0 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
