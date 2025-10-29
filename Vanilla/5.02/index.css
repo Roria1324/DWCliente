@@ -1,0 +1,9 @@
+div {
+    background-color: gray;
+    padding:0;
+}
+
+div > section {
+    background-color: gainsboro;
+    display: none;
+}
