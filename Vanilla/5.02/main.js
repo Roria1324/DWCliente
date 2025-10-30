@@ -1,4 +1,8 @@
 "use strict";
- import ocultarElemento  from "./biblioteca/ejericicio1.js";
 
- ocultarElemento
+import acordeon from "./biblioteca/ejericicio1.js";
+
+
+ document.addEventListener("DOMContentLoaded", () => {
+   acordeon();
+ })

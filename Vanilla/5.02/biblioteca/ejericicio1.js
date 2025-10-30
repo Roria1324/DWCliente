@@ -1,12 +1,21 @@
-"user strict"
+"use strict"
 
-const ocultarElemento = () => {
-    const section = document.querySelector("div section")
-    section.classList.add('none')
+const acordeon = () => {
+     const divs = document.querySelectorAll("body div")
+
+    divs.forEach((div, index) => {
+        if (index % 2 === 0){
+
+            const encabezado = div.querySelector("p")
+            const siguienteDiv = divs[index + 1]
+            const section = siguienteDiv.querySelector("section")
+
+            encabezado.addEventListener("click", () => {
+                
+                section.style.display = section.style.display === "none" ? "block" : "none"
+            })
+        }
+    })
 }
 
-document.addEventListener("DOMContentLoaded",() =>  {
-    
-})
-
-export default ocultarElemento;
+export default acordeon;
