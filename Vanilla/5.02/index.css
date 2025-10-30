@@ -1,9 +1,9 @@
-div {
+.text {
     background-color: gray;
     padding:0;
 }
 
-div > section {
+.seccion {
     background-color: gainsboro;
     display: none;
 }
