@@ -12,13 +12,3 @@
   font: bold;
 }
 
-.contenedor {
-  width: 190px;
-  border: 1px solid black;
-  padding: 5px;
-  margin: 5px;
-}
-
-.contenedor button {
-  margin: 5px;
-}
