@@ -5,15 +5,9 @@ const acordeon = () => {
 
     divs.forEach((div, index) => {
         if (index % 2 === 0){
-
             const encabezado = div.querySelector("p")
-            const siguienteDiv = divs[index + 1]
+            const siguienteDiv = divs[index]
             const section = siguienteDiv.querySelector("section")
-
-            encabezado.addEventListener("click", () => {
-                
-                section.style.display = section.style.display === "none" ? "block" : "none"
-            })
         }
     })
 }
