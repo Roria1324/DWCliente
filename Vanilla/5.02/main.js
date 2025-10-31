@@ -1,11 +1,8 @@
 "use strict";
 
-import acordeon from "./biblioteca/ejericicio1.js";
-import eyelashes from "./biblioteca/ejercicio2.js"
 
 //Ejercicio 1
  document.addEventListener("DOMContentLoaded", () => {
-
   //Me hice un lío con el ejercicio espero que sea esto lo que pide.
   const divs = document.querySelectorAll("div")
 

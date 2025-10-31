@@ -1,0 +1,22 @@
+body{
+    background:gainsboro ;
+}
+
+table {
+    margin: 0 auto;
+    padding: 0 auto;
+    background-color: gray;
+}
+
+tr > td {
+    padding: 10px;
+
+}
+
+.blanco {
+    background-color: white;
+}
+
+.negro {
+    background-color: black;
+}
