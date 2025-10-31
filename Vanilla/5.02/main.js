@@ -1,16 +1,25 @@
 "use strict";
 
+import acordeon from "./biblioteca/ejericicio1.js";
+import eyelashes from "./biblioteca/ejercicio2.js"
+
+//Ejercicio 1
  document.addEventListener("DOMContentLoaded", () => {
 
-  //Al principio recorría todos los divs y añadía eventos, se ha cambiado el html a un único div y hacerlo bien para mejorar practicas.
+  //Me hice un lío con el ejercicio espero que sea esto lo que pide.
   const divs = document.querySelectorAll("div")
 
     divs.forEach((div, index) => {
-        if (index % 2 === 0){
             const encabezado = div.querySelector("p")
             const siguienteDiv = divs[index]
             const section = siguienteDiv.querySelector("div .seccion")
 
+            encabezado.addEventListener("click", () => {
+                section.style.display = section.style.display === "none" ? "block" : "none"  
+            })
+
+            //Cosa curiosa que encontré y me gusto el efecto que tenía lo guardo para futuros trabajos.
+            /*
             encabezado.addEventListener("mouseover", () => {
                 section.style.display = "block"
             })
@@ -18,10 +27,11 @@
             encabezado.addEventListener("mouseleave", () => {
                 section.style.display = "none" 
             })
-        }
+                */
+        
     })
 })
-
+//Ejercicio 2
  document.addEventListener("DOMContentLoaded", () => {
 
     const botones = document.querySelectorAll(".wind  button");
