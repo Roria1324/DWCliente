@@ -2,6 +2,8 @@
 
 const pestañas = () => {
 
+
+
 }
 
-export default pestañas
+export default pestañas;

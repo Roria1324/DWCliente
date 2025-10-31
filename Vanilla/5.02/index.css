@@ -7,3 +7,24 @@
     background-color: gainsboro;
     display: none;
 }
+
+.contenidos section {
+  display: none;
+}
+
+.contenidos section.visible {
+  display: block;
+}
+
+.wind button {
+  padding: 8px 15px;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.wind button.activa {
+  background-color: #3498db;
+  color: white;
+}
