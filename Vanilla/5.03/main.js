@@ -44,8 +44,4 @@ window.onload = () => {
             }
         }
     })
-
-
-
-
 }; //Fin onload
