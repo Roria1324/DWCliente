@@ -1,0 +1,20 @@
+body {
+    background-color: grey;
+}
+
+#imagenes,
+#soltable{
+    display: flex;
+}
+
+#arrastables {
+  width: 510px;
+  height: 180px;
+  border: 2px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+#soltables {
+
+}

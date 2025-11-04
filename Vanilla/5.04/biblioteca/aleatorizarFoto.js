@@ -1,0 +1,25 @@
+"use strict"
+const aleatorizarFoto = (array) => {
+
+    for (let i = array.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [array[i], array[j]] = [array[j],array[i]]
+    }
+    return array;
+}
+
+const crearArrayFotos = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        let imagen = array[i]
+
+        let img = document.createElement("img")
+        img.src = imagen
+        img.alt = `fotoTrozo`
+        img.id = i
+        img.setAttribute("draggable", true)
+
+        document.getElementById("imagenes").appendChild(img)
+    }
+}
+
+export {crearArrayFotos, aleatorizarFoto};
