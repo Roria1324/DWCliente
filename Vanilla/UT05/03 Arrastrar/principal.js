@@ -73,7 +73,10 @@ window.onload = () => {
     "drop",
     (evento) => {
       evento.preventDefault(); // ¡¡IMPORTANTE!! -> previene el funcionamiento por defecto (sólo es necesario en versiones antiguas).
-      if (evento.target.classList.contains("soltable")) {
+      if (
+        evento.target.classList.contains("soltable") ||
+        evento.target.classList.contains("feo")
+      ) {
         console.log(`Soltado en ${evento.target.className}`);
 
         evento.target.appendChild(
@@ -84,4 +87,25 @@ window.onload = () => {
     },
     false
   );
+
+document.getElementById("zona_sin_arrastrar").addEventListener(
+  "dragstart",
+  (evento) => {
+    // Se muestra por consola el objeto event.
+    console.log(evento);
+    // Se añade una nueva entrada en dataTransfer.
+    evento.dataTransfer.setData("identificador", evento.target.id);
+    evento.dataTransfer.setData("nombre", evento.target.localName);
+    // Se muestran los datos por consola.
+    console.log(evento.dataTransfer.getData("identificador"));
+    console.log(evento.dataTransfer.getData("nombre"));
+
+    // Forma de hacerlo con objeto completo (recuerda, opción mala).
+    //elementoArrastrado = evento.target;
+  },
+  false
+);
+
+
+
 }; // Fin del window.onload.
