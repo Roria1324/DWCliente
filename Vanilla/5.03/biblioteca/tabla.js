@@ -15,6 +15,7 @@ const crearTabla = () => {
     }
     contenedor.appendChild(tabla);
     cuerpo.appendChild(contenedor);
+    tabla.classList.add("table")
 }
 
 export default crearTabla;
