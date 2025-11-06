@@ -1,20 +1,78 @@
 body {
-    background-color: grey;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 20px;
+    text-align: center;
 }
 
-#imagenes,
-#soltable{
+#arrastrables {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-#arrastables {
-  width: 510px;
-  height: 180px;
-  border: 2px solid black;
-  padding: 5px;
-  margin: 5px;
+.zonaImagenes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 320px;
 }
 
 #soltables {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    background-color: #fff;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
 
+.soltable {
+    width: 100px;
+    height: 100px;
+    background-color: #e6e6e6;
+    border: 1px dashed #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.soltable.over {
+    background-color: #cde3ff;
+    border-color: #66a3ff;
+}
+
+.pieza {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: grab;
+    transition: transform 0.1s;
+}
+
+.pieza:active {
+    transform: scale(1.05);
+    cursor: grabbing;
+}
+
+#resetar button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#resetar button:hover {
+    background-color: #357bd8;
 }

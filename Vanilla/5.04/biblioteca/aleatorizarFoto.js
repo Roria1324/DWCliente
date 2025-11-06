@@ -15,6 +15,7 @@ const crearArrayFotos = (array) => {
         let img = document.createElement("img")
         img.src = imagen
         img.alt = `fotoTrozo`
+        img.className = `pieza`
         img.id = i
         img.setAttribute("draggable", true)
 

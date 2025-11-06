@@ -18,4 +18,15 @@ window.onload = () => {
     ]
 
     crearArrayFotos(aleatorizarFoto(imagenes));
+
+    document.getElementById("arrastables").addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("pieza", e.target.id)
+        e.dataTransfer.setData("nombre", e.target.localname)
+    })
+
+    document.getElementById("arrastables").addEventListener("drop", (e) => {
+        if (e.target.contains("soltables")){
+            document.getElementById(e.target.getData("pieza"))
+        }
+    })
 }
