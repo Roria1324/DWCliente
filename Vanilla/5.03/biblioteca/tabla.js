@@ -1,9 +1,9 @@
 "use strict"
 
 const crearTabla = (celdas) => {
-    const cuerpo = document.body
-    const contenedor = document.createElement("div")
-    const tabla = document.createElement("table")
+    const cuerpo = document.body;
+    const contenedor = document.createElement("div");
+    const tabla = document.createElement("table");
 
     for (let i = 1; i <= celdas; i++) {
         const filas =  document.createElement("tr");
@@ -15,7 +15,7 @@ const crearTabla = (celdas) => {
     }
     contenedor.appendChild(tabla);
     cuerpo.appendChild(contenedor);
-    tabla.classList.add("table")
+    tabla.classList.add("table");
 }
 
 export default crearTabla;
