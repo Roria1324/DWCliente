@@ -5,47 +5,38 @@ import crearTabla from "./biblioteca/tabla.js";
 
 window.onload = () => {
     crearTabla()
-        const colores = document.querySelectorAll(".colores div")
-        const celdas = document.querySelectorAll("tr td")
-        const borrar = document.querySelector(".colores borrar")
+        const tabla = document.querySelector("table")
         let color = "white"
         let pintar = false;
 
-    addEventListener("click", (e) => {
-        if(e.target.tagName === "BUTTON"){
-            celdas.forEach( c => c.style.backgroundColor = "white")
+    tabla.addEventListener("mousedown",() => pintar = true)
+    tabla.addEventListener("mouseup",() => pintar = false)
+
+    document.getElementById("borrar").addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON"){
+            document.querySelectorAll("td").forEach( c => c.style.backgroundColor = "white")
         }
     })
 
-    document.addEventListener("mousedown",() => pintar = true)
-    document.addEventListener("mouseup",() => pintar = false)
-
-    addEventListener("click", (e) => {
-        const index = Array.from(colores).indexOf(e.target)
+    document.getElementById("colors").addEventListener("click", (e) => {
         if (e.target.tagName === "DIV") {
-            color = colores[index].getAttribute("id")
+            color = e.target.getAttribute("id")
         }
     })
 
-    addEventListener("mousedown", (e) => {
-        const index = Array.from(celdas).indexOf(e.target)
+    tabla.addEventListener("mousedown", (e) => {
         if (pintar){
             if (e.target.tagName === "TD"){
-                celdas[index].style.backgroundColor = color;
+                e.target.style.backgroundColor = color;
             }
         }
     })
 
-    addEventListener("mouseover", (e) => {
-        const index = Array.from(celdas).indexOf(e.target)
+    tabla.addEventListener("mouseover", (e) => {
         if (pintar){
             if (e.target.tagName === "TD"){
-                celdas[index].style.backgroundColor = color;
+                e.target.style.backgroundColor = color;
             }
         }
     })
-
-
-
-
 }; //Fin onload
