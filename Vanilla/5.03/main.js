@@ -4,10 +4,12 @@ import crearTabla from "./biblioteca/tabla.js";
 
 
 window.onload = () => {
+    
     crearTabla()
-        const tabla = document.querySelector("table")
-        let color = "white"
-        let pintar = false;
+
+    const tabla = document.querySelector("table")
+    let color = "white"
+    let pintar = false;
 
     tabla.addEventListener("mousedown",() => pintar = true)
     tabla.addEventListener("mouseup",() => pintar = false)
