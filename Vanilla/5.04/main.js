@@ -1,6 +1,7 @@
 "use strict";
 
 import {crearArrayFotos, aleatorizarFoto} from "./biblioteca/aleatorizarFoto.js";
+import validarOrden from "./biblioteca/validarOrden.js";
 
 
 window.onload = () => {
@@ -32,6 +33,7 @@ window.onload = () => {
         if (e.target.classList.contains("soltable")){
             e.target.appendChild(
                 document.getElementById(e.dataTransfer.getData("pieza")));
+                validarOrden(imagenes);
         }
     })
 
@@ -48,8 +50,11 @@ window.onload = () => {
                 celda.innerHTML = ""
             })
             document.getElementById("imagenes").innerHTML = ""
+            document.getElementById("mensaje-ganador").innerHTML = "";
             crearArrayFotos(aleatorizarFoto(imagenes));
         }
     })
 
 }
+
+export default imagenes;
