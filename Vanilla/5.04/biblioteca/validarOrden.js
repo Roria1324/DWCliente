@@ -1,5 +1,8 @@
 "use strict"
 
+//Intento de validar orden pero no me ha dado tiempo ha terminarlo (se me ha olvidado terminarlo el finde y pensaba que lo tenía hecho, spoiler no lo tenía).
+//Pero mi idea era a través del nombre de las imágenes intentar ordenarlas ya que la id si cambia de sitio pero los nombres siempre están en orden.
+//Supongo que me habría olvidado de este lío si asignaba id a los "soltable".
 const validarOrden = (imagenes) => {
     const celdas = document.querySelectorAll(".soltable");
     let correcto = true;

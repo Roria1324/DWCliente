@@ -19,16 +19,16 @@ window.onload = () => {
     ]
 
     crearArrayFotos(aleatorizarFoto(imagenes));
-
+//Evento para poder arrastrar las imágenes.
     document.getElementById("arrastrables").addEventListener("dragstart", (e) => {
         e.dataTransfer.setData("pieza", e.target.id)
         e.dataTransfer.setData("nombre", e.target.localName)
     })
-    
+//Evento para prevenir el drop.
     document.getElementById("arrastrables").addEventListener("dragover", (e) => {
         e.preventDefault();
     })
-
+//Evento para poder soltar el objeto arrastrado sobre otra celda.
     document.getElementById("arrastrables").addEventListener("drop", (e) => {
         if (e.target.classList.contains("soltable")){
             e.target.appendChild(
@@ -41,9 +41,10 @@ window.onload = () => {
         if (e.target.classList.contains("zonaImagenes")){
             e.target.appendChild(
                 document.getElementById(e.dataTransfer.getData("pieza")));
+                validarOrden(imagenes);
         }
     })
-
+//Evento que cada vez que se pulsa el botón quita las imágenes de soltable y reinicia el juego.
     document.getElementById("reiniciar").addEventListener("click", (e) => {
         if (e.target.tagName === "BUTTON"){
             document.querySelectorAll(".soltable").forEach(celda => {

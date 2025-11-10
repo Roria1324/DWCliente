@@ -1,4 +1,6 @@
 "use strict"
+
+//Le paso un array de imágenes para devolverlo de manera aleatoria. 
 const aleatorizarFoto = (array) => {
 
     for (let i = array.length - 1; i > 0; i--){
@@ -8,6 +10,7 @@ const aleatorizarFoto = (array) => {
     return array;
 }
 
+//Desde el array que ha sido previamente aleatorizado le asigno a las fotos sus atributos y una id.
 const crearArrayFotos = (array) => {
     for (let i = 0; i < array.length; i++) {
         let imagen = array[i]
