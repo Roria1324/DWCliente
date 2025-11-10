@@ -26,7 +26,7 @@ window.onload = () => {
   // ¡¡¡IMPORTANTE!!! Comprobar si el navegador lo soporta.
   if (typeof Storage !== "undefined") {
     // Mirar el prototipo del objeto para ver qué puedo hacer.
-    //console.log(localStorage);
+    console.log(localStorage);
 
     // Se define la clave "nombre" con el valor "Guapo".
     localStorage.setItem("nombre", "Guapo");
@@ -46,8 +46,8 @@ window.onload = () => {
         `${localStorage.key(i)} : ${localStorage.getItem(localStorage.key(i))}`
       );
     }
-    console.log("****************************************************"); */
-
+    console.log("****************************************************");
+ */
     // Borrar el contenido (todo).
 
     /* localStorage.clear();
@@ -78,7 +78,7 @@ window.onload = () => {
     ];
 
     localStorage.setItem("usuarios", JSON.stringify(feos));
-    console.log(localStorage);
+    //console.log(localStorage);
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios"));
     // Se lleva la lógica de pintado a una función (principio de modularidad).
@@ -94,7 +94,7 @@ window.onload = () => {
         // Se crea el objeto con los datos del formulario.
         let nuevo_usuario = {
           id: crypto.randomUUID(),
-
+          // Datos sin comprobar: chufa máxima.
           nombre: document.getElementById("nombre").value,
           apellido: document.getElementById("apellido").value,
           fecha: document.getElementById("fecha").value,
@@ -120,6 +120,7 @@ window.onload = () => {
         if (evento.target.classList.contains("borrar")) {
           if (confirm("¿Desea borrar este registro?")) {
             usuarios = borrarUsuario(usuarios, evento.target.id);
+            localStorage.setItem("usuarios", usuarios);
             datos.innerHTML = pintarUsuariosJSON(usuarios);
           }
         }

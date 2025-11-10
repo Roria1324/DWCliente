@@ -11,10 +11,10 @@ window.onload = () => {
   //Mediante el atributo name.
   let formulario = document.forms.formCliente;
 
-  console.log(document.forms);
-  //console.log(formulario);
-  //console.log(formulario.nombre);
-  //console.log(formulario.correo.value);
+  //console.log(document.forms);
+  /* console.log(formulario);
+  console.log(formulario.nombre);
+  console.log(formulario.correo.value); */
 
   //Mediante el atributo id.
   let formuId = document.getElementById("frmClnt");
@@ -60,13 +60,13 @@ window.onload = () => {
     "change",
     (evento) => {
       // Se seleccionan todos los elementos agrupados.
-      let check = document.getElementsByName("preguntaC");
+      let checkBox = document.getElementsByName("preguntaC");
       // Variable para los elementos seleccionados.
       var marcados = "";
-      for (let i = 0; i < check.length; i++) {
+      for (let i = 0; i < checkBox.length; i++) {
         // Si está marcado lo añado a la variable.
-        if (check[i].checked === true) {
-          marcados += `${check[i].value} `;
+        if (checkBox[i].checked === true) {
+          marcados += `${checkBox[i].value} `;
         }
       }
       console.log(`Valores del elemento marcados ${marcados}.`);
@@ -82,6 +82,7 @@ window.onload = () => {
   seleccion.addEventListener(
     "change",
     (evento) => {
+      console.log(evento.target);
       console.log(
         `El select tiene ${evento.target.options.length} opciones disponibles.`
       );

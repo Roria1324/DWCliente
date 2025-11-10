@@ -16,7 +16,7 @@
 
 const validarFormulario = () => {
   //var expNombre = new RegExp("^[a-zA-Z][a-zA-Z0-9-_.]{2,20}$");
-  var expNombre = /^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$/;
+  const expNombre = /^[a-zA-Z][a-zA-Z0-9-_\.]{2,20}$/;
   let nombre = document.getElementById("nombre");
   if (expNombre.test(nombre.value)) {
     document.getElementById("error").innerHTML = "El nombre es correcto.";
@@ -26,6 +26,7 @@ const validarFormulario = () => {
       "Escriba un nombre con entre 3 y 20 caracteres y debe comenzar con una letra.";
     // No envío el formulario.
   }
+  // ¿Qué está haciendo mal esta función?
 };
 
 export { validarFormulario };
