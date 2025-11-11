@@ -19,6 +19,7 @@ window.onload = () => {
 
     crearArrayFotos(aleatorizarFoto(imagenes));
 
+ 
     document.getElementById("arrastrables").addEventListener("dragstart", (e) => {
         e.dataTransfer.setData("pieza", e.target.id)
         e.dataTransfer.setData("nombre", e.target.localName)
