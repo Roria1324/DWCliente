@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <div>
+            <label for="nombreDisco"><h3>Nombre Disco</h3></label>
+            <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole">
+        </div>
+
+        <div>
+            <label for="caratulaDisco"><h3>Carátula del Disco</h3></label>
+            <input type="url" name="caratula" id="caratula" placeholder="Introduzca url de la carátula">
+        </div>
+
+        <div>
+            <label for="grupoMusica"><h3>Grupo de Música</h3></label>
+            <input type="text" name="nombreGrupo" id="nombreGrupo" placeholder="Wind Rose">
+        </div>
+
+        <div>
+            <label for="yearPublication"><h3>Año de Publicación</h3></label>
+            <input type="number" name="yearPublication" id="yearPublication" placeholder="2019">
+        </div>
+
+        <div>
+            <label for="genero"><h3>Género de Música</h3></label>
+            <select name="genero" id="genero">
+                <option value="folk metal">Folk Metal</option>
+                <option value="hardstyle">Hardstyle</option>
+                <option value="pop">Pop</option>
+                <option value="Rap">Rap</option>
+            </select>
+        </div>
+
+        <div class="Localizacion">
+            <label for="localizacionCodigo"><h3>Localización</h3></label> 
+            <input type="text" name="localizacionCodigo" id="localizacionCodigo">
+        </div>
+        
+        <div class="prestado">
+            <label for="prestado"><h3>Prestado</h3></label>
+            <input type="radio" name="prestado" id="prestado" value="true">
+            <label for="prestado">Sí</label>
+            <input type="radio" name="prestado" id="prestado" value="false">
+            <label for="prestado">No</label>
+        </div>
+
+        <div class="botones">
+            <button type="button">Guardar</button>
+            <button type="button">Mostrar</button>
+        </div>
+
+    </form>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
