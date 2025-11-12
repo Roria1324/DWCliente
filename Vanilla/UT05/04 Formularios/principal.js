@@ -9,7 +9,7 @@ window.onload = () => {
    ***********************************************************/
 
   //Mediante el atributo name.
-  let formulario = document.forms.formCliente;
+  const formulario = document.forms.formCliente;
 
   //console.log(document.forms);
   /* console.log(formulario);
@@ -17,8 +17,8 @@ window.onload = () => {
   console.log(formulario.correo.value); */
 
   //Mediante el atributo id.
-  let formuId = document.getElementById("frmClnt");
-  let correoId = document.getElementById("email");
+  const formuId = document.getElementById("frmClnt");
+  const correoId = document.getElementById("email");
 
   /************************************************************
    * Elementos de un formulario.
@@ -39,7 +39,7 @@ window.onload = () => {
 
   // Radio (única selección).
   // El atributo name permite agrupar elementos.
-  let radioButton = document.getElementById("radioBoton");
+  const radioButton = document.getElementById("radioBoton");
   radioButton.addEventListener(
     "change",
     (evento) => {
@@ -55,7 +55,7 @@ window.onload = () => {
   );
 
   // CheckBox (múltiple selección).
-  let checkBox = document.getElementById("cajaBoton");
+  const checkBox = document.getElementById("cajaBoton");
   checkBox.addEventListener(
     "change",
     (evento) => {
@@ -74,9 +74,9 @@ window.onload = () => {
     false
   );
 
-  // Select (única y múltiple selección).
+  // Select (única selección).
   // La propiedad selectedIndex contiene la posición del array <options> seleccionada o -1 si no hay seleccionada ninguna.
-  let seleccion = document.getElementById("selectAprobar");
+  const seleccion = document.getElementById("selectAprobar");
   // Cada <select> contiene un HTMLCollection con los <option> que contiene.
   //console.log(seleccion.options);
   seleccion.addEventListener(
@@ -97,11 +97,23 @@ window.onload = () => {
     false
   );
 
+  // Select (múltiple selección).
+  const seleccionMultiple = document.getElementById("selectFrutas");
+
+  seleccionMultiple.addEventListener(
+    "change",
+    (evento) => {
+      // selectedOptions es un HTMLCollection con las etiquetas <option> seleccionadas.
+      console.log(evento.target.selectedOptions);
+    },
+    false
+  );
+
   // ************** Validar un formulario con onSubmit. ************** */
 
   // <form onSubmit="return validarFormulario();" action='web_procesa_datos.php'> -> Evitar a toda costa.
 
-  let boton = document.getElementById("aceptar");
+  const boton = document.getElementById("aceptar");
   boton.addEventListener(
     "click",
     (evento) => {
