@@ -47,7 +47,7 @@ window.onload = () => {
       // Se recorren todos los elementos agrupados.
       for (let i = 0; i < radio.length; i++) {
         // Se comprueba cuál ha sido marcado a través de su propiedad "checked".
-        radio[i].checked === true &&
+        if (radio[i].checked === true)
           console.log(`Valor del elemento marcado ${radio[i].value}.`);
       }
     },

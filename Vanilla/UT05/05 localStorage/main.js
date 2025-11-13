@@ -95,9 +95,12 @@ window.onload = () => {
         let nuevo_usuario = {
           id: crypto.randomUUID(),
           // Datos sin comprobar: chufa máxima.
-          nombre: document.getElementById("nombre").value,
+          /* nombre: document.getElementById("nombre").value,
           apellido: document.getElementById("apellido").value,
-          fecha: document.getElementById("fecha").value,
+          fecha: document.getElementById("fecha").value, */
+          nombre: document.forms.feoForm.nombre.value,
+          apellido: document.forms.feoForm.apellido.value,
+          fecha: document.forms.feoForm.fecha.value,
         };
         // Se introduce el usuario en el objeto JSON.
         usuarios = [...usuarios, nuevo_usuario];
