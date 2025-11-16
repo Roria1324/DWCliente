@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-
+    <div id="mensajeError"></div>
     <form name="formulario">
         <div>
             <label for="nombreDisco"><h3>Nombre Disco</h3></label>
@@ -31,14 +33,14 @@
         <div>
             <label for="genero"><h3>Género de Música</h3></label>
             <select name="genero" id="genero">
-                <option value="folk metal">Folk Metal</option>
+                <option value="folk_metal">Folk Metal</option>
                 <option value="hardstyle">Hardstyle</option>
                 <option value="pop">Pop</option>
-                <option value="Rap">Rap</option>
+                <option value="rap">Rap</option>
             </select>
         </div>
 
-        <div class="Localizacion">
+        <div class="localizacion">
             <label for="localizacionCodigo"><h3>Localización</h3></label> 
             <input type="text" name="localizacionCodigo" id="localizacionCodigo">
         </div>
@@ -55,9 +57,7 @@
             <button type="button">Guardar</button>
             <button type="button">Mostrar</button>
         </div>
-
     </form>
-
     <script type="module" src="./main.js"></script>
 </body>
 </html>
