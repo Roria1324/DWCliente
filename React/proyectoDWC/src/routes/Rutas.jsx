@@ -11,21 +11,23 @@ import AdminDiscentes from "../pages/submenu/AdminDiscentes.jsx";
 import AdminNotas from "../pages/submenu/AdminNotas.jsx";
 import AdminUsuarios from "../pages/submenu/AdminUsuarios.jsx";
 import DiscenteDetalle from "../pages/DiscenteDetalle.jsx";
+import Formularios from "../pages/Formularios.jsx";
+import CicloVida from "../pages/CicloVida.jsx";
 
-  /** Componenentes para crear rutas:
-   *
-   * -> instalar los paquetes necesarios : npm install react-router-dom,
-   * -> <BrowserRoute> que conecta la aplicación a la URL del navegador,
-   * -> <Routes> que genera un árbol de rutas y actúa como contenedor de ellas,
-   * -> <Route> que representa una ruta en el árbol y necesita:
-   *    -> path que es valor de la URL esperado (si coincide se activa),
-   *    -> element que es el componente que se carga en <Routes> cuando coincida.
-   * -> <Link> que sustituye a la etiqueta <a> de HTML para prevenir el funcionamiento por defecto y evitar que se recargue la página,
-   *    -> to representa el valor de la URL que activará la ruta,
-   * -> useNavigate es hook que permitirá controlar la navegación programaticamente,
-   * -> submenús con <Router> anidados y uso de <Outlet>,
-   * -> useParams para gestionar rutas dinámicas.
-   * */
+/** Componenentes para crear rutas:
+ *
+ * -> instalar los paquetes necesarios : npm install react-router-dom,
+ * -> <BrowserRoute> que conecta la aplicación a la URL del navegador,
+ * -> <Routes> que genera un árbol de rutas y actúa como contenedor de ellas,
+ * -> <Route> que representa una ruta en el árbol y necesita:
+ *    -> path que es valor de la URL esperado (si coincide se activa),
+ *    -> element que es el componente que se carga en <Routes> cuando coincida.
+ * -> <Link> que sustituye a la etiqueta <a> de HTML para prevenir el funcionamiento por defecto y evitar que se recargue la página,
+ *    -> to representa el valor de la URL que activará la ruta,
+ * -> useNavigate es hook que permitirá controlar la navegación programaticamente,
+ * -> submenús con <Router> anidados y uso de <Outlet>,
+ * -> useParams para gestionar rutas dinámicas.
+ * */
 
 const Rutas = () => {
   return (
@@ -54,6 +56,8 @@ const Rutas = () => {
           />
         </Route>
         <Route path='/login' element={<Login />} />
+        <Route path='/formularios' element={<Formularios />} />
+        <Route path='/ciclovida' element={<CicloVida />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </>

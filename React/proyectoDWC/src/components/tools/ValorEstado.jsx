@@ -5,7 +5,7 @@ const ValorEstado = (props) => {
   return (
     <>
       <div>
-        <h2>Valor del estado {titulo ? titulo : "actual"}.</h2>
+        <h3>Valor del estado {titulo ? titulo : "actual"}.</h3>
         <pre>{JSON.stringify(estado, null, 2)}</pre>
       </div>
     </>
