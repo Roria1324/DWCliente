@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="mensajeError"></div>
-    <form name="formulario">
+    <form id="formulario" name="formulario">
         <div>
             <label for="nombreDisco"><h3>Nombre Disco</h3></label>
             <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" required>
@@ -17,11 +17,11 @@
 
         <div>
             <label for="caratulaDisco"><h3>Carátula del Disco</h3></label>
-            <input type="url" name="caratula" id="caratula" placeholder="Introduzca url de la carátula">
+            <input type="URL" name="caratula" id="caratulaDisco" placeholder="Introduzca url de la carátula">
         </div>
 
         <div>
-            <label for="grupoMusica"><h3>Grupo de Música</h3></label>
+            <label for="nombreGrupo"><h3>Grupo de Música</h3></label>
             <input type="text" name="nombreGrupo" id="nombreGrupo" placeholder="Wind Rose">
         </div>
 
@@ -46,17 +46,20 @@
         </div>
         
         <div class="prestado">
-            <label for="prestado"><h3>Prestado</h3></label>
+            <label for="prestado1"><h3>Prestado</h3></label>
             <input type="radio" name="prestado" id="prestado" value="true">
-            <label for="prestado">Sí</label>
+            <label for="prestado2">Sí</label>
             <input type="radio" name="prestado" id="prestado" value="false">
             <label for="prestado">No</label>
         </div>
 
         <div class="botones">
-            <button type="button">Guardar</button>
-            <button type="button">Mostrar</button>
+            <button id="guardar" type="button">Guardar</button>
+            <button id="mostrar" type="button">Mostrar</button>
         </div>
+
+
+        <div id="discos"></div>
     </form>
     <script type="module" src="./main.js"></script>
 </body>

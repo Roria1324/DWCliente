@@ -35,7 +35,7 @@ const generoValidar = (genero) => {
 
 const localizacionValidar = (codigo) => {
     const patron = /^ES-[0-9]{3}[A-Z]{2}$/
-    if (!patron.test(codigo)) return false;
+    return patron.test(codigo)
 }
 
 export {nombreValidar, grupoMusicalValidar, yearPublicacionValidar, generoValidar, localizacionValidar};

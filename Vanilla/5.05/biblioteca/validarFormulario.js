@@ -1,5 +1,5 @@
 "use strict"
-import {nombreValidar, grupoMusicalValidar, yearPublicacionValidar, generoValidar, localizacionValidar} from "./biblioteca/validaciones.js"
+import {nombreValidar, grupoMusicalValidar, yearPublicacionValidar, generoValidar, localizacionValidar} from "./validaciones.js"
 
 const validarFormulario = () => {
     const nombre = document.getElementById("nombreDisco").value.trim();
@@ -53,7 +53,7 @@ const validarFormulario = () => {
         mensajeError.style.display = "block";
         return false;
     }
-
+    return true;
 }
 
 export default validarFormulario;
