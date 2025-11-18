@@ -11,7 +11,7 @@ const validarFormulario = () => {
     const mensajeError = document.getElementById("mensajeError")
     mensajeError.innerHTML = "";
 
-    const errores = [];
+    let errores = [];
 
     if (!nombreValidar(nombre)){
         errores = [...errores, "El nombre del disco debe tener al menos 5 caracteres."];
