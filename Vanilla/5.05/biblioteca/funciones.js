@@ -6,8 +6,8 @@ const pintarDiscos = (json = []) => {
     json.map((v, i, a) => {
         texto+=`
         <div class="fila>
-          <input class="borrar" type="button" value="Borrar disco">
           <div class="celda">
+          <input type="button" id="${v.id}" class="borrar" value="Borrar">
             Disco: ${v.nombreDisco},
             Caratula: <img src="${v.caratulaDisco}">,
             Nombre del grupo: ${v.nombreGrupo},
@@ -19,8 +19,8 @@ const pintarDiscos = (json = []) => {
     })
     return texto;
 }
-const borrarDisco = (discos , idDiscos) => {
-  return discos.filter((discos) => discos.)
+const borrarDisco = (discos , idDisco) => {
+  return discos.filter((disco) => disco.id !== idDisco)
 }
 
 const limpiarFormulario = (formulario) => {
