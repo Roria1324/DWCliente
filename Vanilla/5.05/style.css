@@ -1,5 +1,3 @@
-/* ===== CSS que me dio mi colega ===== */
-
 body {
     background: #0a0a0a;
     font-family: "Segoe UI", sans-serif;
@@ -169,14 +167,14 @@ button:hover, input[type="button"]:hover {
 }
 
 .imagen {
-    width: 90px;              /* tamaño pequeño */
+    width: 90px;
     height: 90px;
-    object-fit: cover;        /* evita deformación */
+    object-fit: cover;
     border-radius: 8px;
-    border: 2px solid #0ff8;  /* borde neón */
+    border: 2px solid #0ff8;
     box-shadow: 0 0 12px #0ff6;
     margin: 5px 0 10px 5px;
-    vertical-align: middle;   /* alinea con el texto */
+    vertical-align: middle;
 }
 
 
