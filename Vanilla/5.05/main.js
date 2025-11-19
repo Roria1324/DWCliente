@@ -36,11 +36,24 @@ window.onload = () => {
             document.getElementById("discos").innerHTML = pintarDiscos(discos);
         })
 
+        document.getElementById("btnBuscar").addEventListener("click", () => {
+            let texto = document.getElementById("buscarDiscos").value.trim();
+            let listaFiltrada = discos.filter((disco) => disco.nombreDisco.toLowerCase().includes(texto.toLowerCase()))
+            document.getElementById("discos").innerHTML = pintarDiscos(listaFiltrada);
+        })
+
+        document.getElementById("limpiarFiltros").addEventListener("click", () => {
+            document.getElementById("buscarDiscos").value = ""
+            document.getElementById("discos").innerHTML = pintarDiscos(discos);
+        })
+
         document.getElementById("discos").addEventListener("click", (e) => {
             if (e.target.classList.contains("borrar")){
+                if(confirm(`¿Desea eliminar el disco?`)){
                 discos = borrarDisco(discos, e.target.id)
                 localStorage.setItem("discos",JSON.stringify(discos))
                 document.getElementById("discos").innerHTML = pintarDiscos(discos);
+                }
             }
         })
     }
