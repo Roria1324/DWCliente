@@ -1,5 +1,7 @@
 "use strict";
 
+//Aquí solo están las validaciones básicas.
+
 const nombreValidar = (nombre) => {
     if (nombre.length < 5) {
         return false;
