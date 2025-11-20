@@ -1,0 +1,199 @@
+body {
+    background: #0a0a0a;
+    font-family: "Segoe UI", sans-serif;
+    color: #e4e4e4;
+    padding: 30px;
+}
+
+h3 {
+    margin: 0 0 5px 0;
+    text-shadow: 0 0 8px #0ff;
+}
+
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #0ff4;
+    border: 1px solid #0ff4;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background: #0d0d0d;
+    border: 2px solid #222;
+    border-radius: 8px;
+    color: #0ff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #0ff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+
+.error {
+    border-color: #ff0066 !important;
+    box-shadow: 0 0 10px #ff0066 !important;
+}
+
+#mensajeError {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #330014;
+    border: 1px solid #ff0066;
+    color: #ff5f9a;
+    box-shadow: 0 0 10px #ff0066;
+    display: none; 
+}
+
+button, input[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    background: #0ff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #0ff8;
+}
+
+button:hover, input[type="button"]:hover {
+    box-shadow: 0 0 20px #0ff;
+    transform: scale(1.05);
+}
+
+#discos {
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+}
+
+.disco {
+    background: #111;
+    border: 1px solid #0ff5;
+    padding: 15px;
+    border-radius: 12px;
+    position: relative;
+    color: #e4e4e4;
+    box-shadow: 0 0 15px #0ff5;
+}
+
+.disco img {
+    width: 150px;
+    border-radius: 8px;
+    border: 2px solid #0ff5;
+    box-shadow: 0 0 15px #0ff;
+}
+
+.disco h2 {
+    text-shadow: 0 0 8px #0ff;
+}
+
+.btn-eliminar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #ff0066;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-eliminar:hover {
+    text-shadow: 0 0 10px #ff0066;
+    transform: scale(1.2);
+}
+
+#filtros input[type="search"] {
+    box-shadow: 0 0 10px #0ff5;
+}
+
+.prestado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.prestado h3 {
+    margin-right: 10px;
+}
+
+.prestado input[type="radio"] {
+    width: auto;
+    margin: 0 5px 0 0;
+    accent-color: #0ff;
+}
+
+.prestado label {
+    margin-right: 15px;
+    cursor: pointer;
+    color: #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+.fila {
+    background: #111;
+    border: 1px solid #0ff6;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #0ff4;
+    color: #e4e4e4;
+}
+
+
+.celda {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.imagen {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #0ff8;
+    box-shadow: 0 0 12px #0ff6;
+    margin: 5px 0 10px 5px;
+    vertical-align: middle;
+}
+
+
+.borrar {
+    align-self: flex-end;
+    padding: 7px 14px;
+    background: #ff0066;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #ff0068aa;
+    margin-bottom: 8px;
+}
+
+.borrar:hover {
+    background: #ff1a7a;
+    box-shadow: 0 0 15px #ff0066;
+    transform: scale(1.05);
+}

@@ -1,6 +1,8 @@
 "use strict"
 import {nombreValidar, grupoMusicalValidar, yearPublicacionValidar, generoValidar, localizacionValidar} from "./validaciones.js"
 
+//Aquí están todas las validaciones que se requieren en la práctica, considero mejor separarlas de las básicas ya que por tema organizativo
+//lo considero mejor y más sencillo.
 const validarFormulario = () => {
     const nombre = document.getElementById("nombreDisco").value.trim();
     const grupo = document.getElementById("nombreGrupo").value.trim();
@@ -8,7 +10,7 @@ const validarFormulario = () => {
     const genero = document.getElementById("genero").value;
     const localizacion = document.getElementById("localizacionCodigo").value.trim();
 
-    const mensajeError = document.getElementById("mensajeError")
+    const mensajeError = document.getElementById("mensajeError");
     mensajeError.innerHTML = "";
 
     let errores = [];

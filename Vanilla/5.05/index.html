@@ -4,35 +4,37 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Discos</title>
 
 </head>
 <body>
     <div id="mensajeError"></div>
     <form id="formulario" name="formulario">
-        <div>
+        <div class="nombre">
             <label for="nombreDisco"><h3>Nombre Disco</h3></label>
             <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" required>
         </div>
 
-        <div>
+        <div class="imagenDisco">
             <label for="caratulaDisco"><h3>Caratula del Disco</h3></label>
             <input type="URL" name="caratula" id="caratulaDisco" placeholder="Introduzca url de la caratula">
         </div>
 
-        <div>
+        <div class="grupo">
             <label for="nombreGrupo"><h3>Grupo de Música</h3></label>
             <input type="text" name="nombreGrupo" id="nombreGrupo" placeholder="Wind Rose">
         </div>
 
-        <div>
+        <div class="yearPb">
             <label for="yearPublication"><h3>Año de Publicación</h3></label>
             <input type="number" name="yearPublication" id="yearPublication" placeholder="2019">
         </div>
 
-        <div>
+        <div class="generoOpcion">
             <label for="genero"><h3>Género de Música</h3></label>
             <select name="genero" id="genero">
+                <option value="">Selecciona una opción</option>
                 <option value="folk_metal">Folk Metal</option>
                 <option value="hardstyle">Hardstyle</option>
                 <option value="pop">Pop</option>
