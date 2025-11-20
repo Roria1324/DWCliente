@@ -15,7 +15,7 @@ const EffectCiclo = () => {
    *
    * No es posible evitar su ejecución al montado del componente,
    * pero sí obligarle a que no haga nada.
-   *
+   *<EffectCiclo />
    * Hay que utilizarlo siempre con estados y props (bueno, casi).
    *
    ***/
@@ -24,6 +24,17 @@ const EffectCiclo = () => {
   const [contador, setContador] = useState(contadorInicial);
 
   // Acciones a realizar en la carga del componente (que muestre un mesaje por consola).
+
+  useEffect(() => {
+    console.log("Monto en componente.");
+  }, []);
+
+  useEffect(() => {
+    contador !== 0 && console.log(`El valor del contador es ${contador}`);
+    if (contador % 5 === 0) {
+      console.log(`${contador} es múltiplo de cinco.`);
+    }
+  });
 
   // Acciones a realizar (side effects) en cada redibujado del componente.
   //  -> imprimir por consola si contador tiene valor e

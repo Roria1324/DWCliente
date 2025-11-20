@@ -33,7 +33,7 @@ function FormularioObjetoCompleto() {
   // por eso se hace una función especial para este elemento.
   const actualizarDatoCheck = (evento) => {
     const { name } = evento.target;
-    const value = discente[name] ? "" : evento.target.value;
+    const value = discente[name] === "" ? evento.target.value : "";
     setDiscente({ ...discente, [name]: value });
   };
 
@@ -111,7 +111,7 @@ function FormularioObjetoCompleto() {
                 actualizarDato(evento);
               }}
             />
-            Sé utiliar desestructuración de objetos.
+            Sé utilizar desestructuración de objetos.
           </label>
           <br />
           <label>
@@ -124,7 +124,7 @@ function FormularioObjetoCompleto() {
                 actualizarDato(evento);
               }}
             />
-            No sé utiliar desestructuración de objetos.
+            No sé utilizar desestructuración de objetos.
           </label>
           <br />
           <label>

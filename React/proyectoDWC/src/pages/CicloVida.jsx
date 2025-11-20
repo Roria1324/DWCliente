@@ -9,9 +9,10 @@ const CicloVida = () => {
     <>
       <h2>Ciclo de vida en React con useEffect.</h2>
       <Contenedor>
-        <EffectCiclo />
-        {/* <EffectDependencias /> */}
-        {/* <EffectDOM /> */}
+        {/* <EffectCiclo /> */}
+        {/* {<EffectDependencias />} */}
+        <EffectDOM />
+        <p>Hola</p>
       </Contenedor>
     </>
   );

@@ -33,16 +33,26 @@ const EffectDependencias = () => {
   // Creación el useEffect con dependencias.
   useEffect(() => {
     // Mensaje incial sin sentido. ¿Mostrar?
-    console.log(`El número de frutas ha aumentado hasta: ${frutas.length}.`);
+    frutas.length !== 0 &&
+      console.log(`El número de frutas ha aumentado hasta: ${frutas.length}.`);
   }, [frutas]);
+
+  useEffect(() => {
+    // Mensaje incial sin sentido. ¿Mostrar?
+    verduras.length !== 0 &&
+      console.log(
+        `El número de verduras ha aumentado hasta: ${verduras.length}.`
+      );
+  }, [verduras]);
 
   return (
     <>
       <h2>Uso de dependencias con useEffect.</h2>
       <div>
         <button
-          onClick={() => {
+          onClick={(e) => {
             borrar();
+            console.log(e.target);
           }}
         >
           Borrar vegetales

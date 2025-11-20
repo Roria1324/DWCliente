@@ -4,7 +4,7 @@ import ValorEstado from "../tools/ValorEstado.jsx";
 function FormularioObjeto() {
   // Crear un estado inicial (objeto con valores por defecto para evitar errores al dibujar).
   const valoresIniciales = {
-    nombre: undefined,
+    nombre: "",
     apellidos: "",
     correo: "",
   };

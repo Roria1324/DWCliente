@@ -10,7 +10,10 @@ const Formularios = () => {
     <>
       <div className='izquierda'>
         <Contenedor>
-          <Formulario />
+          {/* <Formulario /> */}
+          {/* <FormularioObjeto /> */}
+          <FormularioObjetoCompleto />
+          {/* <FormularioObjetoControl /> */}
         </Contenedor>
       </div>
     </>

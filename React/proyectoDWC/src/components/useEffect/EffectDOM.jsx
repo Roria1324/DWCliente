@@ -19,7 +19,7 @@ const EffectDOM = () => {
   const [mostrar, setMostrar] = useState(valorInicial);
 
   return (
-    <React.Fragment>
+    <>
       <div>
         <h2>Desmontando componentes.</h2>
         <button
@@ -30,9 +30,9 @@ const EffectDOM = () => {
           Montar/desmontar componente
         </button>
         {/* Se utilia el operador lógico para montar/demontar el componente. */}
-        {/* {mostrar && <EffectDOMColoricos />} */}
+        {mostrar && <EffectDOMColoricos />}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
