@@ -10,7 +10,13 @@ const Menu = () => {
         <Link className='menu-elemento' to='/'>
           Inicio
         </Link>
-        <Link className='menu-elemento' to='/login'>
+        <Link className='menu-elemento' to='/formularios'>
+          Formularios
+        </Link>
+        <Link className='menu-elemento' to='/ciclovida'>
+          useEffect
+        </Link>
+        {/* <Link className='menu-elemento' to='/login'>
           Inicia sesión
         </Link>
         <Link className='menu-elemento' to='/discentes'>
@@ -21,7 +27,7 @@ const Menu = () => {
         </Link>
         <Link className='menu-elemento' to='/administracion'>
           Administración
-        </Link>
+        </Link> */}
         <Link className='menu-elemento' to='/acerca-de'>
           Acerca de
         </Link>
