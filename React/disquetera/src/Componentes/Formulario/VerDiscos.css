@@ -1,0 +1,67 @@
+/* VerDiscos.css */
+
+.contenedorDiscos {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #f0f0f5;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.contenedorDiscos h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #9b59b6, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contenedorDiscos p {
+    text-align: center;
+    font-style: italic;
+    color: #ff4c7a;
+}
+
+.discoVer {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a1d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.discoVer thead {
+    background-color: #7b2cbf;
+    color: white;
+}
+
+.discoVer thead th {
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.discoVer tbody tr:nth-child(even) {
+    background-color: #202026;
+}
+
+.discoVer tbody tr:hover {
+    background-color: #2a2a34;
+    transition: 0.2s;
+}
+
+.discoVer tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #2a2a2e;
+    vertical-align: middle;
+}
+
+.imagenCaratula {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #444;
+}
