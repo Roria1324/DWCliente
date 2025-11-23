@@ -11,6 +11,14 @@ const VerDiscos = () => {
     const datos = JSON.parse(localStorage.getItem("discos")) || []
     setListadoDiscos(datos)
   }, [])
+
+  const borrarDisco = (idDiscos) => {
+    if (confirm("¿Desea borrar el disco?")){
+      const nuevaLista = listadoDiscos.filter( d =>  d.id !== idDiscos)
+      setListadoDiscos(nuevaLista)
+      localStorage.setItem("discos",JSON.stringify(nuevaLista));
+    }
+  }
   return (
     <div className='contenedorDiscos'>
       <h2>Listado Discos</h2>
@@ -24,6 +32,7 @@ const VerDiscos = () => {
           <th>Año</th>
           <th>Código</th>
           <th>Prestado</th>
+          <th></th>
       </tr>
       </thead>
 
@@ -36,6 +45,9 @@ const VerDiscos = () => {
                 <td>{disco.yearPublication}</td>
                 <td>{disco.localizacionCodigo}</td>
                 <td>{disco.prestado} </td>
+                <td><input type="button" id={disco.id} value="Borrar" onClick={(e) => {
+                  borrarDisco(e.target.id)
+                }}/></td>
             </tr>
           ))}
       </tbody>

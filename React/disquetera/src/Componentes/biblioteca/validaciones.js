@@ -3,7 +3,7 @@
 //Aquí solo están las validaciones básicas.
 
 const nombreValidar = (nombre) => {
-    if (nombre.length < 5) {
+    if (!nombre|| nombre.length < 5 ) {
         return false;
     } else {
         return true;
@@ -11,7 +11,7 @@ const nombreValidar = (nombre) => {
 }
 
 const grupoMusicalValidar = (nombre) => {
-    if(nombre.length < 5) {
+    if(!nombre|| nombre.length < 5) {
         return false;
     } else {
         return true;
@@ -19,7 +19,7 @@ const grupoMusicalValidar = (nombre) => {
 }
 
 const yearPublicacionValidar = (year) => {
-    if(year.length < 4 || year.length > 4) return false;
+    if( !year|| year.length < 4 || year.length > 4 ) return false;
     if(isNaN(year)){
         return false
     } else {
