@@ -19,7 +19,7 @@ const grupoMusicalValidar = (nombre) => {
 }
 
 const yearPublicacionValidar = (year) => {
-    if( !year|| year.length < 4 || year.length > 4 ) return false;
+    if( !year || year.length < 4 || year.length > 4 ) return false;
     if(isNaN(year)){
         return false
     } else {

@@ -1,26 +1,42 @@
 "use strict";
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import "./VerDiscos.css"
 
 
 const VerDiscos = () => {
 
   const [listadoDiscos, setListadoDiscos] = useState([]);
+  const [listadoOriginal, setListadoOriginal] = useState([])
+  const [texto, setTexto] = useState("")
+  
 
   useEffect(() => { 
     const datos = JSON.parse(localStorage.getItem("discos")) || []
     setListadoDiscos(datos)
+    setListadoOriginal(datos)
   }, [])
 
+  const buscar = (e) => {
+    const valor = e.target.value
+    setTexto(valor)
+    
+    let listaFiltrada = listadoOriginal.filter((disco) => disco.nombreDisco.toLowerCase().includes(valor.toLowerCase()))
+    setListadoDiscos(listaFiltrada)
+  }
+  
   const borrarDisco = (idDiscos) => {
     if (confirm("¿Desea borrar el disco?")){
-      const nuevaLista = listadoDiscos.filter( d =>  d.id !== idDiscos)
+      const nuevaLista = listadoOriginal.filter( d =>  d.id !== idDiscos)
+      setListadoOriginal(nuevaLista)
       setListadoDiscos(nuevaLista)
+      
       localStorage.setItem("discos",JSON.stringify(nuevaLista));
     }
   }
   return (
     <div className='contenedorDiscos'>
+      <input type="search" placeholder='Buscar disco...' name="buscarDisco" id="buscarDisco" value={texto} onChange={buscar}/>
       <h2>Listado Discos</h2>
       {listadoDiscos.length === 0 && <p>No hay discos guardados</p>}
     <table className='discoVer'>
@@ -29,9 +45,7 @@ const VerDiscos = () => {
           <th>Nombre</th>
           <th>Caratula</th>
           <th>Grupo</th>
-          <th>Año</th>
-          <th>Código</th>
-          <th>Prestado</th>
+          <th>Genero</th>
           <th></th>
       </tr>
       </thead>
@@ -40,11 +54,9 @@ const VerDiscos = () => {
           {listadoDiscos.map((disco) => (
             <tr key={disco.id}>
                 <td>{disco.nombreDisco}</td>
-                <td> <img src={disco.caratulaDisco} className='imagenCaratula'/> </td>
+                <td><Link to={`/verInfo/${disco.id}`}> <img src={disco.caratulaDisco} className='imagenCaratula'/></Link></td>
                 <td>{disco.nombreGrupo}</td>
-                <td>{disco.yearPublication}</td>
-                <td>{disco.localizacionCodigo}</td>
-                <td>{disco.prestado} </td>
+                <td>{disco.genero}</td>
                 <td><input type="button" id={disco.id} value="Borrar" onClick={(e) => {
                   borrarDisco(e.target.id)
                 }}/></td>
