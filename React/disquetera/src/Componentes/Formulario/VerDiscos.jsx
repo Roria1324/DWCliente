@@ -5,18 +5,19 @@ import "./VerDiscos.css"
 
 
 const VerDiscos = () => {
-
+  //Estados usados para poder ver los discos, borrar discos o buscarlos.
   const [listadoDiscos, setListadoDiscos] = useState([]);
   const [listadoOriginal, setListadoOriginal] = useState([])
   const [texto, setTexto] = useState("")
   
-
+  //Usado para cargar una vez todos los discos que hay almacenados y no sobrecargar de renders la página.
   useEffect(() => { 
     const datos = JSON.parse(localStorage.getItem("discos")) || []
     setListadoDiscos(datos)
     setListadoOriginal(datos)
   }, [])
 
+  //Funciones buscar y borrar de la práctica anterior adaptada 
   const buscar = (e) => {
     const valor = e.target.value
     setTexto(valor)

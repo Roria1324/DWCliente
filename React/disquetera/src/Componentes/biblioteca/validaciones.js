@@ -36,6 +36,7 @@ const generoValidar = (genero) => {
 }
 
 const localizacionValidar = (codigo) => {
+    if (!codigo) return false;
     const patron = /^ES-[0-9]{3}[A-Z]{2}$/
     return patron.test(codigo)
 }

@@ -96,6 +96,7 @@ const Formulario = () => {
             <div className="localizacion">
                 <label htmlFor="localizacionCodigo"><h3>Localización</h3></label> 
                 <input type="text" name="localizacionCodigo" id="localizacionCodigo" onChange={actualizarInputs} value={disco.localizacionCodigo}/>
+                {error.localizacionCodigo && <p className='msgError'>{error.localizacionCodigo}</p>}
             </div>
             
             <div className="prestado">
