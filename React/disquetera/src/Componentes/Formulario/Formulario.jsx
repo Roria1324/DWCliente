@@ -27,7 +27,8 @@ const Formulario = () => {
         const {name, value} = e.target
         setDisco(nprev => ({...nprev, [name]: value}))
     }
-
+//Uso de Object.keys para el acceso a los datos de discos.
+//Si hay errores se guardan y se muestran donde esté el error.
     const guardar = () => {
         const resultado = validarFormulario(disco);
         if (Object.keys(resultado).length > 0){

@@ -17,7 +17,7 @@ const VerDiscos = () => {
     setListadoOriginal(datos)
   }, [])
 
-  //Funciones buscar y borrar de la práctica anterior adaptada 
+  //Funciones buscar y borrar de la práctica anterior adaptada a react.
   const buscar = (e) => {
     const valor = e.target.value
     setTexto(valor)
