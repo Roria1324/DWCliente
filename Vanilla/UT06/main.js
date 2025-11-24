@@ -231,6 +231,7 @@ window.onload = () => {
     .catch((error) => {
       // Problemas con la gestión de errores según el servidor.
       console.error(error);
+      // ¿Y si se necesita mostrar los datos en el DOM?
     }); */
 
   // Petición simplificada ¡¡¡Cuidado con la sintaxis y el return!!!
