@@ -12,7 +12,7 @@ const dibujarPlanetas = (planetas) => {
       })
     : (plantilla = "<h3>No se han encontrado planetas en la galaxia.</h3>");
   // Se introducen en el DOM en el lugar indicado.
-  document.getElementById("planetas").innerHTML = plantilla;
+  return plantilla;
 };
 
 const dibujarGentuza = (gentuza) => {

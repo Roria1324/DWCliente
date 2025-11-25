@@ -19,31 +19,7 @@ window.onload = () => {
   /*************************************************************
    * Obtención y pintado de los datos. */
 
-  fetch(urlPlanetas)
-    .then((respuesta) => {
-      return respuesta.json(); // Se transforma el resultado a un objeto JSON.
-    })
-    .then((datos) => {
-      // Se muestran por consola.
-      console.log(datos);
-      // Se introducen en el DOM con una plantilla.
-      let plantilla = "";
-      Array.isArray(datos) && datos.length
-        ? datos.map((planeta) => {
-            let gente = parseInt(planeta.population)
-              ? parseInt(planeta.population).toLocaleString("es-ES")
-              : "Desconocido";
-            plantilla += `<div class="planeta borde"><h2>${planeta.name}</h2><p>Población: ${gente}</p></div>`;
-          })
-        : (plantilla = "<h3>No se han encontrado planetas en la galaxia.</h3>");
-
-      planetas.innerHTML = plantilla;
-    })
-    .catch((error) => {
-      return `Se ha producido un error: ${error.message}`; // Por si se produce un error.
-    });
-
-  //traerPlanetas();
+  //  console.log(traerPlanetas());
 
   /*************************************************************
    * Trabajando con eventos.
@@ -53,7 +29,14 @@ window.onload = () => {
    *
    */
 
-  botonPlanetas.addEventListener("click", (evento) => {});
+  /* traerPlanetas().then((planetas) => {
+      contenedorPlanetas.innerHTML = dibujarPlanetas(planetas);
+    }); */
+
+  botonPlanetas.addEventListener("click", async (evento) => {
+    const planetas = await traerPlanetas();
+    contenedorPlanetas.innerHTML = dibujarPlanetas(planetas);
+  });
 
   /*************************************************************
    *  Async / Await
