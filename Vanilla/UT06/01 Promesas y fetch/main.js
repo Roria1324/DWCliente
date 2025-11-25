@@ -14,7 +14,6 @@
  *           -> mayor control de las respuestas del servidor.
  */
 
-import { mostrar } from "./bibliotecas/manipularDOM.js";
 
 window.onload = () => {
   // Se recogen los elementos de la web que necesitaré en lo sucesivo.
@@ -219,20 +218,31 @@ window.onload = () => {
       console.log(datos);
     }); */
 
-  // Otra forma de trabajar con promesas.
-  /* fetch(url)
+  // ¡¡¡ATENCIÖN!!! Código nefasto, no utilizar bajo ningún concepto.
+  fetch(url)
     .then((respuesta) => {
-      return respuesta.text(); // Se devuelve una cadena de texto.
+      return respuesta.json();
     })
     .then((datos) => {
+      // Se muestran por consola.
       console.log(datos);
-      //console.log(JSON.parse(datos)); // Se convierte a JSON.
+      // Se introducen en el DOM con una plantilla.
+      let plantilla = "";
+      Array.isArray(datos) && datos.length
+        ? datos.map((planeta) => {
+            let gente = parseInt(planeta.population)
+              ? parseInt(planeta.population).toLocaleString("es-ES")
+              : "Desconocido";
+            plantilla += `<div class="planeta"><h2>${planeta.name}</h2><p>Población: ${gente}</p></div>`;
+          })
+        : (plantilla = "<h3>No se han encontrado planetas en la galaxia.</h3>");
+
+      planetas.innerHTML = plantilla;
     })
     .catch((error) => {
       // Problemas con la gestión de errores según el servidor.
       console.error(error);
-      // ¿Y si se necesita mostrar los datos en el DOM?
-    }); */
+    });
 
   // Petición simplificada ¡¡¡Cuidado con la sintaxis y el return!!!
   /* fetch(url)
