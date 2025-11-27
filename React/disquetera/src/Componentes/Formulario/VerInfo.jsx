@@ -4,7 +4,7 @@ import "./VerInfo.css"
 import { useParams } from 'react-router-dom'
 
 const VerInfo = () => {
-
+//Componente para ver el disco que el usuario haya seleccionado.
   const [listadoDiscos, setListadoDiscos] = useState([])
   const {id} = useParams()
 
