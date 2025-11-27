@@ -1,4 +1,4 @@
-"user strict"
+"use strict"
 
 
 //Funciones para mostrar discos, borrar discos y reiniciar el formulario.
