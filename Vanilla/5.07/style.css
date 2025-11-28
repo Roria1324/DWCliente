@@ -1,129 +1,102 @@
-/* ———— FUENTE ———— */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
 
-/* ———— ESTILO GENERAL ———— */
 body {
-    background: #000;
-    color: #e0e0e0;
-    font-family: 'Roboto Condensed', sans-serif;
+    background: radial-gradient(circle at center, #000 0%, #060a1f 100%);
+    color: #e2e2e2;
+    font-family: "Pathway Gothic One", sans-serif;
+    letter-spacing: 1px;
     margin: 0;
     padding: 0;
 }
 
-/* Contenedor principal */
 .contenedor-principal {
     display: flex;
-    gap: 25px;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 40px;
+    padding: 40px;
 }
 
-/* ———— LISTADO DE PELÍCULAS ———— */
 .contenedor-peliculas {
-    width: 30%;
-    background: #0d0d0d;
-    border: 2px solid #1c1c1c;
-    padding: 15px;
-    border-radius: 10px;
-    overflow-y: auto;
-    max-height: 85vh;
-    box-shadow: 0 0 12px rgba(0, 150, 255, 0.4);
+    width: 35%;
+    padding: 20px;
+    background: rgba(10, 10, 30, 0.4);
+    border: 1px solid #1b2557;
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
 }
 
-.contenedor-peliculas ul {
+.listado {
+    list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 15px 0;
 }
 
 .listado li {
-    list-style: none;
-    padding: 12px;
-    background: #111;
-    margin-bottom: 10px;
-    border-left: 4px solid #0ff;
-    color: #ccc;
+    padding: 12px 16px;
+    font-size: 20px;
+    color: #9cc7ff;
+    background: rgba(0, 30, 60, 0.5);
+    border-left: 3px solid #4aa3ff;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.2s ease;
-    font-size: 17px;
+    transition: 0.25s ease;
 }
 
-/* Hover con efecto panel SW */
 .listado li:hover {
-    background: #1a1a1a;
-    border-left-color: #f00;
-    color: #fff;
-    transform: translateX(6px);
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    background: rgba(0, 60, 120, 0.7);
+    transform: translateX(8px);
+    box-shadow: 0 0 10px #4aa3ff;
 }
 
-/* ———— CONTENEDOR INFO (DERECHA) ———— */
 .contenedor-info {
-    width: 70%;
-    background: #0a0a0a;
-    border: 2px solid #1b1b1b;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
-}
-
-/* Título grande */
-.contenedor-titulo h2,
-.titulo {
-    font-size: 32px;
-    color: #0ff;
-    margin: 0 0 20px 0;
-    text-shadow: 0 0 8px cyan;
-}
-
-/* ———— DATOS DE LA PELÍCULA ———— */
-.conenedor-datospeli {
-    background: rgba(15, 15, 15, 0.9);
-    border-radius: 8px;
+    width: 65%;
     padding: 20px;
-    border: 1px solid #222;
+    background: rgba(15, 15, 35, 0.45);
+    border: 1px solid #26346b;
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 90, 180, 0.25);
+    min-height: 300px;
 }
 
-/* Estilo de líneas de información */
-.conenedor-datospeli p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 8px 0;
+.contenedor-titulo h2, .titulo {
+    font-size: 40px;
+    text-shadow: 0 0 15px #ffe81f;
+    color: #ffe81f;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-/* Director, productor */
-.director, .productor {
-    color: #0ff;
-    font-weight: 600;
-}
-
-/* Sinopsis estilo "crawl" */
-.sinopsis {
+.conenedor-datospeli {
     margin-top: 15px;
-    padding: 15px;
-    background: #111;
-    border-left: 3px solid #fdd835;
-    font-style: italic;
-    border-radius: 6px;
-    max-height: 250px;
-    overflow-y: auto;
-    color: #ffe082;
-    text-shadow: 0 0 5px #fdd835;
 }
 
-/* ———— RESPONSIVE ———— */
-@media (max-width: 768px) {
-    .contenedor-principal {
-        flex-direction: column;
-    }
+.conenedor-datospeli p {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #d0d8ff;
+}
 
-    .contenedor-peliculas,
-    .contenedor-info {
-        width: 100%;
-    }
+.director, .productor {
+    color: #7bb7ff;
+}
 
-    .contenedor-peliculas {
-        max-height: 300px;
+.sinopsis {
+    margin-top: 20px;
+    line-height: 1.5;
+    padding-left: 10px;
+    border-left: 3px solid #4aa3ff;
+    color: #bcd2ff;
+}
+
+.contenedor-info, .contenedor-peliculas {
+    animation: holo 6s infinite alternate ease-in-out;
+}
+
+@keyframes holo {
+    from {
+        box-shadow: 0 0 12px rgba(0, 150, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 18px rgba(0, 150, 255, 0.5);
     }
 }
