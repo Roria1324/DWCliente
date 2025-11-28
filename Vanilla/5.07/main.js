@@ -1,22 +1,21 @@
 "use strict";
 import obtenerDatos from "./biblioteca/obtenerInfo.js"
-import pintarPeliculas from "./biblioteca/pintarDatos.js";
+import {pintarPeliculas, buscar, datosPelicula} from "./biblioteca/pintarDatos.js";
 
 window.onload = () => {
-    const url = "https://swapi.py4e.com/api/films/"
+    const url = "https://swapi.info/api/films"
+
+    const listado = document.getElementById("peliculas-listado")
     
-
-    const datos = async () => {
-        const info = await obtenerDatos(url)
-        console.log(info);
-    }
-    datos()
-
     const verPelis = async () => {
         const pelis = await obtenerDatos(url)
-        document.getElementById("peliculas-listado").innerHTML = pintarPeliculas(pelis)
+        listado.innerHTML = pintarPeliculas(pelis)
     }
-
     verPelis()
-    
+
+    listado.addEventListener("click", async (e) => {
+        const pelis = await obtenerDatos(url)
+        let peli = buscar(pelis, e.target.id)
+        document.getElementById("conenedor-datospeli").innerHTML = datosPelicula(peli)
+    }) 
 }

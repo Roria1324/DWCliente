@@ -1,0 +1,129 @@
+/* ———— FUENTE ———— */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+/* ———— ESTILO GENERAL ———— */
+body {
+    background: #000;
+    color: #e0e0e0;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ———— LISTADO DE PELÍCULAS ———— */
+.contenedor-peliculas {
+    width: 30%;
+    background: #0d0d0d;
+    border: 2px solid #1c1c1c;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 85vh;
+    box-shadow: 0 0 12px rgba(0, 150, 255, 0.4);
+}
+
+.contenedor-peliculas ul {
+    padding: 0;
+    margin: 0;
+}
+
+.listado li {
+    list-style: none;
+    padding: 12px;
+    background: #111;
+    margin-bottom: 10px;
+    border-left: 4px solid #0ff;
+    color: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    font-size: 17px;
+}
+
+/* Hover con efecto panel SW */
+.listado li:hover {
+    background: #1a1a1a;
+    border-left-color: #f00;
+    color: #fff;
+    transform: translateX(6px);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* ———— CONTENEDOR INFO (DERECHA) ———— */
+.contenedor-info {
+    width: 70%;
+    background: #0a0a0a;
+    border: 2px solid #1b1b1b;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.5);
+}
+
+/* Título grande */
+.contenedor-titulo h2,
+.titulo {
+    font-size: 32px;
+    color: #0ff;
+    margin: 0 0 20px 0;
+    text-shadow: 0 0 8px cyan;
+}
+
+/* ———— DATOS DE LA PELÍCULA ———— */
+.conenedor-datospeli {
+    background: rgba(15, 15, 15, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #222;
+}
+
+/* Estilo de líneas de información */
+.conenedor-datospeli p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+/* Director, productor */
+.director, .productor {
+    color: #0ff;
+    font-weight: 600;
+}
+
+/* Sinopsis estilo "crawl" */
+.sinopsis {
+    margin-top: 15px;
+    padding: 15px;
+    background: #111;
+    border-left: 3px solid #fdd835;
+    font-style: italic;
+    border-radius: 6px;
+    max-height: 250px;
+    overflow-y: auto;
+    color: #ffe082;
+    text-shadow: 0 0 5px #fdd835;
+}
+
+/* ———— RESPONSIVE ———— */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        flex-direction: column;
+    }
+
+    .contenedor-peliculas,
+    .contenedor-info {
+        width: 100%;
+    }
+
+    .contenedor-peliculas {
+        max-height: 300px;
+    }
+}

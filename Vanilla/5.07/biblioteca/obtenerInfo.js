@@ -6,7 +6,7 @@ const obtenerDatos = (url) => {
             return respuesta.json()
         })
         .then ((datos) => {
-            return datos.results
+            return datos
         })
         .catch((error) => {
             return(`Hay una perturbación en la fuerza: ${error}`)
