@@ -6,7 +6,7 @@ window.onload = () => {
     const url = "https://swapi.info/api/films"
 
     const listado = document.getElementById("peliculas-listado")
-    
+    //Funcion para ver el listado de películas, he decidido dejarlo en el main ya que es una funcion 
     const verPelis = async () => {
         const pelis = await obtenerDatos(url)
         listado.innerHTML = pintarPeliculas(pelis)
