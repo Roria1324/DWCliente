@@ -182,7 +182,7 @@ window.onload = () => {
     }); */
 
   // Gestión de errores de forma manual.
-  /* fetch(fichero_falso)
+  fetch(fichero_falso)
     .then((respuesta) => {
       // Si se ha producido un error (respuesta.ok no es true)...
       if (!respuesta.ok) {
@@ -203,7 +203,7 @@ window.onload = () => {
       error.message === "404" && console.log(`Información fea no encontrada.`);
       error.message === "501" &&
         console.log(`Información del fichero feo no válida.`);
-    }); */
+    });
 
   /** Petición a un servidor externo. ********************** */
   /* fetch(url)

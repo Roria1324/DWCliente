@@ -21,7 +21,7 @@ window.onload = () => {
   //console.log(Promise); //Se imprime el objeto para ver sus propiedades.
   // Se declaran cuatro promesas con resultados diferentes:
 
-  /* var p1 = new Promise((resolver, rechazar) => {
+  var p1 = new Promise((resolver, rechazar) => {
     setTimeout(() => resolver("Uno"), 1100);
   });
 
@@ -38,8 +38,8 @@ window.onload = () => {
     }
   });
 
-  var p4 = new Promise((resolver, rechazar) => {
-    setTimeout(() => rechazar(new Error("Promise p4 rechazada.")), 1);
+  /* var p4 = new Promise((resolver, rechazar) => {
+    setTimeout(() => rechazar(new Error("Promise p4 rechazada.")), 5);
   }); */
 
   /***********************************************************************
@@ -69,9 +69,9 @@ window.onload = () => {
 
   /* const todasHechas = Promise.allSettled([p1, p2, p3, p4]);
 
-  console.log(todasHechas); */
+  console.log(todasHechas);
 
-  /* todasHechas
+  todasHechas
     .then((datos) => {
       let estado;
       datos.map((valor, indice, array) => {
@@ -87,8 +87,8 @@ window.onload = () => {
     })
     .catch((error) => {
       console.error(error.message);
-    }); */
-
+    });
+ */
   /***********************************************************************
    * Primera en estado "fullfiled".
    *
@@ -111,7 +111,7 @@ window.onload = () => {
    *
    */
 
-  /*  const masRapida = Promise.race([p1, p2, p4]);
+  /* const masRapida = Promise.race([p1, p2, p4]);
 
   console.log(masRapida);
 
@@ -136,17 +136,13 @@ window.onload = () => {
     traerDatos(url1),
     traerDatos(url2),
     traerDatos(url3),
-    p4,
   ]);
 
   console.log(todasBien); */
 
-  /* const todasTerminadas = Promise.allSettled([
-    traerDatos(url1),
-    traerDatos(url2),
-    traerDatos(url3),
-    p4,
-  ]);
+  /* const promesas = [traerDatos(url1), traerDatos(url2), traerDatos(url3), p4];
+
+  const todasTerminadas = Promise.allSettled(promesas);
 
   console.log(todasTerminadas); */
 
@@ -159,14 +155,14 @@ window.onload = () => {
 
   console.log(primeraResuelta); */
 
-  /*  const masRapida = Promise.race([
+  /* const masRapida = Promise.race([
     traerDatos(url1),
     traerDatos(url2),
     traerDatos(url3),
     p4,
-  ]); 
+  ]); */
 
-  console.log(masRapida); */
+  //console.log(masRapida);
 
   // ¿Cómo se consumen?
 
@@ -176,4 +172,27 @@ window.onload = () => {
    * Se necesitan los nombres de los residentes en Tatooine.
    *
    */
+
+  const residentes = traerDatos("https://swapi.dev/api/planets/1")
+    .then((datos) => {
+      return datos.residents;
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+
+  residentes.then((residentes) => {
+    const promesasResidentes = residentes.map((residente) => {
+      return traerDatos(residente);
+    });
+    console.log(promesasResidentes);
+
+    const resultadosResidentes = Promise.allSettled(promesasResidentes);
+
+    resultadosResidentes.then((datosResidentes) => {
+      datosResidentes.map((habitante) => {
+        console.log(habitante.value.name);
+      });
+    });
+  });
 }; // Fin del window.load.
