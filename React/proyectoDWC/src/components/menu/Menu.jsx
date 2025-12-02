@@ -16,6 +16,9 @@ const Menu = () => {
         <Link className='menu-elemento' to='/ciclovida'>
           useEffect
         </Link>
+        <Link className='menu-elemento' to='/planetas'>
+          Consumo API
+        </Link>
         {/* <Link className='menu-elemento' to='/login'>
           Inicia sesión
         </Link>
