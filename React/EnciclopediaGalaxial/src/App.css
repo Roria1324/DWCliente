@@ -1,0 +1,13 @@
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.contenedor-principal {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}

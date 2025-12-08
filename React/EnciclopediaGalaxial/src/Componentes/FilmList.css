@@ -1,0 +1,11 @@
+
+.contenedor-peliculas {
+    width: 35%;
+    padding: 20px;
+    background: rgba(10, 10, 30, 0.4);
+    border: 1px solid #1b2557;
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+    animation: holo 6s infinite alternate ease-in-out;
+}

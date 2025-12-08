@@ -1,0 +1,12 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+
+@keyframes holo {
+    from {
+        box-shadow: 0 0 12px rgba(0, 150, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 18px rgba(0, 150, 255, 0.5);
+    }
+}
