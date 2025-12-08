@@ -67,5 +67,52 @@ window.onload = () => {
     console.log(esperoEntendereloDentroDeUnMes);
   }; */
 
+  const fea = new Promise((resolver, rechazar) => {
+    setTimeout(() => {
+      let numero = Math.floor(Math.random() * 101);
+      numero % 2 === 0
+        ? resolver(numero)
+        : rechazar(new Error("El número es impar."));
+    }, 2000);
+  });
+
+  /*  fea
+    .then((datos) => {
+      console.log(datos);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+    .finally(() => {
+      console.log("Se ha terminado el código asíncrono.");
+    }); */
+
+  const mostrarNumero = async () => {
+    try {
+      const numero = await fea;
+      console.log(numero);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  mostrarNumero();
+
+  const urlFeos = "./feos.json";
+
+  fetch(urlFeos)
+    .then((respuesta) => {
+      return respuesta.json();
+    })
+    .then((datos) => {
+      console.log(datos);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+    .finally(() => {
+      console.log("Fin, pesado.");
+    });
+
   //Nunca hacer asíncrono el window.load() -> ¿Por qué?
 }; // Fin del window.load.
