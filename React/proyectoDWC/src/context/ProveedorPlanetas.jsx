@@ -22,6 +22,7 @@ const ContextoPlanetas = createContext();
 const ProveedorPlanetas = ({ children }) => {
   // Estado al que accederán los componentes dentro del contexto.
   const [planetas, setPlanetas] = useState([]);
+  const [error, setError] = useState("");
 
   // URL de los planetas.
   const urlPlanetas = "https://swapi.dev/api/planets";
@@ -34,16 +35,25 @@ const ProveedorPlanetas = ({ children }) => {
     } catch (error) {
       // Se gestiona el error de forma adecuada.
       console.log(`Error en traerPlanetas: ${error.message}`);
+      setError("Error en planetas");
     }
   };
 
-  //¿Qué es lo que va a compartir el contexto? Un objeto de cosas.
-  const cosasParaExportar = { planetas };
+  const borrarPlanetas = () => {
+    setPlanetas([]);
+  };
+
+  const cambiarError = (mensaje) => {
+    setError(mensaje);
+  };
 
   useEffect(() => {
     // Se cargan los planetas en el montaje del componente.
     traerPlanetas(urlPlanetas);
   }, []);
+
+  //¿Qué es lo que va a compartir el contexto? Un objeto de cosas.
+  const cosasParaExportar = { planetas, borrarPlanetas, error, cambiarError };
 
   return (
     // Todos los hijos de este componente tendrán acceso al objeto cosasParaExportar.

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { traerDatosBien } from "../libraries/traerDatos.js";
+import React, { useContext } from "react";
 import "./PlanetasFicha.css";
 import Planeta from "./Planeta.jsx";
+import { ContextoPlanetas } from "../context/ProveedorPlanetas.jsx";
 
 const PlanetasFicha = () => {
-  // Estado para los planetas.
+  /* // Estado para los planetas.
   const [planetas, setPlanetas] = useState([]);
   // Endpoint para la llamada.
   const urlPlanetas = "https://swapi.dev/api/planets";
@@ -22,7 +22,9 @@ const PlanetasFicha = () => {
   //Se cargan los planetas en el montaje del componente.
   useEffect(() => {
     traerPlanetas(urlPlanetas);
-  }, []);
+  }, []); */
+
+  const { planetas, error } = useContext(ContextoPlanetas);
 
   return (
     <>
@@ -34,6 +36,7 @@ const PlanetasFicha = () => {
             })
           : "No se han encontrado fichas para los planetas."}
       </div>
+      <div>{error}</div>
     </>
   );
 };

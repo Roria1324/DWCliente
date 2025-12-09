@@ -1,31 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { traerDatosBien } from "../libraries/traerDatos";
 import "./PlanetasListado.css";
+import { ContextoPlanetas } from "../context/ProveedorPlanetas.jsx";
 
 const PlanetasListado = () => {
-  // Estado para los planetas.
-  const [planetas, setPlanetas] = useState([]);
-  // Endpoint para la llamada.
-  const urlPlanetas = "https://swapi.dev/api/planets";
-  // Función asíncrona para la carga del componente.
-  const traerPlanetas = async (url) => {
-    try {
-      const planetas = await traerDatosBien(url);
-      setPlanetas(planetas);
-    } catch (error) {
-      console.log(`Error en traerPlanetas: ${error.message}`);
-      // Aquí se gestionaría un estado con los errores.
-    }
-  };
-
-  //Se cargan los planetas en el montaje del componente.
-  useEffect(() => {
-    traerPlanetas(urlPlanetas);
-  }, []);
+  const { planetas, borrarPlanetas, error } = useContext(ContextoPlanetas);
 
   return (
     <>
       <div className='planetasListado_contenedor'>
+        <button
+          onClick={() => {
+            borrarPlanetas();
+          }}
+        >
+          Destruir galaxia.
+        </button>
         <h2>Listado de planetas.</h2>
         {Array.isArray(planetas) && planetas.length
           ? planetas.map((planeta, index) => {
@@ -33,6 +23,7 @@ const PlanetasListado = () => {
             })
           : "No se han encontrado planetas en esta galaxia."}
       </div>
+      <div>{error}</div>
     </>
   );
 };
