@@ -14,6 +14,7 @@ import DiscenteDetalle from "../pages/DiscenteDetalle.jsx";
 import Formularios from "../pages/Formularios.jsx";
 import CicloVida from "../pages/CicloVida.jsx";
 import Planetas from "../pages/Planetas.jsx";
+import PlanetaTatooine from "../pages/PlanetaTatooine.jsx";
 
 /** Componenentes para crear rutas:
  *
@@ -60,6 +61,7 @@ const Rutas = () => {
         <Route path='/formularios' element={<Formularios />} />
         <Route path='/ciclovida' element={<CicloVida />} />
         <Route path='/planetas' element={<Planetas />} />
+        <Route path='/planetatatooine' element={<PlanetaTatooine />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </>

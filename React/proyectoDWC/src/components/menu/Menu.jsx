@@ -16,8 +16,11 @@ const Menu = () => {
         <Link className='menu-elemento' to='/ciclovida'>
           useEffect
         </Link>
+        <Link className='menu-elemento' to='/planetatatooine'>
+          Tatooine API
+        </Link>
         <Link className='menu-elemento' to='/planetas'>
-          Consumo API
+          Contextos
         </Link>
         {/* <Link className='menu-elemento' to='/login'>
           Inicia sesión
@@ -30,10 +33,11 @@ const Menu = () => {
         </Link>
         <Link className='menu-elemento' to='/administracion'>
           Administración
-        </Link> */}
+        </Link> 
         <Link className='menu-elemento' to='/acerca-de'>
           Acerca de
         </Link>
+        */}
       </nav>
     </>
   );
