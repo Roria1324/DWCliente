@@ -1,13 +1,11 @@
-"use strict";
-
-import pintarAnimes from "./pintarData.js";
-
+"use strict"
 
 const getData = async () => {
-    const url = "https://api.jikan.moe/v4/anime";
+
+    const url = "https://api.jikan.moe/v4/anime"
     try {
-        const respuesta = await fetch(url)
-        if (!respuesta.ok) throw new Error("No funciona");
+        const respuesta = await fetch(url);
+        if (!respuesta.ok) return ("No hay nada");
         const datos = await respuesta.json()
         return datos.data || datos
     } catch (error) {

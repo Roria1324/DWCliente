@@ -1,0 +1,320 @@
+/* style.css - Modo Oscuro Original */
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    /* Colores base para este modo oscuro */
+    --bg-main: #121212;
+    --bg-section: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-placeholder: #aaaaaa;
+    --border-dark: #2c2c2c;
+    --border-medium: #444;
+    --input-bg: #2a2a2a;
+    --readonly-bg: #1b1b1b;
+    --button-bg: #3a3a3a;
+    --card-bg: #1f1f1f;
+    --error-color: #ff5252;
+    --delete-bg: #5a2a2a;
+    --delete-border: #7a3a3a;
+    --info-success: #33a033; /* Añadido */
+    --info: #0091ff;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+}
+
+/* Títulos */
+h1,
+h2 {
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* Secciones */
+.app-section {
+    background-color: var(--bg-section);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-dark);
+}
+
+/* Formularios y Controles */
+
+/* Etiquetas */
+.form-label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.form-input,
+.form-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-medium);
+    border-radius: 4px;
+}
+
+.form-input::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* Inputs solo lectura */
+input[readonly] {
+    background-color: var(--readonly-bg);
+    color: #bdbdbd;
+    border-color: #333;
+}
+
+/* Estilo para destacar un campo inválido */
+.form-input.invalid-field {
+    border: 2px solid var(--error-color);
+}
+
+/* Botones genéricos */
+.form-button {
+    cursor: pointer;
+    background-color: var(--button-bg);
+    border: 1px solid #555;
+    transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #505050;
+}
+
+/* Botones de Filtro/Acción */
+#filter-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+#filter-controls .form-input {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+.filter-action-button {
+    display: inline-block;
+    width: auto;
+}
+
+/* Checkbox (para forzar el manejo del DOM) */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+    display: inline-block;
+    box-shadow: none;
+    /* Reinicia los estilos de ancho completo para el checkbox */
+    width: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    padding: 0;
+}
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    color: var(--text-secondary);
+    /* Asegura que la etiqueta esté alineada con el checkbox */
+    margin-top: 0;
+}
+
+.input-error {
+    border: 2px solid (--error-color) !important;
+}
+
+/* Mensajes de error / info */
+.message-container {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Oculto por defecto */
+    font-weight: bold;
+}
+
+.message-container.modal {
+    background-color: #1c223a;
+    color: var(--info);
+    border: 1px solid var(--info);
+    display: block;
+}
+
+.message-container.error {
+    background-color: #3a1c1c;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    display: block;
+}
+
+.message-container.success {
+    background-color: #1c3a1c;
+    color: var(--info-success);
+    border: 1px solid var(--info-success);
+    display: block;
+}
+
+/* Listado */
+.collection-display-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+/* Tarjetas de anime */
+.anime-card {
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+}
+
+/* Clase para ocultar elementos filtrados */
+.anime-card.hidden-by-filter {
+    display: none;
+}
+
+.anime-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* Texto dentro de la tarjeta */
+.anime-card h3 {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.anime-card p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* Botón eliminar (Usando la clase delete-button) */
+.delete-button {
+    margin-top: 8px;
+    background-color: var(--error-color);
+    border: 1px solid var(--error-color);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(255, 82, 82, 0.4);
+}
+
+.delete-button:hover {
+    background-color: #ff3333;
+    border-color: #ff3333;
+    box-shadow: 0 4px 8px rgba(255, 82, 82, 0.6);
+    transform: translateY(-1px);
+}
+
+.delete-button:active {
+    background-color: #cc0000;
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================================== */
+/* 2. ESTILOS PARA LA MODAL DE BORRADO */
+/* ==================================== */
+
+/* El fondo oscuro que cubre toda la pantalla */
+.modal-backdrop {
+    position: fixed; /* Fija la modal respecto al viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fondo semi-transparente y oscuro para efecto "apagado" */
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    z-index: 1000; /* Asegura que esté por encima de todo lo demás */
+}
+
+/* El cuadro de diálogo central */
+.modal-content {
+    background-color: var(--card-bg); /* Color de fondo similar al de las tarjetas */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.modal-content h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+/* Contenedor de los botones */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px; /* Espacio entre botones */
+    margin-top: 20px;
+}
+
+/* Estilos base para los botones de la modal */
+.modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%; /* Para que los botones se repartan el ancho equitativamente */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Estilo para el botón de Confirmar (Sí) */
+.modal-button.confirm-delete {
+    background-color: var(--error-color); /* Usar el rojo de advertencia/eliminar */
+    color: white;
+}
+
+.modal-button.confirm-delete:hover {
+    background-color: #cc0000;
+    transform: translateY(-1px);
+}
+
+/* Estilo para el botón de Cancelar (No) */
+.modal-button.cancel-delete {
+    background-color: var(--button-bg); /* Fondo de botón normal (gris oscuro) */
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.modal-button.cancel-delete:hover {
+    background-color: #383838;
+}

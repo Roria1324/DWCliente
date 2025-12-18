@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SWAPI - Gestor de Planetas</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="enunciadoContainer"></div>
+
+        <div id="swapiApp">
+            <h1>🪐 Gestor de Planetas Galácticos (SWAPI)</h1>
+
+            <div id="notificationArea"></div>
+            <section id="formContainer" class="sectionContainer">
+                <h2>Añadir Planeta Manualmente</h2>
+                <form id="manualPlanetForm" class="planetForm">
+                    <label for="planetIdInput">ID del Planeta:</label>
+                    <input type="text" id="planetIdInput" name="planetId" />
+
+                    <label for="planetNameInput">Nombre:</label>
+                    <input type="text" id="planetNameInput" name="planetName" />
+
+                    <label for="orbitalPeriodInput">Periodo Orbital (días):</label>
+                    <input type="text" id="orbitalPeriodInput" name="orbitalPeriod" />
+
+                    <label for="diameterInput">Diámetro (km):</label>
+                    <input type="text" id="diameterInput" name="diameter" />
+
+                    <label for="populationInput">Habitantes: </label>
+                    <input type="text" id="populationInput" name="population" />
+
+                    <button type="submit" id="createPlanetButton" class="submitButton">
+                        Crear Planeta
+                    </button>
+                </form>
+            </section>
+
+            <section id="apiContainer" class="sectionContainer">
+                <h2>Importar de SWAPI</h2>
+                <p>Busca un planeta aleatorio de la API de Star Wars.</p>
+                <button id="fetchPlanetButton" class="apiButton">Buscar Planeta Aleatorio</button>
+                <div id="apiResultContainer">
+                    <p>Haz clic en el botón para buscar un planeta de la API.</p>
+                </div>
+            </section>
+
+            <section id="planetCollectionContainer" class="sectionContainer">
+                <h2>Mi Colección de Planetas</h2>
+                <div id="planetListContainer">
+                    <p class="alertMessage">Tu colección está vacía. ¡Añade planetas!</p>
+                </div>
+            </section>
+        </div>
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>

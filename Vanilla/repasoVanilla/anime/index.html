@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>📺 Mi Colección de Anime - Gestor</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>📺 Mi Gestor de Animes</h1>
+
+        <section id="form-section" class="app-section">
+            <h2>Búsqueda y Añadir Anime</h2>
+
+            <div id="info-container" class="message-container" role="alert"></div>
+
+            <div id="search-controls" class="control-group">
+                <input
+                    type="text"
+                    id="api-search-input"
+                    class="form-input"
+                    placeholder="Buscar anime en Jikan (ej. Cowboy Bebop)"
+                />
+                <button type="button" id="search-api-button" class="form-button">
+                    Buscar Anime en API
+                </button>
+            </div>
+
+            <div id="api-preview-container" class="preview-display-container"></div>
+
+            <hr />
+
+            <form id="anime-form" class="control-form">
+                <label for="title" class="form-label">Título:</label>
+                <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    class="form-input form-field"
+                    placeholder="Título del anime"
+                    data-type="string"
+                />
+
+                <label for="year" class="form-label">Año:</label>
+                <input
+                    type="text"
+                    id="year"
+                    name="year"
+                    class="form-input form-field"
+                    placeholder="Año de estreno"
+                    data-type="number"
+                />
+
+                <label for="genres" class="form-label">Géneros (Separados por coma):</label>
+                <input
+                    type="text"
+                    id="genres"
+                    name="genres"
+                    class="form-input form-field"
+                    placeholder="Géneros"
+                    data-type="string"
+                />
+
+                <label for="mal_id" class="form-label">ID MyAnimeList:</label>
+                <input
+                    type="text"
+                    id="mal_id"
+                    name="mal_id"
+                    class="form-input form-field"
+                    placeholder="ID MyAnimeList"
+                    data-type="mal-id"
+                />
+
+                <label for="image_url" class="form-label">URL de Carátula:</label>
+                <input
+                    type="text"
+                    id="image_url"
+                    name="image_url"
+                    class="form-input form-field"
+                    placeholder="URL de la imagen (de la API)"
+                    data-type="url"
+                />
+
+                <div class="checkbox-group">
+                    <input
+                        type="checkbox"
+                        id="watched"
+                        name="watched"
+                        class="form-field"
+                        data-type="boolean"
+                    />
+                    <label for="is-watched" class="form-label">¿Ya visto?</label>
+                </div>
+
+                <button type="submit" id="save-anime-button" class="form-button submit-button">
+                    Guardar Anime en Colección
+                </button>
+            </form>
+        </section>
+
+        <hr />
+
+        <section id="collection-section" class="app-section">
+            <h2>Mi Colección</h2>
+
+            <div id="filter-controls" class="control-group">
+                <input
+                    type="text"
+                    id="filter-input"
+                    class="form-input"
+                    placeholder="Filtrar por título..."
+                />
+                <button id="filter-button" class="form-button filter-action-button">Filtrar</button>
+                <button id="clear-filter-button" class="form-button filter-action-button">
+                    Limpiar Filtro
+                </button>
+            </div>
+
+            <div id="collection-list-container" class="collection-display-container"></div>
+        </section>
+
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>
