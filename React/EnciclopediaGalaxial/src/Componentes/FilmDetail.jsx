@@ -10,6 +10,7 @@ const FilmDetail = ({film, characters}) => {
         <p><strong>Director:</strong> {film.director}</p>
         <p><strong>Estreno:</strong> {film.release_date}</p>
 
+        <p><strong>Resumen:</strong> {film.opening_crawl}</p>
         <CharacterList characters={characters} />
     </div>
   )
