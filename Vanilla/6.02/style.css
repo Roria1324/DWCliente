@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+body {
+    background: radial-gradient(circle at center, #000 0%, #060a1f 100%);
+    color: #e2e2e2;
+    font-family: "Pathway Gothic One", sans-serif;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-principal {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}
+
+.contenedor-peliculas {
+    width: 35%;
+    padding: 20px;
+    background: rgba(10, 10, 30, 0.4);
+    border: 1px solid #1b2557;
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+}
+
+.listado {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.listado li {
+    padding: 12px 16px;
+    font-size: 20px;
+    color: #9cc7ff;
+    background: rgba(0, 30, 60, 0.5);
+    border-left: 3px solid #4aa3ff;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.listado li:hover {
+    background: rgba(0, 60, 120, 0.7);
+    transform: translateX(8px);
+    box-shadow: 0 0 10px #4aa3ff;
+}
+
+.contenedor-info {
+    width: 65%;
+    padding: 20px;
+    background: rgba(15, 15, 35, 0.45);
+    border: 1px solid #26346b;
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 90, 180, 0.25);
+    min-height: 300px;
+}
+
+.contenedor-titulo h2, .titulo {
+    font-size: 40px;
+    text-shadow: 0 0 15px #ffe81f;
+    color: #ffe81f;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.conenedor-datospeli {
+    margin-top: 15px;
+}
+
+.conenedor-datospeli p {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #d0d8ff;
+}
+
+.director, .productor {
+    color: #7bb7ff;
+}
+
+.sinopsis {
+    margin-top: 20px;
+    line-height: 1.5;
+    padding-left: 10px;
+    border-left: 3px solid #4aa3ff;
+    color: #bcd2ff;
+}
+
+.contenedor-info, .contenedor-peliculas {
+    animation: holo 6s infinite alternate ease-in-out;
+}
+
+@keyframes holo {
+    from {
+        box-shadow: 0 0 12px rgba(0, 150, 255, 0.2);
+    }
+    to {
+        box-shadow: 0 0 18px rgba(0, 150, 255, 0.5);
+    }
+}

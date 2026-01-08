@@ -7,6 +7,19 @@
 </head>
 <body>
    <div class="contenedor-principal">
+    <form id="formulario" name="formulario">
+        <div class="inputs" id="inpt">
+            <div id="error"></div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required>
+            <label for="url">URL Imagen</label>
+            <input type="url" name="url" id="url">
+            <label for="episodes">Episodios</label>
+            <input type="number" name="episodes" id="episodes" required>
+            <button id="guardar" type="button">Guardar</button>
+            <button id="mostrar" type="button">Mostrar</button>
+        </div>
+    </form>
     <div class="listado-animes" id="ani">
     </div>
    </div> 

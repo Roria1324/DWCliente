@@ -1,4 +1,3 @@
-import React from 'react'
 import FilmList from './FilmList'
 import { useState, useEffect } from 'react'
 import obtenerDatos from '../Api/obtenerInfo';

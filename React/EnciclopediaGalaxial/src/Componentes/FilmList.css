@@ -1,6 +1,6 @@
-
 .contenedor-peliculas {
-    width: 35%;
+    display: flex;
+    width:100%;
     padding: 20px;
     background: rgba(10, 10, 30, 0.4);
     border: 1px solid #1b2557;
@@ -8,4 +8,12 @@
     backdrop-filter: blur(4px);
     border-radius: 8px;
     animation: holo 6s infinite alternate ease-in-out;
+}
+
+.lista {
+    width: 30%;
+    min-width: 260px;
+    max-height: 110vh;
+    overflow-y: auto;
+    padding-right: 10px;
 }

@@ -16,13 +16,9 @@ const FilmList = ({films}) => {
                 <FilmCard key={film.episode_id} film={film} onClick={() => setSelectedFilm(film)} />
             ))}
         </div>
-        { selectedFilm && (<FilmDetailFetcher film={selectedFilm} />)}
         
+        { selectedFilm && (<FilmDetailFetcher film={selectedFilm} />)}
     </div>
-
-
-
-    
   )
 }
 

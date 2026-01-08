@@ -1,13 +1,14 @@
 .contenedor-info {
-    width: 65%;
-    padding: 20px;
+    width: 70%;
+    padding: 25px;
     background: rgba(15, 15, 35, 0.45);
     border: 1px solid #26346b;
     backdrop-filter: blur(6px);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 90, 180, 0.25);
-    min-height: 300px;
+    min-height: 400px;
     animation: holo 6s infinite alternate ease-in-out;
+    
 }
 
 .contenedor-info h2 {

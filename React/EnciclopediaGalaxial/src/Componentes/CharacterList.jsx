@@ -11,7 +11,7 @@ const CharacterList = ({characters}) => {
     <div>
         <h3>Personajes</h3>
 
-        <ul>
+        <ul className='listado'>
             {characters.map((chart, i) => (
                 <li key={i} onClick={() => setSelected(chart)}>
                     {chart.name}
