@@ -1,0 +1,12 @@
+{
+    "discos" : {
+        "id" : "1",
+        "nombreDisco" : "hola",
+        "caratulaDisco": "",
+        "nombreGrupo" : "gg",
+        "yearPublication": "1948",
+        "genero2" : "pop",
+        "localizacionCodigo" : "ESAA-01",
+        "prestado" : "no"
+    }
+}

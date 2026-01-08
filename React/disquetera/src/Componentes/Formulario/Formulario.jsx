@@ -101,6 +101,8 @@ const Formulario = () => {
             </div>
             
             <div className="prestado">
+
+
                 <label><h3>Prestado</h3></label>
 
                 <input type="radio" name="prestado" id="prestado1" onChange={actualizarInputs} value="true" />
