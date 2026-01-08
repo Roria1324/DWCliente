@@ -22,6 +22,9 @@ const Menu = () => {
         <Link className='menu-elemento' to='/planetas'>
           Contextos
         </Link>
+        <Link className='menu-elemento' to='/CRUDFetch'>
+          CRUD con fetch
+        </Link>
         {/* <Link className='menu-elemento' to='/login'>
           Inicia sesión
         </Link>
