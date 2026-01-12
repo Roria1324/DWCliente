@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import useAPI from "../hooks/useAPI.js";
 
 /**
  * Se crea el contexto (la caja) a proveer.
@@ -133,13 +134,16 @@ const ProveedorDiscentes = ({ children }) => {
    * Se encapsula el setter del estado en una función
    * para que el contexto mantenga el control del estado.
    */
+
+  // Se puede ahorrar esta función.
   const cargarDiscentes = async () => {
-    let datos = await obtenerDiscentes(API_URL);
+    let datos = await obtenerDiscentes();
     setDiscentes(datos);
   };
 
   useEffect(() => {
     cargarDiscentes();
+    //obtenerDiscentes();
   }, []);
 
   /**

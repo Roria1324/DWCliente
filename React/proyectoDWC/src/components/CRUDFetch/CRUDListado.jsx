@@ -4,7 +4,9 @@ import { ContextoDiscentes } from "../../context/ProveedorDiscentes.jsx";
 
 const CRUDListado = () => {
   /**
-   * Se obtiene el estado desde el contexto.
+   * Consumir el contexto a través de un hook personalizado.
+   *  -> importar el hook y
+   *  -> desestructurar el objeto que devuelve (igual que con createContext).
    */
   const { discentes } = useContext(ContextoDiscentes);
 
