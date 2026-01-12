@@ -52,8 +52,22 @@ const ProveedorPlanetas = ({ children }) => {
     traerPlanetas(urlPlanetas);
   }, []);
 
+  const Feo = "Hola, feo";
+
+  const objeto = {
+    nombre: "Feo",
+    apellidos: "Horrible",
+  };
+
   //¿Qué es lo que va a compartir el contexto? Un objeto de cosas.
-  const cosasParaExportar = { planetas, borrarPlanetas, error, cambiarError };
+  const cosasParaExportar = {
+    planetas,
+    borrarPlanetas,
+    error,
+    cambiarError,
+    Feo,
+    objeto,
+  };
 
   return (
     // Todos los hijos de este componente tendrán acceso al objeto cosasParaExportar.

@@ -17,7 +17,9 @@ const ProveedorDiscentes = ({ children }) => {
    * Listado de datos del servidor (nada nuevo).
    */
 
-  const obtenerDiscentes = async () => {
+  const { obtener } = useAPI();
+
+  const obtenerDiscentes_OLD = async () => {
     try {
       const respuesta = await fetch(API_URL);
       if (!respuesta.ok) {
@@ -31,6 +33,13 @@ const ProveedorDiscentes = ({ children }) => {
     } catch (error) {
       throw error;
     }
+  };
+
+  const obtenerDiscentes = async () => {
+    try {
+      const datos = await obtener(API_URL);
+      setDiscentes(datos);
+    } catch (error) {}
   };
 
   /** Obtención de datos desde un formulario.
@@ -135,15 +144,8 @@ const ProveedorDiscentes = ({ children }) => {
    * para que el contexto mantenga el control del estado.
    */
 
-  // Se puede ahorrar esta función.
-  const cargarDiscentes = async () => {
-    let datos = await obtenerDiscentes();
-    setDiscentes(datos);
-  };
-
   useEffect(() => {
-    cargarDiscentes();
-    //obtenerDiscentes();
+    obtenerDiscentes();
   }, []);
 
   /**

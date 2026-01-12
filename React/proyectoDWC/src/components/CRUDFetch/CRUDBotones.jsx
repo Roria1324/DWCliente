@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 // Se importa el contexto (la caja) para acceder a sus datos.
 import { ContextoDiscentes } from "../../context/ProveedorDiscentes.jsx";
+import useDiscentes from "../../hooks/useDiscentes.js";
 
 /**
  * Consumir el contexto a través de un hook personalizado.
@@ -52,11 +53,12 @@ const CRUDBotones = () => {
 
   const {
     cargarDiscentes,
+    obtenerDiscentes,
     guardarDiscente,
     editarDiscenteCompleto,
     editarDiscenteParcial,
     borrarDiscente,
-  } = useContext(ContextoDiscentes);
+  } = useDiscentes();
 
   return (
     <>

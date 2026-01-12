@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import ValorEstado from "../tools/ValorEstado.jsx";
-import { ContextoDiscentes } from "../../context/ProveedorDiscentes.jsx";
+import useDiscentes from "../../hooks/useDiscentes.js";
 
 const CRUDListado = () => {
   /**
@@ -8,7 +8,7 @@ const CRUDListado = () => {
    *  -> importar el hook y
    *  -> desestructurar el objeto que devuelve (igual que con createContext).
    */
-  const { discentes } = useContext(ContextoDiscentes);
+  const { discentes } = useDiscentes();
 
   return (
     <>
