@@ -8,13 +8,9 @@ const CRUDListado = () => {
    *  -> importar el hook y
    *  -> desestructurar el objeto que devuelve (igual que con createContext).
    */
-  const { discentes } = useDiscentes();
+  const { discentes, cargando } = useDiscentes();
 
-  return (
-    <>
-      <ValorEstado estado={discentes} />
-    </>
-  );
+  return <>{cargando ? "Cargando..." : <ValorEstado estado={discentes} />}</>;
 };
 
 export default CRUDListado;

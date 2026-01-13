@@ -8,6 +8,7 @@ const ContextoDiscentes = createContext();
 
 const ProveedorDiscentes = ({ children }) => {
   const [discentes, setDiscentes] = useState([]);
+
   /**
    * Constante con la URL de la API.
    * */
@@ -17,7 +18,8 @@ const ProveedorDiscentes = ({ children }) => {
    * Listado de datos del servidor (nada nuevo).
    */
 
-  const { obtener } = useAPI();
+  const { obtener, guardar, borrar, editarPUT, editarPATCH, cargando, error } =
+    useAPI();
 
   const obtenerDiscentes_OLD = async () => {
     try {
@@ -39,7 +41,9 @@ const ProveedorDiscentes = ({ children }) => {
     try {
       const datos = await obtener(API_URL);
       setDiscentes(datos);
-    } catch (error) {}
+    } catch (error) {
+      throw error;
+    }
   };
 
   /** Obtención de datos desde un formulario.
@@ -58,7 +62,7 @@ const ProveedorDiscentes = ({ children }) => {
    *
    */
 
-  const guardarDiscente = async (datos) => {
+  const guardarDiscente_OLD = async (datos) => {
     try {
       const respuesta = await fetch(API_URL, {
         method: "POST",
@@ -75,11 +79,22 @@ const ProveedorDiscentes = ({ children }) => {
     }
   };
 
+  const guardarDiscente = async (datos) => {
+    try {
+      const respuesta = await guardar(API_URL, datos);
+      console.log(respuesta);
+      obtenerDiscentes();
+      //setDiscentes(...discentes, datos);
+    } catch (error) {
+      throw error;
+    }
+  };
+
   /**
    * Es necesario, además de la URL, el id del discente a eliminar.
    */
 
-  const borrarDiscente = async (id) => {
+  const borrarDiscente_OLD = async (id) => {
     try {
       const respuesta = await fetch(`${API_URL}/${id}`, {
         method: "DELETE",
@@ -95,6 +110,15 @@ const ProveedorDiscentes = ({ children }) => {
     }
   };
 
+  const borrarDiscente = async (id) => {
+    try {
+      const respuesta = await borrar(`${API_URL}/${id}`);
+      obtenerDiscentes();
+    } catch (error) {
+      throw error;
+    }
+  };
+
   /**
    * El flujo para esta acción es:
    *  -> se obtienen los datos de un discentes,
@@ -104,7 +128,7 @@ const ProveedorDiscentes = ({ children }) => {
    *  -> se informa al/la usuario/a de forma correcta.
    */
 
-  const editarDiscenteCompleto = async (id, datos) => {
+  const editarDiscenteCompleto_OLD = async (id, datos) => {
     try {
       const respuesta = await fetch(`${API_URL}/${id}`, {
         method: "PUT",
@@ -115,13 +139,23 @@ const ProveedorDiscentes = ({ children }) => {
         throw new Error(
           `Error en editarDiscentesCompleto: ${respuesta.status} - ${respuesta.statusText}`
         );
+        obtenerDiscentes();
       }
     } catch (error) {
       throw error;
     }
   };
 
-  const editarDiscenteParcial = async (id, datos) => {
+  const editarDiscenteCompleto = async (id, datos) => {
+    try {
+      const respuesta = await editarPUT(`${API_URL}/${id}`, datos);
+      obtenerDiscentes();
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const editarDiscenteParcial_OLD = async (id, datos) => {
     try {
       const respuesta = await fetch(`${API_URL}/${id}`, {
         method: "PATCH",
@@ -133,6 +167,15 @@ const ProveedorDiscentes = ({ children }) => {
           `Error en editarDiscentesParcial: ${respuesta.status} - ${respuesta.statusText}`
         );
       }
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  const editarDiscenteParcial = async (id, datos) => {
+    try {
+      const respuesta = await editarPATCH(`${API_URL}/${id}`, datos);
+      obtenerDiscentes();
     } catch (error) {
       throw error;
     }
@@ -155,12 +198,13 @@ const ProveedorDiscentes = ({ children }) => {
    */
   const datosAProveer = {
     discentes,
-    cargarDiscentes,
     obtenerDiscentes,
     guardarDiscente,
     borrarDiscente,
     editarDiscenteCompleto,
     editarDiscenteParcial,
+    cargando,
+    error,
   };
 
   return (
