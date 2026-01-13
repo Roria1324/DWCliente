@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-      <Menu />
-      <Rutas></Rutas>
-      <Footer></Footer>
+      <Menu/>
+      <Rutas/>
+      <Footer/>
     </>
   )
 }
