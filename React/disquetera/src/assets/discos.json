@@ -1,12 +1,12 @@
 {
     "discos" : {
-        "id" : "1",
-        "nombreDisco" : "hola",
-        "caratulaDisco": "",
-        "nombreGrupo" : "gg",
-        "yearPublication": "1948",
-        "genero2" : "pop",
-        "localizacionCodigo" : "ESAA-01",
-        "prestado" : "no"
+        "id": "40eadece-57e3-4686-bacc-40e75e8f5bcf",
+        "nombreDisco": "Kind of Blue",
+        "caratulaDisco": "https://example.com/kind-of-blue.jpg",
+        "nombreGrupo": "Miles Davis",
+        "yearPublication": 1959,
+        "genero": "jazz",
+        "localizacionCodigo": "ES-001AA",
+        "prestado": false
     }
 }

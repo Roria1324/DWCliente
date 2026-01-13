@@ -18,28 +18,6 @@ const Formulario = () => {
     })
 
     const [error, setError] = useState({})
-
-    const [listadoDiscos, setListadoDiscos] = useState(
-        JSON.parse(localStorage.getItem("discos")) || []
-    )
-
-    const actualizarInputs = (e) => {
-        const {name, value} = e.target
-        setDisco(nprev => ({...nprev, [name]: value}))
-    }
-//Uso de Object.keys para el acceso a los datos de discos.
-//Si hay errores se guardan y se muestran donde esté el error.
-    const guardar = () => {
-        const resultado = validarFormulario(disco);
-        if (Object.keys(resultado).length > 0){
-            setError(resultado);
-            return;
-        }
-
-        const nuevo = {...disco, id:crypto.randomUUID()}
-        const actualizar = [...listadoDiscos, nuevo]
-        setListadoDiscos(actualizar)
-        localStorage.setItem("discos",JSON.stringify(actualizar))
         setDisco({
             id : "",
             nombreDisco : "",
@@ -50,7 +28,7 @@ const Formulario = () => {
             localizacionCodigo : "",
             prestado :"",
         })
-        setError({})
+
     }
     
   return (
