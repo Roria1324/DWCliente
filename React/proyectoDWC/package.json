@@ -5,11 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "servidor": "concurrently \"vite\" \"npm run servidorDiscentes\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "servidorDiscentes": "json-server --watch ./src/assets/objetos/discentes.json",
+    "servidorPeliculas": "json-server --watch ./src/assets/objetos/peliculas.json",
+    "servidorStarWars": "json-server --watch ./src/assets/objetos/StarWars.json"
   },
   "dependencies": {
+    "concurrently": "^9.2.1",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.4"
