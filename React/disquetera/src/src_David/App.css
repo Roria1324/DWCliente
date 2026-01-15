@@ -1,0 +1,77 @@
+:root {
+	--color-blue: #007bff;
+	--color-green: rgba(0, 255, 136, 0.9);
+	--color-red: rgba(255, 107, 107, 0.9);
+	--color-yellow: rgba(255, 218, 107, 0.9);
+
+	--color-blue-aux: rgba(0, 123, 255, 0.15);
+	--color-green-aux: rgba(0, 255, 136, 0.1);
+	--color-red-aux: rgba(255, 107, 107, 0.1);
+	--color-yellow-aux: rgba(255, 233, 107, 0.1);
+
+	--color-text-primary: aliceblue;
+	--color-text-primary-hover: #b3bcc4;
+	--color-text-secondary: #4a4d55;
+
+	--bg-nav: rgb(0, 74, 152);
+
+	--bg-main: #141517;
+	--bg-secondary: #18191b;
+	--bg-secondary-hover: #2c2e32;
+
+	--border-default: 1px solid #373a40;
+	--radius-default: 0.44vh;
+}
+
+@font-face {
+	font-family: Open-Sans;
+	src: url(./assets/fonts/OpenSans-Regular.ttf);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: Open-Sans;
+	background-color: var(--bg-main);
+	color: antiquewhite;
+}
+
+h1 {
+	font-size: 4.85dvh;
+}
+
+.btn {
+	border-radius: var(--radius-default);
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.btn:hover {
+	filter: brightness(1.15);
+}
+
+.btn-blue {
+	color: var(--color-blue);
+	border: 1px solid var(--color-blue);
+	background: var(--color-blue-aux);
+}
+
+.btn-green {
+	color: var(--color-green);
+	border: 1px solid var(--color-green);
+	background: var(--color-green-aux);
+}
+
+.btn-red {
+	color: var(--color-red);
+	border: 1px solid var(--color-red);
+	background: var(--color-red-aux);
+}
+
+.btn-yellow {
+	color: var(--color-yellow);
+	border: 1px solid var(--color-yellow);
+	background: var(--color-yellow-aux);
+}

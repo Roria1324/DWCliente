@@ -55,7 +55,6 @@ export const useAPI = () => {
       body: JSON.stringify(body),
     });
   };
-    
 
   // Función para PUT.
   const editarPUT = (url, body) =>

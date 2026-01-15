@@ -1,0 +1,36 @@
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.navbar {
+	background-color: var(--bg-nav);
+	padding: 10px 20px;
+	color: var(--color-text-primary);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar-title {
+	margin: 0;
+	font-weight: bolder;
+	font-size: 5dvh;
+}
+
+.navbar-nav {
+	display: flex;
+	gap: 20px;
+
+	& a {
+		color: var(--color-text-primary);
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.3s ease;
+		font-size: 2.5dvh;
+
+		&:hover {
+			color: var(--color-text-primary-hover);
+		}
+	}
+}

@@ -1,0 +1,144 @@
+{
+  "discos": [
+    {
+      "id": "1",
+      "discName": "Hybrid Theory Album",
+      "discImg": "https://example.com/hybrid_theory.jpg",
+      "datePublish": "2005",
+      "groupName": "Linkin Park",
+      "musicType": "rock",
+      "standNumber": "ES-101LP",
+      "isBorrowed": false
+    },
+    {
+      "id": "2",
+      "discName": "Random Access Memories",
+      "discImg": "https://example.com/random_access.jpg",
+      "datePublish": "2013",
+      "groupName": "Daft Punk",
+      "musicType": "electrónica",
+      "standNumber": "ES-222DP",
+      "isBorrowed": false
+    },
+    {
+      "id": "3",
+      "discName": "Future Nostalgia",
+      "discImg": "https://example.com/future_nostalgia.jpg",
+      "datePublish": "2020",
+      "groupName": "Dua Lipa",
+      "musicType": "pop",
+      "standNumber": "ES-345DL",
+      "isBorrowed": true
+    },
+    {
+      "id": "4",
+      "discName": "When We All Fall Asleep",
+      "discImg": "https://example.com/billie_eilish.jpg",
+      "datePublish": "2019",
+      "groupName": "Billie Eilish",
+      "musicType": "pop",
+      "standNumber": "ES-456BE",
+      "isBorrowed": false
+    },
+    {
+      "id": "5",
+      "discName": "Un Verano Sin Ti",
+      "discImg": "https://example.com/un_verano_sin_ti.jpg",
+      "datePublish": "2022",
+      "groupName": "Bad Bunny",
+      "musicType": "reggaeton",
+      "standNumber": "ES-789BB",
+      "isBorrowed": false
+    },
+    {
+      "id": "6",
+      "discName": "DAMN Music Album",
+      "discImg": "https://example.com/damn.jpg",
+      "datePublish": "2017",
+      "groupName": "Kendrick Lamar",
+      "musicType": "pop",
+      "standNumber": "ES-501KL",
+      "isBorrowed": false
+    },
+    {
+      "id": "7",
+      "discName": "Future Nostalgia Deluxe",
+      "discImg": "https://example.com/future_nostalgia_deluxe.jpg",
+      "datePublish": "2021",
+      "groupName": "Dua Lipa",
+      "musicType": "pop",
+      "standNumber": "ES-612FN",
+      "isBorrowed": false
+    },
+    {
+      "id": "8",
+      "discName": "Happier Than Ever",
+      "discImg": "https://example.com/happier_than_ever.jpg",
+      "datePublish": "2021",
+      "groupName": "Billie Eilish",
+      "musicType": "pop",
+      "standNumber": "ES-734HE",
+      "isBorrowed": true
+    },
+    {
+      "id": "9",
+      "discName": "El Madrileño Album",
+      "discImg": "https://example.com/el_madrileno.jpg",
+      "datePublish": "2021",
+      "groupName": "C Tangana",
+      "musicType": "reggaeton",
+      "standNumber": "ES-845CT",
+      "isBorrowed": false
+    },
+    {
+      "id": "10",
+      "discName": "Motomami Studio",
+      "discImg": "https://example.com/motomami.jpg",
+      "datePublish": "2022",
+      "groupName": "Rosalia Music",
+      "musicType": "electrónica",
+      "standNumber": "ES-963RM",
+      "isBorrowed": false
+    },
+    {
+      "id": "11",
+      "discName": "Midnights Album",
+      "discImg": "https://example.com/midnights.jpg",
+      "datePublish": "2022",
+      "groupName": "Taylor Swift",
+      "musicType": "pop",
+      "standNumber": "ES-111TS",
+      "isBorrowed": false
+    },
+    {
+      "id": "12",
+      "discName": "GUTS Studio Record",
+      "discImg": "https://example.com/guts.jpg",
+      "datePublish": "2023",
+      "groupName": "Olivia Rodrigo",
+      "musicType": "pop",
+      "standNumber": "ES-222OR",
+      "isBorrowed": false
+    },
+    {
+      "id": "13",
+      "discName": "Radical Optimism",
+      "discImg": "https://example.com/radical_optimism.jpg",
+      "datePublish": "2024",
+      "groupName": "Dua Lipa",
+      "musicType": "pop",
+      "standNumber": "ES-333RO",
+      "isBorrowed": false
+    },
+    {
+      "id": "14",
+      "discName": "Future Sounds Album",
+      "discImg": "https://example.com/future_sounds.jpg",
+      "datePublish": "2025",
+      "groupName": "Imagine Dragons",
+      "musicType": "rock",
+      "standNumber": "ES-444ID",
+      "isBorrowed": false
+    }
+  ]
+}
