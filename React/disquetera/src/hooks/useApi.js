@@ -12,7 +12,7 @@ const useAPI = () => {
             const respuesta = await fetch(url, {
                 
                 headers : {
-                    "Content-type" : ""
+                    "Content-type" : "application/json"
                 },
                 ...option
             })
@@ -30,32 +30,32 @@ const useAPI = () => {
     };
 
     const get = (url) => {
-        solicitud(url, { method : "GET"});
+        return solicitud(url, { method : "GET"});
     };
 
-    const post = (url) => {
+    const post = (url, body) => {
         solicitud(url, {
             method : "POST",
-            body : body
+            body : JSON.stringify(body)
         });
     };
 
-    const editPUT = (url) => {
-        solicitud(url, {
+    const editPUT = (url, body) => {
+        return solicitud(url, {
             method : "PUT",
-            body : body
+            body : JSON.stringify(body)
         });
     };
 
-    const editPATCH = (url) => {
-        solicitud(url, {
+    const editPATCH = (url, body) => {
+        return solicitud(url, {
             method : "PATCH",
-            body : body
+            body : JSON.stringify(body)
         });
     };
 
     const borrar = (url) => {
-        solicitud(url, { method : "DELETE" })
+        return solicitud(url, { method : "DELETE" })
     }
 
     return {
@@ -68,3 +68,5 @@ const useAPI = () => {
         borrar
     }
 }
+
+export default useAPI;

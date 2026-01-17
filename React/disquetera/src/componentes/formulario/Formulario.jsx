@@ -1,34 +1,52 @@
 "use strict"
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Formulario.css"
-import validarFormulario from '../biblioteca/validarFormulario.js'
+import validarFormulario from "../../biblioteca/validarFormulario.js"
+import { ContextoDiscos } from '../../contexto/ProveedorDiscos.jsx'
 
 const Formulario = () => {
 
-    const [disco, setDisco] = useState({
-    id : "",
-    nombreDisco : "",
-    caratulaDisco: "",
-    nombreGrupo : "",
-    yearPublication: "",
-    genero : "",
-    localizacionCodigo : "",
-    prestado :""
-    })
+    const discoDefault = {
+        id : "",
+        nombreDisco : "",
+        caratulaDisco: "",
+        nombreGrupo : "",
+        yearPublication: "",
+        genero : "",
+        localizacionCodigo : "",
+        prestado :""
+    }
 
+    const [disco, setDisco] = useState(discoDefault)
     const [error, setError] = useState({})
-        setDisco({
-            id : "",
-            nombreDisco : "",
-            caratulaDisco: "",
-            nombreGrupo : "",
-            yearPublication: "",
-            genero : "",
-            localizacionCodigo : "",
-            prestado :"",
-        })
 
+    const {discos, guardar} = useContext(ContextoDiscos)
+
+    const reiniciarFormulario = () => {
+        setDisco(discoDefault)
+    }
+
+    const actualizarInputs = (e) => {
+        const {name, value, type, checked} = e.target
+        setDisco(nprev => ({...nprev, [name]: type === "radio" ? value : value}))
+    }
+//Uso de Object.keys para el acceso a los datos de discos.
+//Si hay errores se guardan y se muestran donde esté el error.
+    const guardarDisco = async () => {
+        const resultado = validarFormulario(disco);
+        if (Object.keys(resultado).length > 0){
+            setError(resultado);
+            return;
+        }
+        try {
+            await guardar({...disco, id : crypto.randomUUID()})
+            reiniciarFormulario()
+            setError({})
+        } catch (error) {
+            throw error
+        }
+        
     }
     
   return (
@@ -38,31 +56,31 @@ const Formulario = () => {
             
             <div className="nombre">
                 <label htmlFor="nombreDisco"><h3>Nombre Disco</h3></label>
-                <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" required onChange={actualizarInputs} value={disco.nombreDisco}/>
+                <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" required value={disco.nombreDisco} onChange={actualizarInputs}/>
                 {error.nombreDisco && <p className='msgError'>{error.nombreDisco}</p>}
             </div>
 
             <div className="imagenDisco">
                 <label htmlFor="caratulaDisco"><h3>Caratula del Disco</h3></label>
-                <input type="url" id="caratulaDisco" name="caratulaDisco" placeholder="Introduzca url de la caratula" onChange={actualizarInputs} value={disco.caratulaDisco}/>
+                <input type="url" id="caratulaDisco" name="caratulaDisco" placeholder="Introduzca url de la caratula" value={disco.caratulaDisco} onChange={actualizarInputs}/>
                 {error.caratulaDisco && <p className='msgError'>{error.caratulaDisco}</p>}
             </div>
 
             <div className="grupo">
                 <label htmlFor="nombreGrupo"><h3>Grupo de Música</h3></label>
-                <input type="text" name="nombreGrupo" id="nombreGrupo" placeholder="Wind Rose" onChange={actualizarInputs} value={disco.nombreGrupo}/>
+                <input type="text" name="nombreGrupo" id="nombreGrupo" placeholder="Wind Rose" value={disco.nombreGrupo} onChange={actualizarInputs}/>
                 {error.nombreGrupo && <p className='msgError'>{error.nombreGrupom}</p>}
             </div>
 
             <div className="yearPb">
                 <label htmlFor="yearPublication"><h3>Año de Publicación</h3></label>
-                <input type="number" name="yearPublication" id="yearPublication" placeholder="2019" onChange={actualizarInputs} value={disco.yearPublication}/>
+                <input type="number" name="yearPublication" id="yearPublication" placeholder="2019" value={disco.yearPublication} onChange={actualizarInputs}/>
                 {error.yearPublication && <p className='msgError'>{error.yearPublication}</p>}
             </div>
 
             <div className="generoOpcion">
                 <label htmlFor="genero"><h3>Género de Música</h3></label>
-                <select name="genero" id="genero" onChange={actualizarInputs} value={disco.genero}>
+                <select name="genero" id="genero" value={disco.genero} onChange={actualizarInputs}>
                     <option value="">Selecciona una opción</option>
                     <option value="folk_metal">Folk Metal</option>
                     <option value="hardstyle">Hardstyle</option>
@@ -74,24 +92,22 @@ const Formulario = () => {
 
             <div className="localizacion">
                 <label htmlFor="localizacionCodigo"><h3>Localización</h3></label> 
-                <input type="text" name="localizacionCodigo" id="localizacionCodigo" onChange={actualizarInputs} value={disco.localizacionCodigo}/>
+                <input type="text" name="localizacionCodigo" id="localizacionCodigo" value={disco.localizacionCodigo} onChange={actualizarInputs}/>
                 {error.localizacionCodigo && <p className='msgError'>{error.localizacionCodigo}</p>}
             </div>
             
             <div className="prestado">
-
-
                 <label><h3>Prestado</h3></label>
 
-                <input type="radio" name="prestado" id="prestado1" onChange={actualizarInputs} value="true" />
+                <input type="radio" name="prestado" id="prestado1" value="true" onChange={actualizarInputs}/>
                 <label htmlFor="prestado1">Sí</label>
 
-                <input type="radio" name="prestado" id="prestado2" onChange={actualizarInputs} value="false" />
+                <input type="radio" name="prestado" id="prestado2" value="false" onChange={actualizarInputs}/>
                 <label htmlFor="prestado2">No</label>
             </div>
 
             <div className="botones"><br />
-                <input type="button" id='guardar' value="Guardar" onClick={guardar}/>
+                <button type="button" onClick={guardarDisco}>Guardar</button>
             </div>
         </form>
     </div>

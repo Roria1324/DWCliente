@@ -1,12 +1,14 @@
 {
-    "discos" : {
-        "id": "40eadece-57e3-4686-bacc-40e75e8f5bcf",
-        "nombreDisco": "Kind of Blue",
-        "caratulaDisco": "https://example.com/kind-of-blue.jpg",
-        "nombreGrupo": "Miles Davis",
-        "yearPublication": 1959,
-        "genero": "jazz",
-        "localizacionCodigo": "ES-001AA",
-        "prestado": false
+  "discos": [
+    {
+      "id": "f0f299dd-4a3c-4fc1-993d-c319aea36fd0",
+      "nombreDisco": "Taco Terror",
+      "caratulaDisco": "https://imgs.search.brave.com/VtjxfYNulsyouOT5F61EpRZDqebx7MYZkMjis7VhzQk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnNj/ZG4uY28vaW1hZ2Uv/YWI2NzYxNmQwMDAw/YjI3M2YxZDdiNTY4/NTU0MzFiMWFjMTU2/YTY1OA",
+      "nombreGrupo": "Saymooon, UPC",
+      "yearPublication": "2023",
+      "genero": "hardstyle",
+      "localizacionCodigo": "ES-003AA",
+      "prestado": "true"
     }
+  ]
 }
