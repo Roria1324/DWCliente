@@ -9,7 +9,6 @@ const ProveedorDiscos = ({children}) => {
   const url = "http://localhost:3000/discos";
 
   const [discos, setDiscos] = useState([]);
-
   const {cargar, error, get, post, editPUT, editPATCH, borrar} = useAPI();
 
   const obtenerTodos = async () => {
@@ -31,6 +30,7 @@ const ProveedorDiscos = ({children}) => {
   const borrarPorID = async (id) => {
     try {
       await borrar(`${url}/${id}`)
+      obtenerTodos()
     } catch (error) {
       throw error
     }
@@ -53,6 +53,14 @@ const ProveedorDiscos = ({children}) => {
       throw error
     }
   }
+  
+  const obtenerPorId = async (id) => {
+    try {
+      return await get(`${url}/${id}`)
+    } catch (error){
+      throw error
+    }
+  }
 
 
 
@@ -63,6 +71,7 @@ const ProveedorDiscos = ({children}) => {
     borrarPorID,
     editarPorId,
     reemplazarPorId,
+    obtenerPorId,
     cargar,
     error
   };

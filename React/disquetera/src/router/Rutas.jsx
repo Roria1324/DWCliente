@@ -13,6 +13,7 @@ const Rutas = () => {
         <Route path="/addDiscos" element={<Formulario/>}></Route>
         <Route path="/verDiscos" element={<VerDiscos/>}></Route>
         <Route path='/verInfo/:id' element={<VerInfo/>}></Route>
+        <Route path="/editarDisco/:id" element={<Formulario />}></Route>
     </Routes>
   )
 }

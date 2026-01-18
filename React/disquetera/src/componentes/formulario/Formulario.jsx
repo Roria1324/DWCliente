@@ -3,7 +3,8 @@
 import React, { useContext, useState } from 'react'
 import "./Formulario.css"
 import validarFormulario from "../../biblioteca/validarFormulario.js"
-import { ContextoDiscos } from '../../contexto/ProveedorDiscos.jsx'
+import { useParams, useNavigate } from 'react-router-dom'
+import useDiscos from '../../hooks/useDiscos.js'
 
 const Formulario = () => {
 
@@ -18,10 +19,12 @@ const Formulario = () => {
         prestado :""
     }
 
+    const {id} = useParams()
     const [disco, setDisco] = useState(discoDefault)
-    const [error, setError] = useState({})
+    const {guardar, obtenerPorId, editarPorId} = useDiscos()
+    const navigate = useNavigate()
 
-    const {discos, guardar} = useContext(ContextoDiscos)
+    const [error, setError] = useState({})
 
     const reiniciarFormulario = () => {
         setDisco(discoDefault)
@@ -40,8 +43,14 @@ const Formulario = () => {
             return;
         }
         try {
-            await guardar({...disco, id : crypto.randomUUID()})
-            reiniciarFormulario()
+            if (id) {
+                await editarPorId(id, disco)
+                navigate("/verDiscos")
+            } else {
+                await guardar({...disco, id : crypto.randomUUID()})
+                reiniciarFormulario()
+            }
+            
             setError({})
         } catch (error) {
             throw error
@@ -107,7 +116,7 @@ const Formulario = () => {
             </div>
 
             <div className="botones"><br />
-                <button type="button" onClick={guardarDisco}>Guardar</button>
+                <button type="button" onClick={guardarDisco}>{id ? "Actualizar Datos" : "Guardar"}</button>
             </div>
         </form>
     </div>

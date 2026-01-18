@@ -1,6 +1,6 @@
 "use strict";
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import useDiscos from "../../hooks/useDiscos.js"
 import "./VerDiscos.css"
 
@@ -47,7 +47,7 @@ const VerDiscos = () => {
             <th>Caratula</th>
             <th>Grupo</th>
             <th>Genero</th>
-            <th></th>
+            <th>Acciones</th>
         </tr>
         </thead>
 
@@ -58,7 +58,10 @@ const VerDiscos = () => {
                   <td><Link to={`/verInfo/${disco.id}`}> <img src={disco.caratulaDisco} className='imagenCaratula'/></Link></td>
                   <td>{disco.nombreGrupo}</td>
                   <td>{disco.genero}</td>
-                  <td><button onClick={() => borrarDisco(disco.id)}>Borrar</button></td>
+                  <td>
+                      <button onClick={() => borrarDisco(disco.id)}>Borrar</button>
+                      <Link to={`/editarDisco/${disco.id}`}><button>Editar</button></Link>
+                  </td>
               </tr>
             ))}
         </tbody>

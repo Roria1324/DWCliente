@@ -1,30 +1,34 @@
 "use strict"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./VerInfo.css"
 import { useParams } from 'react-router-dom'
+import useDiscos from '../../hooks/useDiscos.js'
 
 const VerInfo = () => {
 //Componente para ver el disco que el usuario haya seleccionado.
-  const [listadoDiscos, setListadoDiscos] = useState([])
+  const {obtenerPorId} = useDiscos()
+  const [disco, setDisco] = useState([])
   const {id} = useParams()
 
   useEffect(() => {
-    const datos = JSON.parse(localStorage.getItem("discos")) || []
-    const resultado = datos.find(d => d.id === id)
-    setListadoDiscos(resultado)
+    const cargarDisco = async () => {
+      const resultado = await obtenerPorId(id)
+      setDisco(resultado)
+    }
+    cargarDisco()
   }, [id])
-  
+
   return (
     
     <div className='contenedor-principal'>
-        <img src={listadoDiscos.caratulaDisco}/>
+        <img src={disco.caratulaDisco}/>
         <div>
-          <p>Nombre de disco: {listadoDiscos.nombreDisco}</p>
-          <p>Nombre de grupo: {listadoDiscos.nombreGrupo}</p>
-          <p>Año de publicación: {listadoDiscos.yearPublication}</p>
-          <p>Género: {listadoDiscos.genero}</p>
-          <p>Código localización: {listadoDiscos.localizacionCodigo}</p>
-          <p>Prestado: {listadoDiscos.prestado === "true" ? "Sí" : "No"}</p>
+          <p>Nombre de disco: {disco.nombreDisco}</p>
+          <p>Nombre de grupo: {disco.nombreGrupo}</p>
+          <p>Año de publicación: {disco.yearPublication}</p>
+          <p>Género: {disco.genero}</p>
+          <p>Código localización: {disco.localizacionCodigo}</p>
+          <p>Prestado: {disco.prestado === "true" ? "Sí" : "No"}</p>
         </div>
     </div>
   )
