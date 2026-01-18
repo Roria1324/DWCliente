@@ -1,13 +1,53 @@
 {
   "discos": [
     {
-      "id": "f0f299dd-4a3c-4fc1-993d-c319aea36fd0",
+      "id": "5ca0fee2-30bf-4e53-b596-4494271a443a",
       "nombreDisco": "Taco Terror",
       "caratulaDisco": "https://imgs.search.brave.com/VtjxfYNulsyouOT5F61EpRZDqebx7MYZkMjis7VhzQk/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnNj/ZG4uY28vaW1hZ2Uv/YWI2NzYxNmQwMDAw/YjI3M2YxZDdiNTY4/NTU0MzFiMWFjMTU2/YTY1OA",
       "nombreGrupo": "Saymooon, UPC",
       "yearPublication": "2023",
       "genero": "hardstyle",
-      "localizacionCodigo": "ES-003AA",
+      "localizacionCodigo": "ES-112AA",
+      "prestado": "false"
+    },
+    {
+      "id": "1a2b3c4d-0001-4e53-b596-abcdef123456",
+      "nombreDisco": "Epicooozxzxczx",
+      "caratulaDisco": "https://imgs.search.brave.com/d1XtU2jJAaa8VhiuQPOQTvXSprmDEin_k6WidtrCZzs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9leHRl/cm5hbC1wcmV2aWV3/LnJlZGQuaXQvbG9n/YW4tZ3JpbW5hci1s/ZWFkcy1hLXBhY2st/b2Ytc3BhY2Utd29s/Zi1yZWluZm9yY2Vt/ZW50cy12MC1MWnk4/eUVselU3T2RTcDhp/dkw3X1JMdlZpVW1r/enQyYVhhS0cwX1F2/SEhvLmpwZz93aWR0/aD02NDAmY3JvcD1z/bWFydCZhdXRvPXdl/YnAmcz03ZTQ5ODY5/NjllYTkzNGMwNWE5/NGI2ZTc2YTA4ZTYx/Y2FkYTc1NDlh",
+      "nombreGrupo": "Iron Wolves",
+      "yearPublication": "2021",
+      "genero": "folk metal",
+      "localizacionCodigo": "ES-101AB",
+      "prestado": "false"
+    },
+    {
+      "id": "3c4d5e6f-0003-4e53-b596-abcdef123458",
+      "nombreDisco": "Pop Universe",
+      "caratulaDisco": "https://picsum.photos/200?random=3",
+      "nombreGrupo": "Starlight Crew",
+      "yearPublication": "2020",
+      "genero": "pop",
+      "localizacionCodigo": "ES-103CD",
+      "prestado": "false"
+    },
+    {
+      "id": "4d5e6f7g-0004-4e53-b596-abcdef123459",
+      "nombreDisco": "Street Rhymes",
+      "caratulaDisco": "https://picsum.photos/200?random=4",
+      "nombreGrupo": "MC Flow",
+      "yearPublication": "2023",
+      "genero": "rap",
+      "localizacionCodigo": "ES-104DE",
+      "prestado": "false"
+    },
+    {
+      "id": "5e6f7g8h-0005-4e53-b596-abcdef123450",
+      "nombreDisco": "Metal Legends",
+      "caratulaDisco": "https://picsum.photos/200?random=5",
+      "nombreGrupo": "Dragonfolk",
+      "yearPublication": "2019",
+      "genero": "folk metal",
+      "localizacionCodigo": "ES-105EF",
       "prestado": "true"
     }
   ]

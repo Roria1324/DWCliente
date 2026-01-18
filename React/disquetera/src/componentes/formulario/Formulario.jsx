@@ -1,11 +1,12 @@
 "use strict"
 
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./Formulario.css"
 import validarFormulario from "../../biblioteca/validarFormulario.js"
 import { useParams, useNavigate } from 'react-router-dom'
 import useDiscos from '../../hooks/useDiscos.js'
 
+//El formulario se puede usar para guardar discos nuevos o cambiar los datos del disco, la función cambia según si se accede con id o no.
 const Formulario = () => {
 
     const discoDefault = {
@@ -16,24 +17,29 @@ const Formulario = () => {
         yearPublication: "",
         genero : "",
         localizacionCodigo : "",
-        prestado :""
+        prestado :"false"
     }
 
     const {id} = useParams()
     const [disco, setDisco] = useState(discoDefault)
     const {guardar, obtenerPorId, editarPorId} = useDiscos()
     const navigate = useNavigate()
-
     const [error, setError] = useState({})
-
-    const reiniciarFormulario = () => {
-        setDisco(discoDefault)
-    }
 
     const actualizarInputs = (e) => {
         const {name, value, type, checked} = e.target
         setDisco(nprev => ({...nprev, [name]: type === "radio" ? value : value}))
     }
+//Uso de useEffect para cuando se edite algún disco aparezca la info vieja y el usuario no tiene que memorizar la info del disco. 
+    useEffect(() => {
+        if(id) {
+            const cargarDisco = async () => {
+                const resultado = await obtenerPorId(id)
+                setDisco(resultado)
+            }
+            cargarDisco()
+        }
+    }, [id])
 //Uso de Object.keys para el acceso a los datos de discos.
 //Si hay errores se guardan y se muestran donde esté el error.
     const guardarDisco = async () => {
@@ -43,6 +49,7 @@ const Formulario = () => {
             return;
         }
         try {
+            //Si se accede al formulario con una id se usa el método put.
             if (id) {
                 await editarPorId(id, disco)
                 navigate("/verDiscos")
@@ -50,12 +57,14 @@ const Formulario = () => {
                 await guardar({...disco, id : crypto.randomUUID()})
                 reiniciarFormulario()
             }
-            
             setError({})
         } catch (error) {
             throw error
-        }
-        
+        }    
+    }
+
+    const reiniciarFormulario = () => {
+        setDisco(discoDefault)
     }
     
   return (
@@ -65,7 +74,7 @@ const Formulario = () => {
             
             <div className="nombre">
                 <label htmlFor="nombreDisco"><h3>Nombre Disco</h3></label>
-                <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" required value={disco.nombreDisco} onChange={actualizarInputs}/>
+                <input type="text" name="nombreDisco" id="nombreDisco" placeholder="Diggy Diggy Hole" autoFocus  required value={disco.nombreDisco} onChange={actualizarInputs}/>
                 {error.nombreDisco && <p className='msgError'>{error.nombreDisco}</p>}
             </div>
 
@@ -91,7 +100,7 @@ const Formulario = () => {
                 <label htmlFor="genero"><h3>Género de Música</h3></label>
                 <select name="genero" id="genero" value={disco.genero} onChange={actualizarInputs}>
                     <option value="">Selecciona una opción</option>
-                    <option value="folk_metal">Folk Metal</option>
+                    <option value="folk metal">Folk Metal</option>
                     <option value="hardstyle">Hardstyle</option>
                     <option value="pop">Pop</option>
                     <option value="rap">Rap</option>
@@ -108,10 +117,10 @@ const Formulario = () => {
             <div className="prestado">
                 <label><h3>Prestado</h3></label>
 
-                <input type="radio" name="prestado" id="prestado1" value="true" onChange={actualizarInputs}/>
+                <input type="radio" name="prestado" id="prestado1" value="true" onChange={actualizarInputs} checked={disco.prestado === "true"}/>
                 <label htmlFor="prestado1">Sí</label>
 
-                <input type="radio" name="prestado" id="prestado2" value="false" onChange={actualizarInputs}/>
+                <input type="radio" name="prestado" id="prestado2" value="false" onChange={actualizarInputs} checked={disco.prestado === "false"}/>
                 <label htmlFor="prestado2">No</label>
             </div>
 

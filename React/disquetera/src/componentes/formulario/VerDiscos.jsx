@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom';
 import useDiscos from "../../hooks/useDiscos.js"
 import "./VerDiscos.css"
 
-
+//Si se hace click sobre la imagen se ve la info detallada del disco quería mantener esa interacción.
 const VerDiscos = () => {
   //Estados usados para poder ver los discos, borrar discos o buscarlos.
   const {discos, obtenerTodos, borrarPorID} = useDiscos();
@@ -23,11 +23,11 @@ const VerDiscos = () => {
     setListadoFiltrado(filtrados)
   }, [texto, discos])
 
-  //Funciones buscar y borrar de la práctica anterior adaptada a react.
+ //Funciones buscar y borrar de la práctica anterior adaptada a react.
   const buscar = (e) => {
     setTexto(e.target.value)
   }
-  
+
   const borrarDisco = async (idDiscos) => {
     if (confirm("¿Desea borrar el disco?")){
       await borrarPorID(idDiscos)
@@ -57,7 +57,7 @@ const VerDiscos = () => {
                   <td>{disco.nombreDisco}</td>
                   <td><Link to={`/verInfo/${disco.id}`}> <img src={disco.caratulaDisco} className='imagenCaratula'/></Link></td>
                   <td>{disco.nombreGrupo}</td>
-                  <td>{disco.genero}</td>
+                  <td>{disco.genero.toUpperCase()}</td>
                   <td>
                       <button onClick={() => borrarDisco(disco.id)}>Borrar</button>
                       <Link to={`/editarDisco/${disco.id}`}><button>Editar</button></Link>

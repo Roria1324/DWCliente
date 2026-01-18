@@ -1,8 +1,0 @@
-.contenido {
-    display: grid;
-    grid-auto-rows: auto;
-    justify-items: center;
-    align-items: center;
-    background-color: #444;
-    padding: 3rem;
-}
