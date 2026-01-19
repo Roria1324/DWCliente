@@ -5,6 +5,7 @@ import { contextoSesion } from "../context/ProveedorSesion.jsx";
 import "./Supabase.css";
 
 const Supabase = () => {
+  const { sesionIniciada } = useContext(contextoSesion);
   return (
     <>
       <h2>Panel de administración.</h2>
@@ -12,12 +13,18 @@ const Supabase = () => {
         <Link className='supabase-elementomenu' to='/supabase/inicio'>
           Inicio
         </Link>
-        <Link className='supabase-elementomenu' to='/supabase/iniciarSesion'>
-          Iniciar Sesión
-        </Link>
-        <Link className='supabase-elementomenu' to='/supabase/listado'>
-          Listado
-        </Link>
+        {!sesionIniciada && (
+          <Link className='supabase-elementomenu' to='/supabase/iniciarSesion'>
+            Iniciar Sesión
+          </Link>
+        )}
+        {sesionIniciada && (
+          <>
+            <Link className='supabase-elementomenu' to='/supabase/listado'>
+              Listado
+            </Link>
+          </>
+        )}
       </nav>
       <Contenedor>
         <Outlet />

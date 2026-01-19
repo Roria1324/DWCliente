@@ -32,17 +32,17 @@ import { createClient } from "@supabase/supabase-js";
  * entre otros.
  */
 
-/* const supabaseConexion = createClient(
+const supabaseConexion = createClient(
   "https://hlasxrarxhwimmekwjqr.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsYXN4cmFyeGh3aW1tZWt3anFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzQ0Mjk4MDcsImV4cCI6MjA1MDAwNTgwN30.G9FWnt-6gvH7PPzMb_i0vT55L8cNMZ6568V7RxqB-Xc"
-); */
+);
 
 /**
  * Código para la conexión a través de variables de entorno.
  */
-const supabaseConexion = createClient(
+/* const supabaseConexion = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_KEY
-);
+); */
 
 export { supabaseConexion };

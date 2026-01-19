@@ -116,6 +116,7 @@ const ProveedorSesion = ({ children }) => {
       await supabaseConexion.auth.signOut();
       setErrorUsuario(errorUsuarioInicial);
       // Hay que redirigir la aplicación a la parte pública.
+      navegar("/supabase/inicio");
     } catch (error) {
       setErrorUsuario(error.message);
     }
@@ -180,8 +181,9 @@ const ProveedorSesion = ({ children }) => {
       (event, session) => {
         // Se puede utilizar el operador negación para invertir el orden.
         if (session) {
+          //console.log(session);
           // Si hay sesión se carga la parte privada de la web.
-          navegar("/supabase/inicio");
+          navegar("/supabase/listado");
           // Se imprime por consola con fines formativos.
           //console.log(session);
           setSesionIniciada(true);
@@ -192,7 +194,7 @@ const ProveedorSesion = ({ children }) => {
           navegar("/supabase/iniciarSesion");
           setSesionIniciada(false);
         }
-      },
+      }
     );
     // Se revisa el objeto por consola (sólo con fines formativos).
     //console.log(suscripcion);
