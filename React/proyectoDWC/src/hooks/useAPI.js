@@ -45,15 +45,17 @@ export const useAPI = () => {
 
   // Función para GET.
   const obtener = (url) => {
-    return solicitud(url);
+    return solicitud(url, { method: "GET" });
   };
 
   // Función para POST.
-  const guardar = (url, body) =>
-    solicitud(url, {
+  const guardar = (url, body) => {
+    return solicitud(url, {
       method: "POST",
       body: JSON.stringify(body),
     });
+  };
+    
 
   // Función para PUT.
   const editarPUT = (url, body) =>

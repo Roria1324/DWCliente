@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 // Se importa el contexto (la caja) para acceder a sus datos.
-import { ContextoDiscentes } from "../../context/ProveedorDiscentes.jsx";
+import useDiscentes from "../../hooks/useDiscentes.js";
 
 /**
  * Consumir el contexto a través de un hook personalizado.
@@ -52,11 +52,12 @@ const CRUDBotones = () => {
 
   const {
     cargarDiscentes,
+    obtenerDiscentes,
     guardarDiscente,
     editarDiscenteCompleto,
     editarDiscenteParcial,
     borrarDiscente,
-  } = useContext(ContextoDiscentes);
+  } = useDiscentes();
 
   return (
     <>
@@ -64,7 +65,7 @@ const CRUDBotones = () => {
         <button
           onClick={async (evento) => {
             await guardarDiscente(discenteNuevo);
-            cargarDiscentes();
+            //cargarDiscentes();
           }}
         >
           Guardar discente
@@ -72,7 +73,7 @@ const CRUDBotones = () => {
         <button
           onClick={async (evento) => {
             await borrarDiscente("5");
-            cargarDiscentes();
+            //cargarDiscentes();
           }}
         >
           Borrar discente
@@ -80,7 +81,7 @@ const CRUDBotones = () => {
         <button
           onClick={async () => {
             await editarDiscenteCompleto("5", discenteEditado);
-            cargarDiscentes();
+            //cargarDiscentes();
           }}
         >
           Actualizar discente completo
@@ -88,7 +89,7 @@ const CRUDBotones = () => {
         <button
           onClick={async () => {
             await editarDiscenteParcial("5", discenteParcial);
-            cargarDiscentes();
+            //cargarDiscentes();
           }}
         >
           Actualizar discente parcial

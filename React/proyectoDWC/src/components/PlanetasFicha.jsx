@@ -24,12 +24,12 @@ const PlanetasFicha = () => {
     traerPlanetas(urlPlanetas);
   }, []); */
 
-  const { planetas, error } = useContext(ContextoPlanetas);
+  const { planetas, error, Feo } = useContext(ContextoPlanetas);
 
   return (
     <>
       <div className='planetasFicha_contenedor'>
-        <h2>Fichas de planetas.</h2>
+        <h2>Fichas de {Feo}.</h2>
         {Array.isArray(planetas) && planetas.length
           ? planetas.map((planeta, index) => {
               return <Planeta key={index} datos={planeta} />;
