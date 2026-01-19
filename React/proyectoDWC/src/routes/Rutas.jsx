@@ -16,6 +16,10 @@ import CicloVida from "../pages/CicloVida.jsx";
 import Planetas from "../pages/Planetas.jsx";
 import PlanetaTatooine from "../pages/PlanetaTatooine.jsx";
 import CRUDFetch from "../pages/CRUDFetch.jsx";
+import Supabase from "../pages/Supabase.jsx";
+import SupabaseInicio from "../pages/SupabaseInicio.jsx";
+import SupabaseLogin from "../pages/SupabaseLogin.jsx";
+import SupabaseListado from "../pages/SupabaseListado.jsx";
 
 /** Componenentes para crear rutas:
  *
@@ -64,6 +68,11 @@ const Rutas = () => {
         <Route path='/planetas' element={<Planetas />} />
         <Route path='/planetatatooine' element={<PlanetaTatooine />} />
         <Route path='/CRUDFetch' element={<CRUDFetch />} />
+        <Route path='/supabase' element={<Supabase />}>
+          <Route path='inicio' element={<SupabaseInicio />} />
+          <Route path='iniciarSesion' element={<SupabaseLogin />} />
+          <Route path='listado' element={<SupabaseListado />} />
+        </Route>
         <Route path='*' element={<Error />} />
       </Routes>
     </>

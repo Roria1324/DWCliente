@@ -1,0 +1,18 @@
+.supabase-elementomenu{
+    display: inline;
+    margin: 10px;
+    padding: 10px;
+    border: solid rgb(110, 110, 112) 1px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.supabase-elementomenu:hover {
+    background-color: rgb(60, 60, 63);
+    color:rgb(255, 255, 255);
+    cursor: pointer;    
+}
+
+.supabase-navegacion{
+    padding: 20px;
+}
