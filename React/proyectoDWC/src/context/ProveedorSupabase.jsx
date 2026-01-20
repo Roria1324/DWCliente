@@ -38,8 +38,8 @@ const ProveedorSupabase = ({ children }) => {
   const obtenerListado = async () => {
     try {
       const { data, error } = await supabaseConexion.from("Feos").select("*");
-      console.log(data);
-      console.log(error);
+      //console.log(data);
+      //console.log(error);
       setFeos(data);
       setErrorFeos(ERROR_INICIAL);
     } catch (fallo) {

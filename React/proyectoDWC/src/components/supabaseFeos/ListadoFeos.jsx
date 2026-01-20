@@ -34,8 +34,8 @@ const ListadoFeos = () => {
       </div>
       <div>
         {feos.length && Array.isArray(feos)
-          ? feos.map((feo) => {
-              return <ListadoFeo datos={feo} />;
+          ? feos.map((feo, i) => {
+              return <ListadoFeo key={i} datos={feo} />;
             })
           : "No se han encontrado feos, todavía."}
       </div>
