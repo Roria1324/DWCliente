@@ -2,24 +2,24 @@ import React, { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabaseConexion } from "../hooks/supabase.js";
 
-const sesionContext = createContext();
+const sessionContext = createContext();
 
 const SupabaseSesion = ({ children }) => {
-  const dataSesionStart = {
+  const dataSessionStart = {
     email: "",
     password: "",
   };
 
   const userStart = {};
   const errorUserStart = {};
-  const sesionStartedFirst = false;
+  const sessionStartedFirst = false;
 
   const navigate = useNavigate();
 
-  const [dataSession, setDataSession] = useState(dataSesionStart);
+  const [dataSession, setDataSession] = useState(dataSessionStart);
   const [user, setUser] = useState(userStart);
   const [errorUser, setErrorUser] = useState(errorUserStart);
-  const [sessionStarted, setSessionStarted] = useState(sesionStartedFirst);
+  const [sessionStarted, setSessionStarted] = useState(sessionStartedFirst);
 
   const createCount = async (userData) => {
     try {
@@ -52,6 +52,8 @@ const SupabaseSesion = ({ children }) => {
         email: dataSession.email,
         password: dataSession.password,
       });
+      setDataSession(data)
+      setSessionStarted(true);
     } catch (error) {
       setErrorUser(error.message);
     }
@@ -62,6 +64,9 @@ const SupabaseSesion = ({ children }) => {
       await supabaseConexion.auth.signOut();
       setErrorUser(errorUserStart);
       navigate("/");
+      setUser(userStart)
+      setErrorUser(errorUserStart)
+      setSessionStarted(sessionStartedFirst)
     } catch (error) {
       setErrorUser(error.mesage);
     }
@@ -77,7 +82,7 @@ const SupabaseSesion = ({ children }) => {
   };
 
   return (
-    <sesionContext.Provider value={elements}>{children}</sesionContext.Provider>
+    <sessionContext.Provider value={elements}>{children}</sessionContext.Provider>
   );
 };
 
