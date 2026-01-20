@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import Contenedor from "../components/Contenedor";
 import { contextoSesion } from "../context/ProveedorSesion.jsx";
 import "./Supabase.css";
+import ProveedorSupabase from "../context/ProveedorSupabase.jsx";
 
 const Supabase = () => {
   const { sesionIniciada } = useContext(contextoSesion);
@@ -27,7 +28,9 @@ const Supabase = () => {
         )}
       </nav>
       <Contenedor>
-        <Outlet />
+        <ProveedorSupabase>
+          <Outlet />
+        </ProveedorSupabase>
       </Contenedor>
     </>
   );

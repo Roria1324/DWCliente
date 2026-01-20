@@ -13,7 +13,7 @@ function App() {
       <Contenedor>
         <h2>Rutas con React.</h2>
         <p>Contenido estático.</p>
-        <p>{sesionIniciada && <CerrarSesion />}</p>
+        <div>{sesionIniciada && <CerrarSesion />}</div>
       </Contenedor>
       <Contenedor>
         <Menu />
