@@ -11,7 +11,7 @@ const SupabaseSesion = ({ children }) => {
   };
 
   const userStart = {};
-  const errorUserStart = {};
+  const errorUserStart = "";
   const sessionStartedFirst = false;
 
   const navigate = useNavigate();
@@ -21,13 +21,13 @@ const SupabaseSesion = ({ children }) => {
   const [errorUser, setErrorUser] = useState(errorUserStart);
   const [sessionStarted, setSessionStarted] = useState(sessionStartedFirst);
 
-  const createCount = async (userData) => {
+  const createCount = async () => {
     try {
       const { data, error } = await supabaseConexion.auth.signUp({
-        email: userData.email,
-        password: userData.password,
+        email: dataSession.email,
+        password: dataSession.password,
         option: {
-          data: userData.username,
+          data: dataSession.username,
         },
       });
       setDataSession(data);
@@ -52,7 +52,8 @@ const SupabaseSesion = ({ children }) => {
         email: dataSession.email,
         password: dataSession.password,
       });
-      setDataSession(data)
+      navigate("/")
+      setDataSession(data);
       setSessionStarted(true);
     } catch (error) {
       setErrorUser(error.message);
@@ -64,26 +65,35 @@ const SupabaseSesion = ({ children }) => {
       await supabaseConexion.auth.signOut();
       setErrorUser(errorUserStart);
       navigate("/");
-      setUser(userStart)
-      setErrorUser(errorUserStart)
-      setSessionStarted(sessionStartedFirst)
+      setUser(userStart);
+      setErrorUser(errorUserStart);
+      setSessionStarted(sessionStartedFirst);
     } catch (error) {
       setErrorUser(error.mesage);
     }
+  };
+
+  const updateData = (e) => {
+    const { name, value } = e.target;
+    setDataSession({ ...dataSession, [name]: value });
   };
 
   const elements = {
     createCount,
     signUpPassword,
     signOut,
-    sesionStartedFirst,
+    updateData,
+    sessionStarted,
     user,
     errorUser,
   };
 
   return (
-    <sessionContext.Provider value={elements}>{children}</sessionContext.Provider>
+    <sessionContext.Provider value={elements}>
+      {children}
+    </sessionContext.Provider>
   );
 };
 
 export default SupabaseSesion;
+export { sessionContext };
