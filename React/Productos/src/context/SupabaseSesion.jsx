@@ -27,9 +27,10 @@ const SupabaseSesion = ({ children }) => {
         email: dataSession.email,
         password: dataSession.password,
         option: {
-          data: dataSession.username,
+          data: dataSession.name,
         },
       });
+      navigate('/')
       setDataSession(data);
       setUser(data?.user);
       setSessionStarted(true);
