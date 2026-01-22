@@ -1,25 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
-import { sessionContext } from "../context/SupabaseSesion.jsx";
+import useSupabase from "../hooks/useSupabase.js";
 
 const RegistrerUser = () => {
-  const { createCount, errorUser, updateData } = useContext(sessionContext);
+  const { createCount, errorUser, updateData, dataSession } =
+    useSupabase();
+  const [error, setError] = useState({});
+
+  //Expresiones regulares obtenidas de nuestro amigo y vecino la Ia.
+  const validateEmail = (email) => {
+    if (!email) return false;
+    const rex = /\S+@\S+\.\S+/;
+    return rex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    if (!password) return false;
+
+    if (password.length < 8) return false;
+    if (password.includes(" ")) return false;
+    /*if (!/[A-Z]/.test(password)) return false;
+    if (!/[a-z]/.test(password)) return false;
+    if (!/[0-9]/.test(password)) return false;
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return false;*/
+
+    return true;
+  };
+
+  const validateRegister = (email, password) => {
+    let errors = {};
+
+    if (!validateEmail(email)) {
+      errors.email = "Invalid email format.";
+    }
+
+    if (!validatePassword(password)) {
+      errors.password =
+        "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character";
+    }
+
+    return errors;
+  };
+
+  const handleRegister = () => {
+    const errors = validateRegister(dataSession.email, dataSession.password);
+
+    if (Object.keys(errors).length > 0) {
+      setError(errors);
+      return;
+    }
+
+    createCount();
+  };
+
   return (
     <div className="create-count">
       <h2>Register</h2>
-
-      <div className="login-name">
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Eustaquio"
-          onChange={(e) => {
-            updateData(e);
-          }}
-        />
-      </div>
 
       <div className="login-email">
         <label htmlFor="email">Email</label>
@@ -27,26 +63,31 @@ const RegistrerUser = () => {
           type="email"
           name="email"
           id="email"
+          value={dataSession.email}
           placeholder="example@gmail.com"
           onChange={(e) => {
             updateData(e);
           }}
         />
+        {error.email && <p className="message-error">{error.email}</p>}
       </div>
+
       <div className="login-password">
         <label htmlFor="email">Password</label>
         <input
           type="password"
           name="password"
           id="password"
+          value={dataSession.password}
           placeholder="********"
           onChange={(e) => {
             updateData(e);
           }}
         />
+        {error.password && <p className="message-error">{error.password}</p>}
       </div>
       <div className="login-button">
-        <button onClick={() => createCount()}>Register</button>
+        <button onClick={handleRegister}>Register</button>
       </div>
       <p>{errorUser}</p>
     </div>

@@ -26,20 +26,15 @@ const SupabaseSesion = ({ children }) => {
       const { data, error } = await supabaseConexion.auth.signUp({
         email: dataSession.email,
         password: dataSession.password,
-        option: {
-          data: dataSession.name,
-        },
       });
-      navigate('/')
-      setDataSession(data);
-      setUser(data?.user);
-      setSessionStarted(true);
 
       if (error) {
         throw error;
-      } else {
-        setErrorUser("You will receive an email confirmation.");
       }
+
+      setUser(data.user);
+      setDataSession(dataSessionStart);
+      setErrorUser("You will receive an email confirmation.");
     } catch (error) {
       setErrorUser(error.message);
     }
@@ -53,9 +48,10 @@ const SupabaseSesion = ({ children }) => {
         email: dataSession.email,
         password: dataSession.password,
       });
-      navigate("/")
+      navigate("/");
       setDataSession(data);
       setSessionStarted(true);
+      console.log(data);
     } catch (error) {
       setErrorUser(error.message);
     }
@@ -87,6 +83,7 @@ const SupabaseSesion = ({ children }) => {
     sessionStarted,
     user,
     errorUser,
+    dataSession,
   };
 
   return (
