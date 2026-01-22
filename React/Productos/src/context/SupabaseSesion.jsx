@@ -48,10 +48,10 @@ const SupabaseSesion = ({ children }) => {
         email: dataSession.email,
         password: dataSession.password,
       });
-      navigate("/");
+
       setDataSession(data);
       setSessionStarted(true);
-      console.log(data);
+      navigate("/");
     } catch (error) {
       setErrorUser(error.message);
     }
