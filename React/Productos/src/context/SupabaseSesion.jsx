@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabaseConexion } from "../hooks/supabase.js";
 
@@ -8,7 +8,7 @@ const SupabaseSesion = ({ children }) => {
   const dataSessionStart = {
     email: "",
     password: "",
-    username:""
+    username: "",
   };
 
   const userStart = {};
@@ -29,9 +29,9 @@ const SupabaseSesion = ({ children }) => {
         password: dataSession.password,
         options: {
           data: {
-            display_name: dataSession.username
-          }
-        }
+            display_name: dataSession.username,
+          },
+        },
       });
 
       if (error) {
@@ -52,17 +52,18 @@ const SupabaseSesion = ({ children }) => {
     try {
       const { data, error } = await supabaseConexion.auth.signInWithPassword({
         email: dataSession.email,
-        password: dataSession.password
+        password: dataSession.password,
       });
 
-      if(error){
-        setErrorUser(error.message)
-        setSessionStarted(false)
-        return
+      if (error) {
+        setErrorUser(error.message);
+        setSessionStarted(false);
+        return;
       }
-
-      setDataSession(data.user);
+      
+      setUser(data.user);
       setSessionStarted(true);
+      setDataSession(dataSessionStart)
       navigate("/");
     } catch (error) {
       setErrorUser(error.message);
@@ -86,6 +87,17 @@ const SupabaseSesion = ({ children }) => {
     const { name, value } = e.target;
     setDataSession({ ...dataSession, [name]: value });
   };
+
+  useEffect(() => {
+    supabaseConexion.auth.onAuthStateChange((e, session) => {
+      if (!session) return navigate("/");
+
+      setDataSession(session);
+      setUser(session.user);
+      setSessionStarted(true)
+      navigate("/")
+    });
+  }, []);
 
   const elements = {
     createCount,

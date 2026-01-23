@@ -3,9 +3,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { sessionContext } from "../../context/SupabaseSesion";
 import "./Menu.css";
+import CloseSession from "../../pages/CloseSession";
 
 const Menu = () => {
-  const { sessionStarted, dataSession } = useContext(sessionContext);
+  const { sessionStarted, user } = useContext(sessionContext);
 
   return (
     <nav className="main-nav">
@@ -20,12 +21,6 @@ const Menu = () => {
           Start
         </Link>
 
-        {/*
-        <Link className="menu-element" to="/products">
-          Products
-        </Link>
-        */}
-
         {!sessionStarted && (
           <>
             <Link className="menu-element auth" to="/logIn">
@@ -39,7 +34,15 @@ const Menu = () => {
         )}
 
         {sessionStarted && (
-          <p>Hello {dataSession.user.user_metadata.display_name}</p>
+          <>
+            <Link className="menu-element" to="/products">
+              Products
+            </Link>
+
+            <p className="menu-element">{user?.user_metadata.display_name}</p>
+
+            <CloseSession />
+          </>
         )}
       </div>
     </nav>

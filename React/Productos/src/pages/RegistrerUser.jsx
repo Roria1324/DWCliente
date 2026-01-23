@@ -23,7 +23,7 @@ const RegistrerUser = () => {
             updateData(e);
           }}
         />
-        {error.email && <p className="message-error">{error.username}</p>}
+        {error.username && <p className="message-error">{error.username}</p>}
       </div>
 
       <div className="login-email">
@@ -38,7 +38,7 @@ const RegistrerUser = () => {
             updateData(e);
           }}
         />
-        {error.username && <p className="message-error">{error.email}</p>}
+        {error.email && <p className="message-error">{error.email}</p>}
       </div>
 
       <div className="login-password">
