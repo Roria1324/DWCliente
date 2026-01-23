@@ -1,58 +1,12 @@
 import React from "react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import useSupabase from "../hooks/useSupabase.js";
-
+import useValidathions from "../hooks/useValidathions.js";
+import "./LogIn.css"
 
 const LogIn = () => {
-  const { updateData, signUpPassword, errorUser, dataSession } =
-    useSupabase();
-  const [error, setError] = useState({});
-
-  //Expresiones regulares obtenidas de nuestro amigo y vecino la Ia.
-  const validateEmail = (email) => {
-    if (!email) return false;
-    const rex = /\S+@\S+\.\S+/;
-    return rex.test(email);
-  };
-
-  const validatePassword = (password) => {
-    if (!password) return false;
-
-    if (password.length < 8) return false;
-    if (password.includes(" ")) return false;
-    /*if (!/[A-Z]/.test(password)) return false;
-      if (!/[a-z]/.test(password)) return false;
-      if (!/[0-9]/.test(password)) return false;
-      if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return false;*/
-
-    return true;
-  };
-
-  const validateSignUp = (email, password) => {
-    let errors = {};
-
-    if (!validateEmail(email)) {
-      errors.email = "Invalid email format.";
-    }
-
-    if (!validatePassword(password)) {
-      errors.password =
-        "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character";
-    }
-
-    return errors;
-  };
-
-  const handleSignUp = () => {
-    const errors = validateSignUp(dataSession.email, dataSession.password);
-
-    if (Object.keys(errors).length > 0) {
-      setError(errors);
-      return;
-    }
-
-    signUpPassword();
-  };
+  const { updateData, signUpPassword, errorUser, dataSession } = useSupabase();
+  const { handleExchangeforSignUp, error } = useValidathions();
 
   return (
     <div className="login">
@@ -63,10 +17,12 @@ const LogIn = () => {
           type="email"
           name="email"
           id="email"
+          value={dataSession.email}
           placeholder="example@gmail.com"
           onChange={(e) => {
             updateData(e);
           }}
+          autoFocus
         />
         {error.email && <p className="message-error">{error.email}</p>}
       </div>
@@ -76,6 +32,7 @@ const LogIn = () => {
           type="password"
           name="password"
           id="password"
+          value={dataSession.password}
           placeholder="********"
           onChange={(e) => {
             updateData(e);
@@ -84,7 +41,7 @@ const LogIn = () => {
         {error.password && <p className="message-error">{error.password}</p>}
       </div>
       <div className="login-button">
-        <button onClick={handleSignUp}>Login</button>
+        <button onClick={handleExchangeforSignUp}>Login</button>
       </div>
       <p>{errorUser}</p>
     </div>

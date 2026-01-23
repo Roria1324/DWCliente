@@ -1,0 +1,100 @@
+/* ===== LOGIN FORM ===== */
+
+.login {
+  max-width: 380px;
+  margin: 4rem auto;
+  padding: 2rem 2.2rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.login h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Groups */
+.login-email,
+.login-password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.login label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #374151;
+}
+
+/* Inputs */
+.login input {
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.login input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Button */
+.login-button {
+  margin-top: 1.2rem;
+}
+
+.login-button button {
+  width: 100%;
+  padding: 0.65rem;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-button button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.login-button button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Errors */
+.message-error {
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: #dc2626;
+}
+
+.login p {
+  margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .login {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}

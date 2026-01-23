@@ -1,0 +1,42 @@
+/* ===== CLOSE SESSION BUTTON ===== */
+
+.container-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.5rem 2rem;
+}
+
+/* Danger / Logout button */
+.close-button {
+  background: #ef4444; /* rojo suave */
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+}
+
+.close-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .container-button {
+    margin: 1rem;
+  }
+
+  .close-button {
+    width: 100%;
+  }
+}

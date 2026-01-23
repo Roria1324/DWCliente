@@ -1,0 +1,60 @@
+/* ===== START PAGE ===== */
+
+.start-page {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.start-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.start-page p {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* Button ejemplo */
+.start-page .start-button {
+  padding: 0.65rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.start-page .start-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.start-page .start-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .start-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .start-page p {
+    font-size: 0.9rem;
+  }
+
+  .start-page .start-button {
+    width: 100%;
+  }
+}

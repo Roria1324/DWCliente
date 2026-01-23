@@ -8,6 +8,7 @@ const SupabaseSesion = ({ children }) => {
   const dataSessionStart = {
     email: "",
     password: "",
+    username:""
   };
 
   const userStart = {};
@@ -26,6 +27,11 @@ const SupabaseSesion = ({ children }) => {
       const { data, error } = await supabaseConexion.auth.signUp({
         email: dataSession.email,
         password: dataSession.password,
+        options: {
+          data: {
+            display_name: dataSession.username
+          }
+        }
       });
 
       if (error) {
@@ -46,10 +52,16 @@ const SupabaseSesion = ({ children }) => {
     try {
       const { data, error } = await supabaseConexion.auth.signInWithPassword({
         email: dataSession.email,
-        password: dataSession.password,
+        password: dataSession.password
       });
 
-      setDataSession(data);
+      if(error){
+        setErrorUser(error.message)
+        setSessionStarted(false)
+        return
+      }
+
+      setDataSession(data.user);
       setSessionStarted(true);
       navigate("/");
     } catch (error) {

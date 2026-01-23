@@ -1,12 +1,12 @@
-import React from 'react'
-import Menu from '../components/menu/Menu'
+import "./Header.css"
+import Menu from "../components/menu/Menu.jsx";
 
 const Header = () => {
   return (
-    <nav>
-      <Menu/>
-    </nav>
-  )
-}
+    <header className="main-header">
+      <Menu />
+    </header>
+  );
+};
 
-export default Header
+export default Header;

@@ -1,0 +1,15 @@
+/* ===== SIMPLE FOOTER ===== */
+
+.simple-footer {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.simple-footer p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
