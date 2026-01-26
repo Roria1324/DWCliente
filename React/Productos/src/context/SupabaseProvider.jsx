@@ -1,20 +1,33 @@
 "use strict";
 import React, { createContext, useState } from "react";
 import { supabaseConexion } from "../hooks/supabase.js";
+import useProducts from "../hooks/useProducts.js";
 
 const contextSupabase = createContext();
 
-const SupabaseProvider = ({children}) => {
+const SupabaseProvider = ({ children }) => {
+  const INITIAL_ERROR = "";
 
-    const ERROR_START = "";
+  const { getTable } = useProducts();
+  const [error, setError] = useState({});
+  const [data, setData] = INITIAL_ERROR;
 
+  const getData = async () => {
+    try {
+      getTable("products");
+      setData(data);
+    } catch (error) {
+      setError(error);
+    }
+  };
 
-    const [error, setErrors] = useState(ERROR_START);
-    
-  
-  return (
-        <div>SupabaseProvider</div>
-    );
+  const elements = {
+    getData,
+    data,
+    error,
+  };
+
+  return <contextSupabase value={elements}>{children}</contextSupabase>;
 };
 
 export default SupabaseProvider;

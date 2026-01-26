@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import SupabaseProvider from '../context/SupabaseProvider'
 
 const Products = () => {
+
+  const {getData} = useContext(SupabaseProvider);
+  
+
   return (
-    <div>Coming soon :)</div>
+    <div className='product-container'>
+
+      </div>
   )
 }
 
