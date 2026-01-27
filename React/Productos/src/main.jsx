@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import SupabaseSesion from "./context/SupabaseSesion.jsx";
+import ProductsProvider from "./context/ProductsProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <SupabaseSesion>
-        <App />
+        <ProductsProvider>
+          <App />
+        </ProductsProvider>
       </SupabaseSesion>
     </BrowserRouter>
   </StrictMode>,

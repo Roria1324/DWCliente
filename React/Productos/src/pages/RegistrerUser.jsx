@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useSupabase from "../hooks/useSupabase.js";
 import useValidathions from "../hooks/useValidathions.js";
-import "./RegistrerUser.css";
+import "./LogIn-Register.css";
 
 const RegistrerUser = () => {
   const { errorUser, updateData, dataSession } = useSupabase();

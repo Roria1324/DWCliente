@@ -1,24 +1,12 @@
-import { useState } from "react";
-import { supabaseConexion } from "./supabase";
+import { useContext } from "react";
+import { contextProducts } from "../context/ProductsProvider.jsx";
 
 const useProducts = () => {
+  const context = useContext(contextProducts);
 
-    const [data, setData] = useState({})
-    const [error, setError] = useState("");
-
-    const getTable = async () => {
-        try {
-        const { data, error } = await supabaseConexion.from(TABLE).select("*");
-        setData(data);
-        } catch (error) {
-        setError(error);
-        }
-    };
-    
-    return {
-        getTable,
-        error,
-        data,
-    }
+  if (!context) {
+    throw new Error("Error: Could not retrieve the context.");
+  }
+  return context;
 };
 export default useProducts;

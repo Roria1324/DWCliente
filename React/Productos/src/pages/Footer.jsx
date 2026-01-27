@@ -1,9 +1,10 @@
-import "./Footer.css"
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="simple-footer">
-      <p>© MyShopUgly — Built with React & Supabase</p>
+    <footer className="footer">
+      <span>© 2025 MyShopUgly — Built with React & Supabase</span>
     </footer>
   );
 };
