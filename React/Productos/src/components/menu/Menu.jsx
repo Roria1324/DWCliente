@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { sessionContext } from "../../context/SupabaseSesion";
 import "./Menu.css";
 import CloseSession from "../../pages/SignOut";
+import useSupabase from "../../hooks/useSupabase";
 
 const Menu = () => {
-  const { sessionStarted, user } = useContext(sessionContext);
+  const { sessionStarted, user } = useSupabase();
 
   return (
     <nav>
@@ -17,7 +18,11 @@ const Menu = () => {
 
         <div className="menu-links">
           <Link className="menu-element" to="/">
-            Start
+            Home
+          </Link>
+
+          <Link className="menu-element" to="/products">
+            Products
           </Link>
 
           {!sessionStarted && (
@@ -34,10 +39,6 @@ const Menu = () => {
 
           {sessionStarted && (
             <>
-              <Link className="menu-element" to="/products">
-                Products
-              </Link>
-
               <span className="menu-element user">
                 {user?.user_metadata?.display_name}
               </span>

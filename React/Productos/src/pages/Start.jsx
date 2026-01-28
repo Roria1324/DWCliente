@@ -3,7 +3,7 @@ import "./Start.css"
 
 const Start = () => {
   return (
-    <div>Start</div>
+    <div>Home</div>
   )
 }
 

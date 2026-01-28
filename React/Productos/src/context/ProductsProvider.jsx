@@ -11,8 +11,64 @@ const ProductsProvider = ({ children }) => {
   const getTable = async () => {
     try {
       const { data, error } = await supabaseConexion
-        .from('productos')
-        .select('*');
+        .from("productos")
+        .select("*");
+
+      if (error) throw error;
+
+      setDataProducts(data);
+      setErrorProducts("");
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
+  const getProductsOrdered = async (field, order) => {
+    try {
+      const { data, error } = await supabaseConexion
+        .from("productos")
+        .select("*")
+        .order(field, { ascending: order === "asc" });
+
+      if (error) throw error;
+
+      setDataProducts(data);
+      setErrorProducts("");
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
+  const getProductsByName = async (search, field, order) => {
+    try {
+      const { data, error } = await supabaseConexion
+        .from("productos")
+        .select("*")
+        .ilike("name", `%${search}%`)
+        .order(field, { ascending: order === "asc" });
+
+      if (error) throw error;
+
+      setDataProducts(data);
+      setErrorProducts("");
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
+  const getProductsByPrice = async (minPrice, maxPrice) => {
+    try {
+      let query = supabaseConexion.from("productos").select("*");
+
+      if (minPrice !== "") {
+        query = query.gte("price", minPrice);
+      }
+
+      if (maxPrice !== "") {
+        query = query.lte("price", maxPrice);
+      }
+
+      const { data, error } = await query;
 
       if (error) throw error;
 
@@ -25,6 +81,9 @@ const ProductsProvider = ({ children }) => {
 
   const elements = {
     getTable,
+    getProductsOrdered,
+    getProductsByName,
+    getProductsByPrice,
     dataProducts,
     errorProducts,
   };
