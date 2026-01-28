@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import useProducts from '../hooks/useProducts'
 import "./Products.css"
+import Product from './Product'
 
 const Products = () => { 
 
@@ -20,29 +21,14 @@ const Products = () => {
       {errorProducts && <p className='error-container' >{errorProducts}</p>}
       <div className="products-grid">
         {dataProducts?.map((product) => (
-          <div key={product.id} className="product-card">
-            <h3>{product.name}</h3>
-
-            {product.image_url && (
-              <img
-                src={product.image_url}
-                alt={product.name}
-                className="product-image"
-              />
-            )}
-
-            <p className="product-description">
-              {product.description}
-            </p>
-
-            <p className="product-price">
-              {product.price} €
-            </p>
-
-            <p className='product-weigth'>
-            {product.weight} kg
-            </p>
-          </div>
+          <Product 
+            key={product.id}
+            name={product.name}
+            image_url={product.image_url}
+            description={product.description}
+            price={product.price}
+            weight={product.weight}
+          />
         ))}
       </div>
     </div>
