@@ -7,6 +7,7 @@ import useSupabase from "../hooks/useSupabase";
 const Products = () => {
 
   //Por falta de tiempo  ya no pude dejar más bonito el código y separar las cosas. Tarea -> Separar los filtros de los productos para el alex de mañana.
+  //Actualización no me dio tiempo :( mala organización de tiempo.
   const [field, setField] = useState("name");
   const [order, setOrder] = useState("asc");
   const [search, setSearch] = useState("");
