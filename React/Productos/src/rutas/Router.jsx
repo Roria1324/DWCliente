@@ -4,6 +4,7 @@ import Start from "../pages/Start.jsx";
 import Products from "../pages/Products.jsx";
 import LogIn from "../pages/LogIn.jsx";
 import RegistrerUser from "../pages/RegistrerUser.jsx";
+import AddProducts from "../pages/AddProducts.jsx";
 const Router = () => {
 
   return (
@@ -12,6 +13,8 @@ const Router = () => {
       <Route path="/logIn" element={<LogIn />} />
       <Route path="/register" element={<RegistrerUser />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/createProduct" element={<AddProducts/>} />
+      <Route path="/createProduct/:id" element={<AddProducts />}></Route>
     </Routes>
   );
 };

@@ -56,6 +56,56 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
+  const createProduct = async (product) => {
+    try {
+      const { error } = await supabaseConexion
+        .from("productos")
+        .insert([product]);
+
+      if (error) throw error;
+
+      await getTable();
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
+  const updateProduct = async (id, product) => {
+    try {
+      const { error } = await supabaseConexion
+        .from("productos")
+        .update(product)
+        .eq("id", id);
+
+      if (error) throw error;
+
+      await getTable();
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this product?",
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      const { error } = await supabaseConexion
+        .from("productos")
+        .delete()
+        .eq("id", id);
+
+      if (error) throw error;
+
+      setDataProducts((prev) => prev.filter((p) => p.id !== id));
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
   const getProductsByPrice = async (minPrice, maxPrice) => {
     try {
       let query = supabaseConexion.from("productos").select("*");
@@ -84,6 +134,9 @@ const ProductsProvider = ({ children }) => {
     getProductsOrdered,
     getProductsByName,
     getProductsByPrice,
+    createProduct,
+    updateProduct,
+    deleteProduct,
     dataProducts,
     errorProducts,
   };

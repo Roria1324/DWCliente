@@ -39,6 +39,8 @@ const Menu = () => {
 
           {sessionStarted && (
             <>
+              <Link className="menu-element" to="createProduct">Add Product</Link>
+
               <span className="menu-element user">
                 {user?.user_metadata?.display_name}
               </span>
