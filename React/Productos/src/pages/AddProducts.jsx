@@ -1,32 +1,51 @@
 import React, { useState, useEffect } from "react";
 import "./AddProducts.css";
 import useProducts from "../hooks/useProducts";
+import {useNavigate, useParams } from "react-router-dom";
 
-const AddProducts = ({ initialData }) => {
-  const { createProduct, updateProduct } = useProducts();
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    price: "",
-    weight: "",
-    image_url: "",
-  });
+const productDefault = {
+  name: "",
+  description: "",
+  price: "",
+  weight: "",
+  image_url: "",
+};
+
+const AddProducts = () => {
+  const { createProduct, updateProduct, getProductById, dataProducts } =
+    useProducts();
+  const { id } = useParams();
+  const [product, setProduct] = useState(productDefault);
+  const navigate = useNavigate();
+
+  const resetForm = () => {
+    setProduct(productDefault);
+  };
 
   useEffect(() => {
-    if (initialData) {
-      setProduct(initialData);
+    if (id) {
+      let productToEdit = dataProducts.find((p) => p.id === id);
+      const loadProduct = async () => {
+        if (!productToEdit) {
+          productToEdit = await getProductById(id);
+        }
+        setProduct(productToEdit)
+      };
+      loadProduct();
     }
-  }, [initialData]);
+  }, [id, dataProducts]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduct((prev) => ({ ...prev, [name]: value }));
   };
   const handleSave = () => {
-    if (product.id) {
-      updateProduct(product.id, product);
+    if (id) {
+      updateProduct(id, product);
+      navigate("/products");
     } else {
       createProduct({ ...product, id: crypto.randomUUID() });
+      resetForm();
     }
   };
 
@@ -93,7 +112,7 @@ const AddProducts = ({ initialData }) => {
 
       <div className="form-actions">
         <button className="form-button" type="button" onClick={handleSave}>
-          {initialData ? "Update Product" : "Save Product"}
+          {id ? "Update Product" : "Save Product"}
         </button>
       </div>
     </form>

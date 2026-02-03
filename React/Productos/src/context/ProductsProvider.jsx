@@ -85,6 +85,22 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
+  const getProductById = async (id, product) => {
+    try {
+      const { error } = await supabaseConexion
+        .from("productos")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (error) throw error;
+
+      await getTable();
+    } catch (error) {
+      setErrorProducts(error.message);
+    }
+  };
+
   const deleteProduct = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this product?",
@@ -134,6 +150,7 @@ const ProductsProvider = ({ children }) => {
     getProductsOrdered,
     getProductsByName,
     getProductsByPrice,
+    getProductById,
     createProduct,
     updateProduct,
     deleteProduct,
