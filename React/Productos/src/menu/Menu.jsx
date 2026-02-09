@@ -1,10 +1,10 @@
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { sessionContext } from "../../context/SupabaseSesion";
+import { sessionContext } from "../context/SupabaseSesion";
 import "./Menu.css";
-import CloseSession from "../../pages/SignOut";
-import useSupabase from "../../hooks/useSupabase";
+import CloseSession from "../pages/SignOut";
+import useSupabase from "../hooks/useSupabase";
 
 const Menu = () => {
   const { sessionStarted, user } = useSupabase();
