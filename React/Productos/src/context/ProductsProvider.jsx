@@ -1,12 +1,14 @@
 "use strict";
 import React, { createContext, useState } from "react";
 import { supabaseConexion } from "../hooks/supabase";
+import { useNavigate } from "react-router-dom";
 
 const contextProducts = createContext();
 
 const ProductsProvider = ({ children }) => {
   const [errorProducts, setErrorProducts] = useState("");
   const [dataProducts, setDataProducts] = useState([]);
+  const navigate = useNavigate();
 
   const getTable = async () => {
     try {
@@ -65,6 +67,7 @@ const ProductsProvider = ({ children }) => {
       if (error) throw error;
 
       await getTable();
+      navigate("/products");
     } catch (error) {
       setErrorProducts(error.message);
     }
