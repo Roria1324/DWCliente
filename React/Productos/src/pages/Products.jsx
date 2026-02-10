@@ -3,9 +3,9 @@ import useProducts from "../hooks/useProducts";
 import "./Products.css";
 import Product from "./Product";
 import useSession from "../hooks/useSession";
+import Lists from "./Lists";
 
 const Products = () => {
-
   const [field, setField] = useState("name");
   const [order, setOrder] = useState("asc");
   const [search, setSearch] = useState("");
@@ -43,43 +43,46 @@ const Products = () => {
         <h1>Products</h1>
 
         {sessionStarted && (
-          <div className="filters">
-            <select value={field} onChange={(e) => setField(e.target.value)}>
-              <option value="name">Nombre</option>
-              <option value="price">Precio</option>
-              <option value="weight">Peso</option>
-            </select>
+          <>
+            <Lists></Lists>
+            <div className="filters">
+              <select value={field} onChange={(e) => setField(e.target.value)}>
+                <option value="name">Nombre</option>
+                <option value="price">Precio</option>
+                <option value="weight">Peso</option>
+              </select>
 
-            <select value={order} onChange={(e) => setOrder(e.target.value)}>
-              <option value="asc">Ascendente</option>
-              <option value="desc">Descendente</option>
-            </select>
+              <select value={order} onChange={(e) => setOrder(e.target.value)}>
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+              </select>
 
-            <input
-              type="number"
-              placeholder="Min price"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
+              <input
+                type="number"
+                placeholder="Min price"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+              />
 
-            <input
-              type="number"
-              placeholder="Max price"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
+              <input
+                type="number"
+                placeholder="Max price"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              />
 
-            <input
-              type="text"
-              value={search}
-              placeholder="Search product..."
-              onChange={(e) => setSearch(e.target.value)}
-            />
+              <input
+                type="text"
+                value={search}
+                placeholder="Search product..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
 
-            <button onClick={() => getProductsOrdered(field, order)}>
-              Aplicar
-            </button>
-          </div>
+              <button onClick={() => getProductsOrdered(field, order)}>
+                Aplicar
+              </button>
+            </div>
+          </>
         )}
 
         {errorProducts && <p className="error-container">{errorProducts}</p>}
