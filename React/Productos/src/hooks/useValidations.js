@@ -1,10 +1,8 @@
 import { useState } from "react";
-import useSupabase from "./useSupabase";
 
-const useValidathions = () => {
+const useValidations = () => {
   const [error, setError] = useState({});
-  const { signUpPassword, createCount, dataSession } = useSupabase();
-  //Expresiones regulares obtenidas de nuestro amigo y vecino la Ia.
+
   const validateEmail = (email) => {
     if (!email) return false;
     const rex = /\S+@\S+\.\S+/;
@@ -13,14 +11,11 @@ const useValidathions = () => {
 
   const validateName = (username) => {
     if (!username) return false;
-    if (username.length < 4) return false;
-
-    return true;
+    return username.length >= 4;
   };
 
   const validatePassword = (password) => {
     if (!password) return false;
-
     if (password.length < 8) return false;
     if (password.includes(" ")) return false;
     if (!/[A-Z]/.test(password)) return false;
@@ -31,7 +26,12 @@ const useValidathions = () => {
     return true;
   };
 
-  const validateRegister = (email, password, username = null) => {
+  const validateSamePassword = (password, confirmPassword) => {
+    if (!confirmPassword) return false;
+    return password === confirmPassword;
+  };
+
+  const validateRegister = (email, password, username = null, confirmPassword = null) => {
     let errors = {};
 
     if (!validateEmail(email)) {
@@ -46,41 +46,45 @@ const useValidathions = () => {
       errors.password =
         "Password must be at least 8 characters long and include an uppercase letter, a lowercase letter, a number, and a special character";
     }
+    if (
+      confirmPassword !== null &&
+      !validateSamePassword(password, confirmPassword)
+    ) {
+      errors.confirmPassword = "Passwords do not match.";
+    }
 
     return errors;
   };
 
-  const handleExchangeforRegister = () => {
-    const errors = validateRegister(
-      dataSession.email,
-      dataSession.password,
-      dataSession.username,
-    );
+  const validateLogin = (email, password) => {
+    const errors = validateRegister(email, password);
 
     if (Object.keys(errors).length > 0) {
       setError(errors);
-      return;
+      return false;
     }
+
     setError({});
-    createCount();
+    return true;
   };
 
-  const handleExchangeforSignUp = () => {
-    const errors = validateRegister(dataSession.email, dataSession.password);
+  const validateSignup = (email, password, username, confirmPassword) => {
+    const errors = validateRegister(email, password, username, confirmPassword);
 
     if (Object.keys(errors).length > 0) {
       setError(errors);
-      return;
+      return false;
     }
+
     setError({});
-    signUpPassword();
+    return true;
   };
 
   return {
-    handleExchangeforRegister,
-    handleExchangeforSignUp,
+    validateLogin,
+    validateSignup,
     error,
   };
 };
 
-export default useValidathions;
+export default useValidations;

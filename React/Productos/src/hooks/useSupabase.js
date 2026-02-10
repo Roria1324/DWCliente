@@ -1,14 +1,106 @@
 "use strict";
-import React, { useContext } from "react";
-import { sessionContext } from "../context/SupabaseSesion.jsx";
+import React, { useContext, useState } from "react";
+import { supabaseConnection } from "../supabase/supabase.js";
 
 const useSupabase = () => {
-  const context = useContext(sessionContext);
+  const [error, setError] = useState(null);
 
-  if (!context) {
-    throw new Error("Error: Could not retrieve the context.");
-  }
-  return context;
+  const fetchTable = async (
+    table,
+    { column, ascending = true, filteredColumn, filteredValue } = {},
+  ) => {
+    setError(null);
+
+    try {
+      const query = supabaseConnection.from(table).select("*");
+
+      if (column) {
+        query = query.order(column, { ascending });
+      }
+
+      if (filteredColumn && filteredValue !== undefined) {
+        query = query.eq(filteredColumn, filteredValue);
+      }
+      const { data, error } = await query;
+
+      if (!data) throw error;
+      return data;
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const insertTable = async (table, input) => {
+    try {
+      const { data, error } = await supabaseConnection
+        .from(table)
+        .insert([input])
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      return data;
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const editTable = async (table, input, id) => {
+    try {
+      const { data, error } = await supabaseConnection
+        .from(table)
+        .update(input)
+        .eq("id", id)
+        .select()
+        .single();
+
+      if (error) throw error;
+      return data;
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const destroyTable = async (table, id) => {
+    try {
+      const { data, error } = await supabaseConnection
+        .from(table)
+        .delete()
+        .eq("id", id)
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      return data;
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const getData = async (table) => {
+    await fetchTable(table);
+  };
+
+  const getItem = async (table, id) => {
+    await fetchTable(table, { filteredColumn: "id", filteredValue: id });
+  };
+
+  const getSortedData = async (table, { column, ascending = true }) => {
+    await fetchTable(table, { column, ascending });
+  };
+
+  return {
+    fetchTable,
+    getData,
+    getItem,
+    getSortedData,
+    insertTable,
+    destroyTable,
+    editTable,
+    error,
+  };
 };
 
 export default useSupabase;

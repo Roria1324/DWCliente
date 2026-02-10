@@ -1,14 +1,15 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabaseConexion } from "../hooks/supabase.js";
+import { supabaseConnection } from "../supabase/supabase.js";
 
-const sessionContext = createContext();
+const SessionContext = createContext();
 
-const SupabaseSesion = ({ children }) => {
+const SessionProvider = ({ children }) => {
   const dataSessionStart = {
     email: "",
     password: "",
     username: "",
+    confirmPassword: "",
   };
 
   const userStart = {};
@@ -24,7 +25,7 @@ const SupabaseSesion = ({ children }) => {
 
   const createCount = async () => {
     try {
-      const { data, error } = await supabaseConexion.auth.signUp({
+      const { data, error } = await supabaseConnection.auth.signUp({
         email: dataSession.email,
         password: dataSession.password,
         options: {
@@ -50,14 +51,14 @@ const SupabaseSesion = ({ children }) => {
     setErrorUser(errorUserStart);
 
     try {
-      const { data, error } = await supabaseConexion.auth.signInWithPassword({
+      const { data, error } = await supabaseConnection.auth.signInWithPassword({
         email: dataSession.email,
         password: dataSession.password,
       });
 
       if (error) {
         setErrorUser(error.message);
-        setSessionStarted(false);
+        setSessionStarted(false);contextProducts
         return;
       }
       
@@ -72,7 +73,7 @@ const SupabaseSesion = ({ children }) => {
 
   const signOut = async () => {
     try {
-      await supabaseConexion.auth.signOut();
+      await supabaseConnection.auth.signOut();
       setErrorUser(errorUserStart);
       navigate("/");
       setUser(userStart);
@@ -89,7 +90,7 @@ const SupabaseSesion = ({ children }) => {
   };
 
   useEffect(() => {
-    supabaseConexion.auth.onAuthStateChange((e, session) => {
+    supabaseConnection.auth.onAuthStateChange((e, session) => {
       if (!session) return navigate("/");
 
       setDataSession(session);
@@ -111,11 +112,11 @@ const SupabaseSesion = ({ children }) => {
   };
 
   return (
-    <sessionContext.Provider value={elements}>
+    <SessionContext.Provider value={elements}>
       {children}
-    </sessionContext.Provider>
+    </SessionContext.Provider>
   );
 };
 
-export default SupabaseSesion;
-export { sessionContext };
+export default SessionProvider;
+export { SessionContext };

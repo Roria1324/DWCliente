@@ -1,5 +1,5 @@
 import "./Header.css"
-import Menu from "../components/menu/Menu.jsx";
+import Menu from "../menu/Menu.jsx";
 
 const Header = () => {
   return (

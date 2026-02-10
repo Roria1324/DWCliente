@@ -1,13 +1,11 @@
 import React from "react";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { sessionContext } from "../context/SupabaseSesion";
 import "./Menu.css";
 import CloseSession from "../pages/SignOut";
-import useSupabase from "../hooks/useSupabase";
+import useSession from "../hooks/useSession";
 
 const Menu = () => {
-  const { sessionStarted, user } = useSupabase();
+  const { sessionStarted, user } = useSession();
 
   return (
     <nav>
@@ -39,7 +37,9 @@ const Menu = () => {
 
           {sessionStarted && (
             <>
-              <Link className="menu-element" to="createProduct">Add Product</Link>
+              <Link className="menu-element" to="createProduct">
+                Add Product
+              </Link>
 
               <span className="menu-element user">
                 {user?.user_metadata?.display_name}

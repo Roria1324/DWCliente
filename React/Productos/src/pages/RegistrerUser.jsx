@@ -1,11 +1,24 @@
 import React, { useState } from "react";
-import useSupabase from "../hooks/useSupabase.js";
-import useValidathions from "../hooks/useValidathions.js";
+import useValidations from "../hooks/useValidations.js";
 import "./LogIn-Register.css";
+import useSession from "../hooks/useSession.js";
 
 const RegistrerUser = () => {
-  const { errorUser, updateData, dataSession } = useSupabase();
-  const { handleExchangeforRegister, error } = useValidathions();
+  const { errorUser, updateData, createCount, dataSession } = useSession();
+  const { validateSignup, error } = useValidations();
+
+  const handleSignUp = () => {
+    const isValid = validateSignup(
+      dataSession.email,
+      dataSession.password,
+      dataSession.username,
+      dataSession.confirmPassword
+    );
+
+    if (!isValid) return;
+
+    createCount();
+  };
 
   return (
     <div className="create-count">
@@ -55,12 +68,25 @@ const RegistrerUser = () => {
         />
         {error.password && <p className="message-error">{error.password}</p>}
       </div>
+      <div className="login-password">
+        <label htmlFor="confirmPassword">Confirm password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          value={dataSession.confirmPassword}
+          placeholder="********"
+          onChange={updateData}
+        />
+        {error.confirmPassword && (
+          <p className="message-error">{error.confirmPassword}</p>
+        )}
+      </div>
       <div className="login-button">
-        <button onClick={handleExchangeforRegister}>Register</button>
+        <button onClick={handleSignUp}>Register</button>
       </div>
       <p>{errorUser}</p>
     </div>
   );
 };
-
 export default RegistrerUser;

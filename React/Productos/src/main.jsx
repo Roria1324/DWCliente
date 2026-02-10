@@ -3,17 +3,17 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
-import SupabaseSesion from "./context/SupabaseSesion.jsx";
+import SessionProvider from "./context/SessionProvider.jsx";
 import ProductsProvider from "./context/ProductsProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <SupabaseSesion>
+      <SessionProvider>
         <ProductsProvider>
           <App />
         </ProductsProvider>
-      </SupabaseSesion>
+      </SessionProvider>
     </BrowserRouter>
   </StrictMode>,
 );

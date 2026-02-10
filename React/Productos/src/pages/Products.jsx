@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useProducts from "../hooks/useProducts";
 import "./Products.css";
 import Product from "./Product";
-import useSupabase from "../hooks/useSupabase";
+import useSession from "../hooks/useSession";
 
 const Products = () => {
 
@@ -19,7 +19,7 @@ const Products = () => {
     dataProducts,
     errorProducts,
   } = useProducts();
-  const { sessionStarted } = useSupabase();
+  const { sessionStarted } = useSession();
 
   useEffect(() => {
     getTable();

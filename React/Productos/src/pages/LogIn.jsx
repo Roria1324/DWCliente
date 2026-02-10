@@ -1,12 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import useSupabase from "../hooks/useSupabase.js";
-import useValidathions from "../hooks/useValidathions.js";
-import "./LogIn-Register.css"
+import useValidations from "../hooks/useValidations.js";
+import "./LogIn-Register.css";
+import useSession from "../hooks/useSession.js";
 
 const LogIn = () => {
-  const { updateData, signUpPassword, errorUser, dataSession } = useSupabase();
-  const { handleExchangeforSignUp, error } = useValidathions();
+  const { updateData, errorUser, dataSession, signUpPassword } = useSession();
+  const { validateLogin, error } = useValidations();
+
+  const handleLogin = () => {
+    const isValid = validateLogin(dataSession.email, dataSession.password);
+
+    if (!isValid) return;
+
+    signUpPassword();
+  };
 
   return (
     <div className="login">
@@ -41,7 +49,7 @@ const LogIn = () => {
         {error.password && <p className="message-error">{error.password}</p>}
       </div>
       <div className="login-button">
-        <button onClick={handleExchangeforSignUp}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </div>
       <p>{errorUser}</p>
     </div>
