@@ -7,12 +7,12 @@ const useSupabase = () => {
 
   const fetchTable = async (
     table,
-    { column, ascending = true, filteredColumn, filteredValue } = {},
+    {select="*" ,column, ascending = true, filteredColumn, filteredValue } = {},
   ) => {
     setError(null);
 
     try {
-      const query = supabaseConnection.from(table).select("*");
+      let query = supabaseConnection.from(table).select(select);
 
       if (column) {
         query = query.order(column, { ascending });
@@ -23,7 +23,7 @@ const useSupabase = () => {
       }
       const { data, error } = await query;
 
-      if (!data) throw error;
+      if (error) throw error;
       return data;
     } catch (error) {
       setError(error.message);
@@ -80,15 +80,23 @@ const useSupabase = () => {
   };
 
   const getData = async (table) => {
-    await fetchTable(table);
+    return await fetchTable(table);
   };
 
   const getItem = async (table, id) => {
-    await fetchTable(table, { filteredColumn: "id", filteredValue: id });
+    return await fetchTable(table, { filteredColumn: "id", filteredValue: id });
   };
 
   const getSortedData = async (table, { column, ascending = true }) => {
-    await fetchTable(table, { column, ascending });
+    return await fetchTable(table, { column, ascending });
+  };
+
+  const getMultiData = async (table, select, column, row) => {
+    return await fetchTable(table, {
+      select: select,
+      filteredColumn: column,
+      filteredValue: row,
+    });
   };
 
   return {
@@ -99,6 +107,7 @@ const useSupabase = () => {
     insertTable,
     destroyTable,
     editTable,
+    getMultiData,
     error,
   };
 };

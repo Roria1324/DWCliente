@@ -5,13 +5,16 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import SessionProvider from "./context/SessionProvider.jsx";
 import ProductsProvider from "./context/ProductsProvider.jsx";
+import ProviderList from "./context/ProviderList.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <SessionProvider>
         <ProductsProvider>
-          <App />
+          <ProviderList>
+            <App />
+          </ProviderList>
         </ProductsProvider>
       </SessionProvider>
     </BrowserRouter>

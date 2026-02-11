@@ -13,8 +13,9 @@ const productDefault = {
 };
 
 const AddProducts = () => {
-  const { createProduct, updateProduct, getProductById, dataProducts } =
+  const { insertProduct, editProduct, getProductById, dataProducts, getData } =
     useProducts();
+
   const { id } = useParams();
   const [product, setProduct] = useState(productDefault);
   const navigate = useNavigate();
@@ -34,11 +35,11 @@ const AddProducts = () => {
         if (!productToEdit) {
           productToEdit = await getProductById(id);
         }
-        setProduct(productToEdit);
+        setProduct(productToEdit || productDefault);
       };
       loadProduct();
     }
-  }, [id, dataProducts]);
+  }, [id, dataProducts, getData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,15 +56,15 @@ const AddProducts = () => {
     try {
       //Si se accede al formulario con una id se usa el método put.
       if (id) {
-        await updateProduct(id, product);
-        navigate("/products");
+        await editProduct(product, id);
       } else {
-        await createProduct({ ...product, id: crypto.randomUUID() });
+        await insertProduct({ ...product, id: crypto.randomUUID() });
         resetForm();
       }
+      navigate("/products");
       setError({});
     } catch (error) {
-      throw error;
+      setError({ general: error.message });
     }
   };
 

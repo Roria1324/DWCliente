@@ -8,6 +8,10 @@ const ProductsProvider = ({ children }) => {
   const {
     fetchTable,
     getData,
+    getItem,
+    insertTable,
+    destroyTable,
+    editTable,
     error,
   } = useSupabase();
 
@@ -26,6 +30,11 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
+  const insertProduct = async (data) => {
+    const product = await insertTable(TABLE, data);
+    if (product) setProducts([...products, product]);
+  };
+
   const getProductsOrdered = async (field, order) => {
     const data = await fetchTable(TABLE, {
       column: field,
@@ -38,6 +47,11 @@ const ProductsProvider = ({ children }) => {
     } else {
       setErrorProducts(error);
     }
+  };
+
+  const getProductById = async (id) => {
+    const data = await getItem(TABLE, id);
+    return data;
   };
 
   const getProductsByName = async (search, field, order) => {
@@ -66,10 +80,10 @@ const ProductsProvider = ({ children }) => {
       let filtered = data;
 
       if (minPrice !== "") {
-        filtered = filtered.filter(p => p.price >= minPrice);
+        filtered = filtered.filter((p) => p.price >= minPrice);
       }
       if (maxPrice !== "") {
-        filtered = filtered.filter(p => p.price <= maxPrice);
+        filtered = filtered.filter((p) => p.price <= maxPrice);
       }
 
       setDataProducts(filtered);
@@ -79,11 +93,32 @@ const ProductsProvider = ({ children }) => {
     }
   };
 
+  const editProduct = async (data, id) => {
+    const updatedProduct = await editTable(TABLE, data, id);
+
+    const newProducts = products.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product,
+    );
+    setProducts(newProducts);
+  };
+
+  const destroyProduct = async (id) => {
+    const deletedProduct = await destroyTable(TABLE, id);
+
+    const newProducts = products.filter((product) => product.id !== id);
+
+    setProducts(newProducts);
+  };
+
   const elements = {
     getTable,
+    insertProduct,
+    getProductById,
     getProductsOrdered,
     getProductsByName,
     getProductsByPrice,
+    editProduct,
+    destroyProduct,
     dataProducts,
     errorProducts,
   };
@@ -96,4 +131,4 @@ const ProductsProvider = ({ children }) => {
 };
 
 export default ProductsProvider;
-export {ProductsContext};
+export { ProductsContext };

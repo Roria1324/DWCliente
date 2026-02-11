@@ -37,6 +37,10 @@ const Menu = () => {
 
           {sessionStarted && (
             <>
+              <Link className="menu-element my-lists-link" to="/shoplist">
+                My Lists
+              </Link>
+
               <Link className="menu-element" to="createProduct">
                 Add Product
               </Link>

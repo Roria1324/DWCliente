@@ -1,11 +1,11 @@
 import React from "react";
 import useProducts from "../hooks/useProducts";
-import useSupabase from "../hooks/useSupabase";
 import { Link } from "react-router-dom";
+import useSession from "../hooks/useSession";
 
 const Product = ({ id, image_url, name, description, price, weight }) => {
-  const { deleteProduct } = useProducts();
-  const { sessionStarted } = useSupabase();
+  const { destroyProduct } = useProducts();
+  const { sessionStarted } = useSession();
 
   return (
     <>
@@ -26,7 +26,7 @@ const Product = ({ id, image_url, name, description, price, weight }) => {
 
         {sessionStarted && (
           <>
-            <button className="delete-btn" onClick={() => deleteProduct(id)}>
+            <button className="delete-btn" onClick={() => destroyProduct(id)}>
               Delete
             </button>
 

@@ -3,7 +3,7 @@ import useProducts from "../hooks/useProducts";
 import "./Products.css";
 import Product from "./Product";
 import useSession from "../hooks/useSession";
-import Lists from "./Lists";
+import Lists from "./ShopList";
 
 const Products = () => {
   const [field, setField] = useState("name");
@@ -44,7 +44,6 @@ const Products = () => {
 
         {sessionStarted && (
           <>
-            <Lists></Lists>
             <div className="filters">
               <select value={field} onChange={(e) => setField(e.target.value)}>
                 <option value="name">Nombre</option>
