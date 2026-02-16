@@ -35,16 +35,15 @@ const Menu = () => {
             </>
           )}
 
+          <Link className="menu-element my-lists-link" to="/shoplist">
+            My Lists
+          </Link>
+
+          <Link className="menu-element" to="createProduct">
+            Add Product
+          </Link>
           {sessionStarted && (
             <>
-              <Link className="menu-element my-lists-link" to="/shoplist">
-                My Lists
-              </Link>
-
-              <Link className="menu-element" to="createProduct">
-                Add Product
-              </Link>
-
               <span className="menu-element user">
                 {user?.user_metadata?.display_name}
               </span>
