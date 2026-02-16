@@ -5,7 +5,7 @@ import useSession from "../hooks/useSession";
 
 const Product = ({ id, image_url, name, description, price, weight }) => {
   const { destroyProduct } = useProducts();
-  const { sessionStarted } = useSession();
+  const { sessionStarted, isAdmin } = useSession();
 
   return (
     <>
@@ -24,7 +24,7 @@ const Product = ({ id, image_url, name, description, price, weight }) => {
           {weight.toFixed(2).replace(".", ",")} kg
         </p>
 
-        {sessionStarted && (
+        {isAdmin() && (
           <>
             <button className="delete-btn" onClick={() => destroyProduct(id)}>
               Delete

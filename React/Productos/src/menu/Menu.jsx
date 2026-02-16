@@ -5,7 +5,7 @@ import CloseSession from "../pages/SignOut";
 import useSession from "../hooks/useSession";
 
 const Menu = () => {
-  const { sessionStarted, user } = useSession();
+  const { sessionStarted, user, isAdmin, rol } = useSession();
 
   return (
     <nav>
@@ -34,19 +34,26 @@ const Menu = () => {
               </Link>
             </>
           )}
-
-          <Link className="menu-element my-lists-link" to="/shoplist">
-            My Lists
-          </Link>
-
-          <Link className="menu-element" to="createProduct">
-            Add Product
-          </Link>
           {sessionStarted && (
             <>
+              <Link className="menu-element my-lists-link" to="/shoplist">
+                My Lists
+              </Link>
+              {isAdmin() && (
+                <>
+                  <Link className="menu-element" to="/createProduct">
+                    Add Product
+                  </Link>
+
+                  <Link className="menu-element" to="/editrole">Edit Rol</Link>
+                </>
+              )}
+
               <span className="menu-element user">
                 {user?.user_metadata?.display_name}
               </span>
+
+              <span className="menu-element user">{rol}</span>
 
               <CloseSession />
             </>

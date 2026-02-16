@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabaseConnection } from "../supabase/supabase.js";
+import useSupabase from "../hooks/useSupabase.js";
 
 const SessionContext = createContext();
 
@@ -22,6 +23,11 @@ const SessionProvider = ({ children }) => {
   const [user, setUser] = useState(userStart);
   const [errorUser, setErrorUser] = useState(errorUserStart);
   const [sessionStarted, setSessionStarted] = useState(sessionStartedFirst);
+  const [rol, setRol] = useState("");
+
+  const TABLE = "roles";
+
+  const { getItem } = useSupabase();
 
   const createCount = async () => {
     try {
@@ -58,13 +64,13 @@ const SessionProvider = ({ children }) => {
 
       if (error) {
         setErrorUser(error.message);
-        setSessionStarted(false);contextProducts
+        setSessionStarted(false);
         return;
       }
-      
+
       setUser(data.user);
       setSessionStarted(true);
-      setDataSession(dataSessionStart)
+      setDataSession(dataSessionStart);
       navigate("/");
     } catch (error) {
       setErrorUser(error.message);
@@ -89,26 +95,46 @@ const SessionProvider = ({ children }) => {
     setDataSession({ ...dataSession, [name]: value });
   };
 
+  const getRol = async () => {
+    if (!user?.id) return;
+
+    const data = await getItem(TABLE, "id_rol", user.id);
+    if (data && data.length > 0) setRol(data[0].rol);
+  };
+
+  const isAdmin = () => {
+    return rol === "administrador";
+  };
+
   useEffect(() => {
     supabaseConnection.auth.onAuthStateChange((e, session) => {
       if (!session) return navigate("/");
 
       setDataSession(session);
       setUser(session.user);
-      setSessionStarted(true)
-      navigate("/")
+      setSessionStarted(true);
+      navigate("/");
     });
   }, []);
+
+  useEffect(() => {
+    if (user?.id) {
+      getRol();
+    }
+  }, [user]);
 
   const elements = {
     createCount,
     signUpPassword,
     signOut,
     updateData,
+    getRol,
+    isAdmin,
     sessionStarted,
     user,
     errorUser,
     dataSession,
+    rol,
   };
 
   return (

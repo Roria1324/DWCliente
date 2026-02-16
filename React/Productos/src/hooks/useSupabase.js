@@ -7,7 +7,13 @@ const useSupabase = () => {
 
   const fetchTable = async (
     table,
-    {select="*" ,column, ascending = true, filteredColumn, filteredValue } = {},
+    {
+      select = "*",
+      column,
+      ascending = true,
+      filteredColumn,
+      filteredValue,
+    } = {},
   ) => {
     setError(null);
 
@@ -46,12 +52,12 @@ const useSupabase = () => {
     }
   };
 
-  const editTable = async (table, input, id) => {
+  const editTable = async (table, input, column = "id", id) => {
     try {
       const { data, error } = await supabaseConnection
         .from(table)
         .update(input)
-        .eq("id", id)
+        .eq(column, id)
         .select()
         .single();
 
@@ -83,8 +89,11 @@ const useSupabase = () => {
     return await fetchTable(table);
   };
 
-  const getItem = async (table, id) => {
-    return await fetchTable(table, { filteredColumn: "id", filteredValue: id });
+  const getItem = async (table, column = "id", value) => {
+    return await fetchTable(table, {
+      filteredColumn: column,
+      filteredValue: value,
+    });
   };
 
   const getSortedData = async (table, { column, ascending = true }) => {
