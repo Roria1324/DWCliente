@@ -5,13 +5,12 @@ import "./EditRol.css"
 
 const EditRol = () => {
   const { editTable } = useSupabase();
-  const { loadAsignatedRoles, users} = useSession();
-  const [data, setData] = useState([]);
+  const { loadAsignatedRoles, users, setUsers} = useSession();
 
   const TABLE = "roles";
 
   const handleChange = (id, newRole) => {
-    setData((prev) =>
+    setUsers((prev) =>
       prev.map((user) =>
         user.id === id ? { ...user, rol: newRole } : user,
       ),
@@ -38,7 +37,7 @@ const EditRol = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((user) => (
+          {users.map((user) => (
             <tr key={user.id} className="roles-row">
               <td className="roles-email">{user.perfiles?.email}</td>
 
@@ -55,7 +54,7 @@ const EditRol = () => {
 
               <td>
                 <button
-                  className="roles-button"
+                  className="menu-button"
                   onClick={() => handleSave(user.id, user.rol)}
                 >
                   Save

@@ -124,8 +124,6 @@ const SessionProvider = ({ children }) => {
     }
   };
 
-  console.log(users);
-
   useEffect(() => {
     supabaseConnection.auth.onAuthStateChange((e, session) => {
       if (!session) return navigate("/");
@@ -154,6 +152,7 @@ const SessionProvider = ({ children }) => {
     sessionStarted,
     user,
     users,
+    setUsers,
     errorUser,
     dataSession,
     rol,
