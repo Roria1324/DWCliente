@@ -21,7 +21,7 @@ const SessionProvider = ({ children }) => {
 
   const [dataSession, setDataSession] = useState(dataSessionStart);
   const [user, setUser] = useState(userStart);
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
   const [errorUser, setErrorUser] = useState(errorUserStart);
   const [sessionStarted, setSessionStarted] = useState(sessionStartedFirst);
   const [rol, setRol] = useState("");
@@ -114,19 +114,17 @@ const SessionProvider = ({ children }) => {
         `
       *,
         perfiles (
-         email
+*
         )
       `,
       );
       if (data) setUsers(data);
-
     } catch (error) {
       setErrorUser(error.message);
     }
   };
 
   console.log(users);
-
 
   useEffect(() => {
     supabaseConnection.auth.onAuthStateChange((e, session) => {
