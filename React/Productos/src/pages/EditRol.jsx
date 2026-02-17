@@ -4,30 +4,25 @@ import useSupabase from "../hooks/useSupabase";
 import "./EditRol.css"
 
 const EditRol = () => {
-  const { fetchTable, editTable } = useSupabase();
-  const { isAdmin } = useSession();
-  const [users, setUsers] = useState([]);
+  const { editTable } = useSupabase();
+  const { loadAsignatedRoles, users} = useSession();
+  const [data, setData] = useState([]);
 
   const TABLE = "roles";
 
-  const loadRoles = async () => {
-    const data = await fetchTable(TABLE, { column: "created_at" });
-    if (data) setUsers(data);
-  };
-
   const handleChange = (id, newRole) => {
-    setUsers((prev) =>
+    setData((prev) =>
       prev.map((user) =>
-        user.id_rol === id ? { ...user, rol: newRole } : user,
+        user.id === id ? { ...user, rol: newRole } : user,
       ),
     );
   };
   const handleSave = async (id, rol) => {
-    await editTable(TABLE, { rol }, "id_rol", id);
+    await editTable(TABLE, { rol }, "id", id);
   };
 
   useEffect(() => {
-    loadRoles();
+    loadAsignatedRoles();
   }, []);
 
   return (
@@ -43,15 +38,15 @@ const EditRol = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user.id_rol} className="roles-row">
-              <td className="roles-email">{user.email}</td>
+          {data.map((user) => (
+            <tr key={user.id} className="roles-row">
+              <td className="roles-email">{user.perfiles?.email}</td>
 
               <td>
                 <select
                   className="roles-select"
                   value={user.rol}
-                  onChange={(e) => handleChange(user.id_rol, e.target.value)}
+                  onChange={(e) => handleChange(user.id, e.target.value)}
                 >
                   <option value="usuario">User</option>
                   <option value="administrador">Administrator</option>
@@ -61,7 +56,7 @@ const EditRol = () => {
               <td>
                 <button
                   className="roles-button"
-                  onClick={() => handleSave(user.id_rol, user.rol)}
+                  onClick={() => handleSave(user.id, user.rol)}
                 >
                   Save
                 </button>

@@ -21,13 +21,14 @@ const SessionProvider = ({ children }) => {
 
   const [dataSession, setDataSession] = useState(dataSessionStart);
   const [user, setUser] = useState(userStart);
+  const [users, setUsers] = useState([])
   const [errorUser, setErrorUser] = useState(errorUserStart);
   const [sessionStarted, setSessionStarted] = useState(sessionStartedFirst);
   const [rol, setRol] = useState("");
 
   const TABLE = "roles";
 
-  const { getItem } = useSupabase();
+  const { getItem, getMultiData } = useSupabase();
 
   const createCount = async () => {
     try {
@@ -98,13 +99,34 @@ const SessionProvider = ({ children }) => {
   const getRol = async () => {
     if (!user?.id) return;
 
-    const data = await getItem(TABLE, "id_rol", user.id);
+    const data = await getItem(TABLE, "id", user.id);
     if (data && data.length > 0) setRol(data[0].rol);
   };
 
   const isAdmin = () => {
     return rol === "administrador";
   };
+
+  const loadAsignatedRoles = async () => {
+    try {
+      const data = await getMultiData(
+        "roles",
+        `
+      *,
+        perfiles (
+         email
+        )
+      `,
+      );
+      if (data) setUsers(data);
+
+    } catch (error) {
+      setErrorUser(error.message);
+    }
+  };
+
+  console.log(users);
+
 
   useEffect(() => {
     supabaseConnection.auth.onAuthStateChange((e, session) => {
@@ -130,8 +152,10 @@ const SessionProvider = ({ children }) => {
     updateData,
     getRol,
     isAdmin,
+    loadAsignatedRoles,
     sessionStarted,
     user,
+    users,
     errorUser,
     dataSession,
     rol,
