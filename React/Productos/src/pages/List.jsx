@@ -1,6 +1,7 @@
 import React from "react";
 import "./ShopList.css";
 import useList from "../hooks/useList";
+import useSession from "../hooks/useSession";
 
 //He decidido separar lo que es la lista de los productos
 //de la general por tema de orden
@@ -8,6 +9,8 @@ import useList from "../hooks/useList";
 
 const List = ({ id, listaId, productoId, name, cant, weight, price }) => {
   const { removeProductFromList, addProductToList } = useList();
+  const {isAdmin} = useSession()
+
 
   //Funciones para aumentar y disminuir cantidades.
   const handleIncrease = () => {
@@ -38,6 +41,7 @@ const List = ({ id, listaId, productoId, name, cant, weight, price }) => {
       <td>{WeightProduct}</td>
       <td>{(cant * price).toFixed(2)}€</td>
       <td>
+        
         <button
           className="btn-remove"
           onClick={() => removeProductFromList(id)}

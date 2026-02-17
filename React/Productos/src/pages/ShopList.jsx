@@ -4,7 +4,7 @@ import useList from "../hooks/useList";
 import useSession from "../hooks/useSession";
 import List from "./List";
 
-//Quebradero de cabeza a continuación tenga cuidado si no lleva 
+//Quebradero de cabeza a continuación tenga cuidado si no lleva
 // una piedra de palinca encima o un ron-cola.
 
 //Creo que me he complicado de más para lo que era pero bueno ya está.
@@ -25,7 +25,7 @@ const ShopList = () => {
     allProducts,
   } = useList();
 
-  const { user } = useSession();
+  const { user, isAdmin } = useSession();
   const userId = user?.id;
   const [view, setView] = useState("all_lists");
   const [newListName, setNewListName] = useState("");
@@ -38,7 +38,7 @@ const ShopList = () => {
       loadCatalog();
     }
   }, [userId]);
-//Uso de useMemo para que no se actualice el estado de los datos de las listas a menos que estos mismos sean modificados.
+  //Uso de useMemo para que no se actualice el estado de los datos de las listas a menos que estos mismos sean modificados.
   const listStats = useMemo(() => {
     if (!currentList?.listas_productos) return { totalVal: 0, totalWeight: 0 };
 
@@ -55,7 +55,7 @@ const ShopList = () => {
       { totalVal: 0, totalWeight: 0 },
     );
   }, [currentList]);
-//Variable para hacer el calculo del peso del transporte.
+  //Variable para hacer el calculo del peso del transporte.
   const CAR_THRESHOLD = 15;
   const needsCar = listStats.totalWeight > CAR_THRESHOLD;
 
@@ -82,7 +82,11 @@ const ShopList = () => {
   return (
     <div className="lists-container">
       <header className="lists-header">
-        <h1>{user?.user_metadata?.display_name || "User"}'s Shopping Lists 🛒</h1>
+        <h1>
+          {isAdmin()
+            ? "Admin's Shopping Lists 🛒"
+            : `${user?.user_metadata?.display_name || "User"}'s Shopping Lists 🛒`}
+        </h1>
       </header>
 
       {error && <div className="error-message">{error}</div>}
@@ -106,22 +110,26 @@ const ShopList = () => {
               <div key={list.id} className="list-card">
                 <div className="card-header">
                   <h3>{list.nombre}</h3>
-                  <button
-                    className="btn-delete"
-                    onClick={() => deleteList(list.id)}
-                  >
-                    Delete
-                  </button>
+                  <p className="list-date">
+                    Created: {new Date(list.created_at).toLocaleDateString()}
+                  </p>
                 </div>
-                <p className="list-date">
-                  Created: {new Date(list.created_at).toLocaleDateString()}
-                </p>
-                <button
-                  className="btn-view"
-                  onClick={() => handleViewDetail(list.id)}
-                >
-                  View Details / Add Products
-                </button>
+                {!isAdmin() && (
+                  <>
+                    <button
+                      className="btn-delete"
+                      onClick={() => deleteList(list.id)}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      className="btn-view"
+                      onClick={() => handleViewDetail(list.id)}
+                    >
+                      View Details / Add Products
+                    </button>
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -138,12 +146,12 @@ const ShopList = () => {
             <h2>Details: {currentList.nombre}</h2>
             <div className="stats-grid">
               <p>
-                <strong>Estimated Cost:</strong>{" "}
-                {listStats.totalVal.toFixed(2)} €
+                <strong>Estimated Cost:</strong> {listStats.totalVal.toFixed(2)}{" "}
+                €
               </p>
               <p>
-                <strong>Total Weight:</strong> {listStats.totalWeight.toFixed(2)}{" "}
-                kg
+                <strong>Total Weight:</strong>{" "}
+                {listStats.totalWeight.toFixed(2)} kg
               </p>
             </div>
 
@@ -153,9 +161,7 @@ const ShopList = () => {
                 Take the car!
               </div>
             ) : (
-              <div className="alert-walk">
-                🚶 Lightweight, you can walk.
-              </div>
+              <div className="alert-walk">🚶 Lightweight, you can walk.</div>
             )}
           </div>
 
@@ -199,7 +205,7 @@ const ShopList = () => {
                     key={item.id}
                     id={item.id}
                     listaId={currentList.id}
-                    productoId={item.productos?.id} 
+                    productoId={item.productos?.id}
                     name={item.productos?.name}
                     cant={item.cantidad}
                     weight={item.productos?.weight}

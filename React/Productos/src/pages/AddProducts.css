@@ -3,7 +3,7 @@
   max-width: 900px;     /* Limite máximo para pantallas grandes */
   margin: 30px auto;
   padding: 30px;
-  background-color: #f7f9fc;
+  background-color: #193552;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
@@ -20,7 +20,7 @@
 .form-label {
   font-weight: 600;
   margin-bottom: 8px;
-  color: #193552;
+  color: #f7f9fc;
 }
 
 .form-input,

@@ -57,9 +57,7 @@ const useSupabase = () => {
       const { data, error } = await supabaseConnection
         .from(table)
         .update(input)
-        .eq(column, id)
-        .select()
-        .single();
+        .eq(column, id);
 
       if (error) throw error;
       return data;
