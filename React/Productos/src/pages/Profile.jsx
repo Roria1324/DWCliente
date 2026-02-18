@@ -6,6 +6,8 @@ const Profile = () => {
   const { getProfile, getProfileById, editProfile, profile } = useProfile();
   const { isAdmin } = useSession();
 
+  const handleSave = async () => {};
+
   useEffect(() => {
     if (isAdmin) {
       getProfile();
