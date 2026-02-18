@@ -117,6 +117,11 @@ const ProviderList = ({ children }) => {
     }
   };
 
+  const getAllList = async () => {
+    const data = await getData("listas_compra");
+    setLists(data || []);
+  };
+
   const elements = {
     getList,
     createList,
@@ -125,6 +130,7 @@ const ProviderList = ({ children }) => {
     loadCatalog,
     addProductToList,
     removeProductFromList,
+    getAllList,
     error,
     currentList,
     lists,

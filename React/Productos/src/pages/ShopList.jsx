@@ -23,6 +23,7 @@ const ShopList = () => {
     currentList,
     lists,
     allProducts,
+    getAllList,
   } = useList();
 
   const { user, isAdmin } = useSession();
@@ -33,10 +34,14 @@ const ShopList = () => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    if (userId) {
+    if (!userId) return;
+
+    if (isAdmin()) {
+      getAllList();
+    } else {
       getList(userId);
-      loadCatalog();
     }
+    loadCatalog();
   }, [userId]);
   //Uso de useMemo para que no se actualice el estado de los datos de las listas a menos que estos mismos sean modificados.
   const listStats = useMemo(() => {
@@ -114,7 +119,8 @@ const ShopList = () => {
                     Created: {new Date(list.created_at).toLocaleDateString()}
                   </p>
                 </div>
-                {!isAdmin() && (
+
+                {list.propietario_id === userId && (
                   <>
                     <button
                       className="btn-delete"
@@ -122,6 +128,7 @@ const ShopList = () => {
                     >
                       Delete
                     </button>
+
                     <button
                       className="btn-view"
                       onClick={() => handleViewDetail(list.id)}

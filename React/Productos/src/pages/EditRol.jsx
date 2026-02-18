@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import useSession from "../hooks/useSession";
 import useSupabase from "../hooks/useSupabase";
-import "./EditRol.css"
+import "./EditRol.css";
 
 const EditRol = () => {
   const { editTable } = useSupabase();
-  const { loadAsignatedRoles, users, setUsers} = useSession();
+  const { loadAsignatedRoles, users, setUsers, user } = useSession();
+  const [confirm, setConfirm] = useState(null);
 
   const TABLE = "roles";
 
   const handleChange = (id, newRole) => {
     setUsers((prev) =>
-      prev.map((user) =>
-        user.id === id ? { ...user, rol: newRole } : user,
-      ),
+      prev.map((user) => (user.id === id ? { ...user, rol: newRole } : user)),
     );
   };
   const handleSave = async (id, rol) => {
-    await editTable(TABLE, { rol }, "id", id);
+    const result = await editTable(TABLE, { rol }, "id", id);
+
+    if (result !== undefined) {
+      setConfirm(id);
+
+      setTimeout(() => {
+        setConfirm(null);
+      }, 2000);
+    }
   };
 
   useEffect(() => {
@@ -37,15 +44,16 @@ const EditRol = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <tr key={user.id} className="roles-row">
-              <td className="roles-email">{user.perfiles?.email}</td>
+          {users.map((us) => (
+            <tr key={us.id} className="roles-row">
+              <td className="roles-email">{us.perfiles?.email}</td>
 
               <td>
                 <select
                   className="roles-select"
-                  value={user.rol}
-                  onChange={(e) => handleChange(user.id, e.target.value)}
+                  value={us.rol}
+                  disabled={us.id === user.id}
+                  onChange={(e) => handleChange(us.id, e.target.value)}
                 >
                   <option value="usuario">User</option>
                   <option value="administrador">Administrator</option>
@@ -53,12 +61,18 @@ const EditRol = () => {
               </td>
 
               <td>
-                <button
-                  className="menu-button"
-                  onClick={() => handleSave(user.id, user.rol)}
-                >
-                  Save
-                </button>
+                {us.id === user.id ? (
+                  <span className="menu-button">Protected</span>
+                ) : confirm === us.id ? (
+                  <span className="saved-button">Saved</span>
+                ) : (
+                  <button
+                    className="menu-button"
+                    onClick={() => handleSave(us.id, us.rol)}
+                  >
+                    Save
+                  </button>
+                )}
               </td>
             </tr>
           ))}
