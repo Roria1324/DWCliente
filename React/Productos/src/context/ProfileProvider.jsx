@@ -14,14 +14,14 @@ const ProfileProvider = ({ children }) => {
     setProfile(data || []);
   };
 
-  const getProfileById = async () => {
+  const getProfileById = async (id) => {
     const data = await getItem(TABLE, "id", id);
     setProfile(data || []);
   };
 
-  const editProfile = async () => {
-    const data = await editTable(TABLE, "id", id);
-    setProfile(data || []);
+  const editProfile = async (id, input) => {
+    await editTable(TABLE, "id", id);
+    await getProfileById(id)
   };
 
   const elements = {
