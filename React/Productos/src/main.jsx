@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import SessionProvider from "./context/SessionProvider.jsx";
 import ProductsProvider from "./context/ProductsProvider.jsx";
 import ProviderList from "./context/ProviderList.jsx";
+import ProfileProvider from "./context/ProfileProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
       <SessionProvider>
         <ProductsProvider>
           <ProviderList>
-            <App />
+            <ProfileProvider>
+              <App />
+            </ProfileProvider>
           </ProviderList>
         </ProductsProvider>
       </SessionProvider>

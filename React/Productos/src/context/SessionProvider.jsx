@@ -87,7 +87,7 @@ const SessionProvider = ({ children }) => {
       setErrorUser(errorUserStart);
       setSessionStarted(sessionStartedFirst);
     } catch (error) {
-      setErrorUser(error.mesage);
+      setErrorUser(error.message);
     }
   };
 
@@ -114,7 +114,7 @@ const SessionProvider = ({ children }) => {
         `
       *,
         perfiles (
-*
+          *
         )
       `,
       );

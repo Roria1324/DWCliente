@@ -7,6 +7,7 @@ import RegistrerUser from "../pages/RegistrerUser.jsx";
 import AddProducts from "../pages/AddProducts.jsx";
 import ShopList from "../pages/ShopList.jsx";
 import EditRol from "../pages/EditRol.jsx";
+import Profile from "../pages/Profile.jsx";
 const Router = () => {
   return (
     <Routes>
@@ -15,9 +16,10 @@ const Router = () => {
       <Route path="/register" element={<RegistrerUser />} />
       <Route path="/products" element={<Products />} />
       <Route path="/createProduct" element={<AddProducts />} />
-      <Route path="/createProduct/:id" element={<AddProducts />}></Route>
-      <Route path="/shoplist" element={<ShopList />}></Route>
-      <Route path="/editrole" element={<EditRol />}></Route>
+      <Route path="/createProduct/:id" element={<AddProducts />} />
+      <Route path="/shoplist" element={<ShopList />} />
+      <Route path="/editrole" element={<EditRol />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   );
 };

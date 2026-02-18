@@ -45,14 +45,16 @@ const Menu = () => {
                     Add Product
                   </Link>
 
-                  <Link className="menu-element" to="/editrole">Edit Rol</Link>
+                  <Link className="menu-element" to="/editrole">
+                    Edit Rol
+                  </Link>
                 </>
               )}
-
-              <span className="menu-element user">
-                {user?.user_metadata?.display_name}
-              </span>
-
+              <Link className="menu-element" to="/profile">
+                <span className="menu-element user">
+                  {user?.user_metadata?.display_name}
+                </span>
+              </Link>
               <span className="menu-element user">{rol}</span>
 
               <CloseSession />
