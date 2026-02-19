@@ -49,9 +49,9 @@
   padding: 16px 20px;
   border-radius: 12px;
   border: 1px solid #ddd;
-  background-color: #f9f9f9;
+  background-color: #1b1e1f;
   font-size: 16px;
-  color: #333;
+  color: #ffffff;
   resize: none;
   transition: all 0.2s ease;
 }
@@ -64,7 +64,7 @@
 .my-profile textarea:focus {
   outline: none;
   border-color: #4a90e2;
-  background-color: #fff;
+  background-color: #1b1e1f;
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
 }
 

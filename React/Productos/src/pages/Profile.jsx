@@ -14,6 +14,8 @@ const Profile = () => {
     description: "",
   });
 
+  console.log(formData);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -48,7 +50,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h1 className="profile-title">{profile.full_name}'s profile</h1>
+      <h1 className="profile-title">{profile.full_name || "User"}'s profile</h1>
       {user?.id === profile?.id && (
         <>
           <div className="profile-content">
@@ -81,7 +83,7 @@ const Profile = () => {
                 id="profile-name"
                 type="text"
                 name="full_name"
-                value={formData.full_name}
+                value={formData.full_name || "User"}
                 onChange={handleChange}
                 disabled={!confirmProfile}
                 autoFocus

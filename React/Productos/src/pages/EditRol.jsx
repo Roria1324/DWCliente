@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import useSession from "../hooks/useSession";
 import useSupabase from "../hooks/useSupabase";
 import "./EditRol.css";
+import useProfile from "../hooks/useProfile";
 
 const EditRol = () => {
   const { editTable } = useSupabase();
   const { loadAsignatedRoles, users, setUsers, user } = useSession();
+  const {profile} = useProfile() 
   const [confirm, setConfirm] = useState(null);
 
   const TABLE = "roles";
@@ -27,6 +29,8 @@ const EditRol = () => {
     }
   };
 
+  console.log(profile);
+
   useEffect(() => {
     loadAsignatedRoles();
   }, []);
@@ -38,6 +42,7 @@ const EditRol = () => {
       <table className="roles-table">
         <thead>
           <tr>
+            <th>asda</th>
             <th>User Email</th>
             <th>User Role</th>
             <th>Action</th>
@@ -46,6 +51,8 @@ const EditRol = () => {
         <tbody>
           {users.map((us) => (
             <tr key={us.id} className="roles-row">
+
+              <td className="profile-image"><img src={profile.avatar_url} alt={profile.full_name} /></td>
               <td className="roles-email">{us.perfiles?.email}</td>
 
               <td>

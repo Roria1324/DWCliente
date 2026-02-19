@@ -29,6 +29,8 @@
   min-width: 0;        /* Evita que se encoja en contenedores flex */
   padding: 12px 14px;
   border: 1px solid #ccc;
+  background-color: #1b1e1f;
+  color: #ffffff;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
