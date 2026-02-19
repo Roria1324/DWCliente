@@ -5,7 +5,7 @@ const ProfileContext = createContext();
 
 const ProfileProvider = ({ children }) => {
   const { getData, getItem, editTable } = useSupabase();
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
 
   const TABLE = "perfiles";
 
@@ -16,11 +16,11 @@ const ProfileProvider = ({ children }) => {
 
   const getProfileById = async (id) => {
     const data = await getItem(TABLE, "id", id);
-    setProfile(data || []);
+    setProfile(data?.[0] || []);
   };
 
   const editProfile = async (id, input) => {
-    await editTable(TABLE, "id", id);
+    await editTable(TABLE, input, "id", id);
     await getProfileById(id)
   };
 
