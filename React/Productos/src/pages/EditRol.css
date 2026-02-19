@@ -60,6 +60,19 @@
   border-color: #6c63ff;
 }
 
+.profile-image {
+  width: 100px;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ffffff;
+}
 .roles-button {
   padding: 6px 14px;
   border: none;
