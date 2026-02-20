@@ -9,7 +9,7 @@ const Profile = () => {
 
   const [confirmProfile, setConfirmProfile] = useState(false);
   const [formData, setFormData] = useState({
-    avatar_url:"",
+    avatar_url: "",
     full_name: "",
     description: "",
   });

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useSession from "../hooks/useSession";
 import useSupabase from "../hooks/useSupabase";
 import "./EditRol.css";
-import useProfile from "../hooks/useProfile";
 
 const EditRol = () => {
   const { editTable } = useSupabase();
@@ -27,6 +26,7 @@ const EditRol = () => {
       }, 2000);
     }
   };
+
 
 
   useEffect(() => {

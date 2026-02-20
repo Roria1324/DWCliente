@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 import CloseSession from "../pages/SignOut";
 import useSession from "../hooks/useSession";
+import useProfile from "../hooks/useProfile";
 
 const Menu = () => {
   const { sessionStarted, user, isAdmin, rol } = useSession();
+  const {profile, getProfileById} = useProfile()
+
+  useEffect(() => {
+    if (user?.id) {
+      getProfileById(user.id)
+    }
+  }, [user?.id])
 
   return (
     <nav>
@@ -52,7 +60,7 @@ const Menu = () => {
               )}
               <Link className="menu-element" to="/profile">
                 <span className="menu-element user">
-                  {user?.user_metadata?.display_name}
+                  {profile?.full_name}
                 </span>
               </Link>
               <span className="menu-element user">{rol}</span>
