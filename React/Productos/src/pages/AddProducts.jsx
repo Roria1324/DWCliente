@@ -57,11 +57,13 @@ const AddProducts = () => {
       //Si se accede al formulario con una id se usa el método put.
       if (id) {
         await editProduct(product, id);
+        navigate("/products");
       } else {
         await insertProduct({ ...product, id: crypto.randomUUID() });
         resetForm();
+        navigate("/products");
       }
-      navigate("/products");
+      
       setError({});
     } catch (error) {
       setError({ general: error.message });

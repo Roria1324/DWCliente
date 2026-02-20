@@ -32,7 +32,9 @@ const ProductsProvider = ({ children }) => {
 
   const insertProduct = async (data) => {
     const product = await insertTable(TABLE, data);
-    if (product) setProducts([...products, product]);
+    if (product) {
+      setDataProducts((prev) => [...prev, product]);
+    }
   };
 
   const getProductsOrdered = async (field, order) => {
@@ -50,7 +52,7 @@ const ProductsProvider = ({ children }) => {
   };
 
   const getProductById = async (id) => {
-    const data = await getItem(TABLE, id);
+    const data = await getItem(TABLE, "id", id);
     return data;
   };
 
@@ -94,20 +96,20 @@ const ProductsProvider = ({ children }) => {
   };
 
   const editProduct = async (data, id) => {
-    const updatedProduct = await editTable(TABLE, data, id);
+    const updatedProduct = await editTable(TABLE, data, "id", id);
 
-    const newProducts = products.map((product) =>
+    const newProducts = dataProducts.map((product) =>
       product.id === updatedProduct.id ? updatedProduct : product,
     );
-    setProducts(newProducts);
+    setDataProducts(newProducts);
   };
 
   const destroyProduct = async (id) => {
     const deletedProduct = await destroyTable(TABLE, id);
 
-    const newProducts = products.filter((product) => product.id !== id);
+    const newProducts = dataProducts.filter((product) => product.id !== id);
 
-    setProducts(newProducts);
+    setDataProducts(newProducts);
   };
 
   const elements = {

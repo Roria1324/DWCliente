@@ -15,6 +15,8 @@ const EditRol = () => {
       prev.map((user) => (user.id === id ? { ...user, rol: newRole } : user)),
     );
   };
+
+//Función encargada de guardar el nuevo rol del usuario en caso de que este cambie y se confirme el cambio.
   const handleSave = async (id, rol) => {
     const result = await editTable(TABLE, { rol }, "id", id);
 
@@ -26,9 +28,7 @@ const EditRol = () => {
       }, 2000);
     }
   };
-
-
-
+//UseEffect encargado en la carga de los roles.
   useEffect(() => {
     loadAsignatedRoles();
   }, []);

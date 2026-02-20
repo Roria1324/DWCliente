@@ -14,8 +14,6 @@ const Profile = () => {
     description: "",
   });
 
-  console.log(formData);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -30,12 +28,14 @@ const Profile = () => {
     setConfirmProfile(false);
   };
 
+//UseEffect que carga el perfil del usuario autenticado cada vez que cambia el usuario en sesión.
   useEffect(() => {
     if (!user.id) return;
 
     getProfileById(user?.id);
   }, [user]);
 
+//UseEffect que sincroniza el estado del formulario con los datos del perfil cuando este se actualiza.
   useEffect(() => {
     if (!profile) return;
 
