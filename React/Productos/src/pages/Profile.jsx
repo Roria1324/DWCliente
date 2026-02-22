@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import useProfile from "../hooks/useProfile";
 import useSession from "../hooks/useSession";
 import "./Profile.css";
+import { validateAllProfile } from "../components/validations";
+
 
 const Profile = () => {
   const { getProfileById, editProfile, profile } = useProfile();
@@ -14,6 +16,8 @@ const Profile = () => {
     description: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -24,18 +28,25 @@ const Profile = () => {
   };
 
   const handleSave = async () => {
+    const errors = validateAllProfile(formData);
+
+    if (errors.full_name) {
+      setError(errors.full_name);
+      return;
+    }
     await editProfile(user.id, formData);
+    setError("");
     setConfirmProfile(false);
   };
 
-//UseEffect que carga el perfil del usuario autenticado cada vez que cambia el usuario en sesión.
+  //UseEffect que carga el perfil del usuario autenticado cada vez que cambia el usuario en sesión.
   useEffect(() => {
     if (!user.id) return;
 
     getProfileById(user?.id);
   }, [user]);
 
-//UseEffect que sincroniza el estado del formulario con los datos del perfil cuando este se actualiza.
+  //UseEffect que sincroniza el estado del formulario con los datos del perfil cuando este se actualiza.
   useEffect(() => {
     if (!profile) return;
 
@@ -50,7 +61,7 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h1 className="profile-title">{profile.full_name || "User"}'s profile</h1>
+      <h1 className="profile-title">{profile.full_name}'s profile</h1>
       {user?.id === profile?.id && (
         <>
           <div className="profile-content">
@@ -83,11 +94,13 @@ const Profile = () => {
                 id="profile-name"
                 type="text"
                 name="full_name"
-                value={formData.full_name || "User"}
+                value={formData.full_name}
                 onChange={handleChange}
                 disabled={!confirmProfile}
                 autoFocus
               />
+
+              {error && <p className="error-message">{error}</p>}
 
               <label htmlFor="profile-email">Email</label>
               <input

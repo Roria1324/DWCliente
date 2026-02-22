@@ -60,7 +60,7 @@ const Menu = () => {
               )}
               <Link className="menu-element" to="/profile">
                 <span className="menu-element user">
-                  {profile?.full_name}
+                  {profile?.full_name || "Change your name"}
                 </span>
               </Link>
               <span className="menu-element user">{rol}</span>

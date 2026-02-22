@@ -109,14 +109,13 @@ const SessionProvider = ({ children }) => {
 
   const loadAsignatedRoles = async () => {
     try {
+      // Cambio de última hora de la tabla ya que por motivos de como se ha creado la bd he tenido que crear una vista para roles y email
+      // , para poder traer los datos.
       const data = await getMultiData(
-        "roles",
-        `
-      *,
-        perfiles (
-          *
-        )
-      `,
+        "roles_perfiles", 
+        "*", 
+        null, 
+        null,
       );
       if (data) setUsers(data);
     } catch (error) {

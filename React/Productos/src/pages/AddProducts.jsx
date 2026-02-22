@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AddProducts.css";
 import useProducts from "../hooks/useProducts";
 import { useNavigate, useParams } from "react-router-dom";
-import validateAll from "../components/validations.js";
+import { validateAllProducts } from "../components/validations.js";
 
 const productDefault = {
   name: "",
@@ -48,7 +48,7 @@ const AddProducts = () => {
 
   const handleSave = async () => {
     //Si hay errores se guardan y se muestran donde esté el error.
-    const result = validateAll(product);
+    const result = validateAllProducts(product);
     if (Object.keys(result).length > 0) {
       setError(result);
       return;
@@ -63,7 +63,7 @@ const AddProducts = () => {
         resetForm();
         navigate("/products");
       }
-      
+
       setError({});
     } catch (error) {
       setError({ general: error.message });

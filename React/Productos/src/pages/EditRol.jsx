@@ -50,8 +50,8 @@ const EditRol = () => {
           {users.map((us) => (
             <tr key={us.id} className="roles-row">
 
-              <td className="profile-image"><img src={us.perfiles?.avatar_url} alt={us.perfiles?.full_name} /></td>
-              <td className="roles-email">{us.perfiles?.email}</td>
+              <td className="profile-image"><img src={us.avatar_url} alt={us.full_name} /></td>
+              <td className="roles-email">{us.email}</td>
 
               <td>
                 <select

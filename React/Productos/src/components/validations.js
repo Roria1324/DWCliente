@@ -25,7 +25,23 @@ const validateProductWeigth = (weight) => {
   return true;
 };
 
-const validateAll = (product) => {
+const validateProfileName = (name) => {
+  if (!name) return false;
+  if (!name.trim()) return false;
+  return true;
+};
+
+const validateAllProfile = (formData) => {
+  let error = {};
+
+  if (!validateProfileName(formData.full_name)) {
+    error.full_name = "Name cannot be empty.";
+  }
+
+  return error;
+};
+
+const validateAllProducts = (product) => {
   let error = {};
 
   if (!validateProductName(product.name)) {
@@ -43,4 +59,4 @@ const validateAll = (product) => {
   return error;
 };
 
-export default validateAll;
+export { validateAllProducts, validateAllProfile };

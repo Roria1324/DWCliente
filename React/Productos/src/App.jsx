@@ -26,7 +26,6 @@ create table public.roles (
   created_at timestamp with time zone null default now(),
   constraint roles_pkey primary key (id),
   constraint roles_id_fkey foreign KEY (id) references auth.users (id) on delete CASCADE,
-  constraint roles_id_perfiles_fkey foreign KEY (id) references perfiles (id) on delete CASCADE,
   constraint roles_rol_check check (
     (
       rol = any (array['usuario'::text, 'administrador'::text])
@@ -56,6 +55,17 @@ create table public.perfiles (
   constraint perfiles_pkey primary key (id),
   constraint perfiles_id_fkey foreign KEY (id) references auth.users (id) on delete CASCADE
 ) TABLESPACE pg_default;
+
+//Añadido tabla vista ya que dependen de una de la otra para el email y otros datos y para no cambiar el código de la página prefiero añadir una tabla o vista extra.
+create view public.roles_perfiles as
+select 
+    r.id,
+    r.rol,
+    p.full_name,
+    p.email,
+    p.avatar_url
+from public.roles r
+left join public.perfiles p on r.id = p.id;
 
 create table public.listas_productos (
   id uuid not null default gen_random_uuid (),
